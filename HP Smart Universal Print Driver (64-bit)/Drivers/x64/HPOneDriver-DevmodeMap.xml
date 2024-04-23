@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Properties xmlns="http://schemas.microsoft.com/windows/2011/08/printing/devmodemap">
+  <Property Name="AllValues">
+    <String Length="11264">psk:DocumentBindingGutter=0;ns0000:DocumentBookletSignaturePages=0</String>
+  </Property>
+  <Property Name="UserName">
+    <String Length="65"></String>
+  </Property>
+  <Property Name="JobName">
+    <String Length="65"></String>
+  </Property>
+  <Property Name="SelectedPreset">
+    <String Length="33"></String>
+  </Property>
+  <!-- Store bidi values -->
+  <Property Name="OutputBinVariable">
+    <Int32>0</Int32>
+  </Property>
+  <Property Name="ColorDeviceVariable">
+    <Int32>0</Int32>
+  </Property>
+  <!-- Store policy id -->
+  <Property Name="AdPolicyId">
+    <String Length="38"></String>
+  </Property>
+  <Property Name="DcuPolicyId">
+    <String Length="38"></String>
+  </Property>
+  <Property Name="QueueId">
+    <String Length="38"></String>
+  </Property>
+  <Property Name="DestName">
+    <String Length="64"></String>
+  </Property>
+  <Property Name="DeviceImagePath">
+    <String Length="256"></String>
+  </Property>
+  <Property Name="AskDestConfirmAlways">
+    <Bool>true</Bool>
+  </Property>
+  <Property Name="NetworkID">
+    <String Length="32"></String>
+  </Property>
+  <!-- Store destName from devmodeSet -->
+  <Property Name="GlobalDestName">
+    <String Length="64"></String>
+  </Property>
+  <!-- PTConvertMode 0: SUPD(skip to convert), 1: simple convert, 2 : deep convert-->
+  <Property Name="PTConvertMode">
+    <Int32>0</Int32>
+  </Property>
+</Properties>

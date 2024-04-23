@@ -1,0 +1,38 @@
+*%===============================================================================*%
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                              All rights reserved.				             *%
+*%===============================================================================*%
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-Properties.gpd"
+
+*Include: "HPOneDriver-Configuration.gpd"
+*Include: "HPOneDriver-DriverArchitecture.gpd"
+*Include: "HPOneDriver-OS.gpd"
+*Include: "HPOneDriver-Platform.gpd"
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+*Ifdef: BUILD_TARGETOS_WIN10S
+  *Define: POG_DRIVER_NOT_SUPPORTED
+*Else:
+  *Define: POG_DRIVER_SUPPORTED
+*Endif: BUILD_TARGETOS_WIN10S
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%==========================================================================================*%
+*% FeatureConcealFromUI will hide features in release builds but shows them in debug builds.
+*% Not hiding features in debug builds helps in debugging the features.
+*%==========================================================================================*%
+
+*%==============================================================================*%
+*%                       Macros to control feature                              *%
+*%==============================================================================*%
+*Macros: CONCEAL_FEATURES_FROM_UI
+{
+*Ifdef: BUILD_CONFIGURATION_DEBUG
+	FeatureConcealFromUI: FALSE
+*Else:
+    FeatureConcealFromUI: TRUE
+*Endif: BUILD_CONFIGURATION_DEBUG
+}

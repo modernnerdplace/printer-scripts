@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IOCONFIG>
+	<!-- 
+		File Information which is used by Custom Config Exe 
+	
+		uio_dll : UIO DLL file from RCB
+		udm_dll : UDM DLL file from RCB
+		udm_xml : IPP Data Map file from RCB
+		powershell_clr_dll: For using powershell command. This DLL uses CLR so it should be a Dynamic Link Library.
+	-->
+	<FILE_INFO64 uio_dll="hpbuio64.dll" udm_dll="hpbuiodm64.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+  <FILE_INFO32 uio_dll="hpbuio32.dll" udm_dll="hpbuiodm32.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+  <FILE_INFO uio_dll="hpuio.dll" udm_dll="hpuiodm.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+  <FILE_INFO uio_dll="hpbuioARM64.dll" udm_dll="hpbuiodmARM64.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+
+  <!-- 
+		BiDi Data
+		
+		qpb_key: the key name of Queue Properties bag
+		udm_name: "Name" of <DATAITEM> in UDM XML 
+		default [optional]: the default value for qpb_key when UDM Data is EMPTY
+		
+		<CONVERION> [optional]: when you want to change the data from UDM, use this element
+		    udm_result: the result data from UDM
+			value: the value for qpb_key
+			
+		<DEFAULT_CONVERSION> [optional]: the default value for qpb_key when there is no matched conversion for the returned udm data. this value is used only when UDM data is NOT empty	
+		
+		usage:
+		<BIDI qpb_key = "abc" udm_name = "name1"/> 
+			==> name1 UDM result is set to "abc" key in queue properties bag only when UDM data is NOT empty.
+		
+		<BIDI qpb_key = "abc" udm_name = "name1" default="dd"/>
+			==> name1 UDM result is set to "abc" key in queue properties bag when UDM data is not empty. if UDM data is EMPTY, "dd" is set to "abc" key
+		
+		<BIDI qpb_key = "abc" udm_name = "name1"> 
+			<CONVERSION udm_result="rlt_111" value="TRUE"/>
+		</BIDI>
+			==> if name1 UDM result is rlt_111, "TRUE" is set to "abc" key in queue properties bag.
+				otherwise, "abc" key will NOT set in queue properties bag.
+				
+		<BIDI qpb_key = "abc" udm_name = "name1"> 
+			<CONVERSION udm_result="rlt_111" value="TRUE"/>
+			<DEFAULT_CONVERSION value="FALSE"/>
+		</BIDI>
+			==> if name1 UDM result is rlt_111, "TRUE" is set to "abc" key in queue properties bag.
+				if name1 UDM is not rlt_111 but it is not EMPTY, "FALSE" is set to "abc" key in queue properties bag.
+				if name1 UDM is EMPTY, "abc" key will NOT set in queue properties bag.
+				
+		<BIDI qpb_key = "abc" udm_name = "name1" default="NONE"> 
+			<CONVERSION udm_result="rlt_111" value="TRUE"/>
+			<DEFAULT_CONVERSION value="FALSE"/>
+		</BIDI>
+			==> if name1 UDM result is rlt_111, "TRUE" is set to "abc" key in queue properties bag.
+				if name1 UDM is not rlt_111 but it is not EMPTY, "FALSE" is set to "abc" key in queue properties bag.
+				if name1 UDM is EMPTY, "NONE" is set to "abc" key in queue properties bag.
+		
+	-->
+	<BIDI_INFO>
+		<!-- Paper size -->
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_A3" udm_name = "PC_MediaSize12" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_NA12X18" udm_name = "PC_MediaSize7" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_SRA3" udm_name = "PC_MediaSize17" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_RA3" udm_name = "PC_MediaSize16" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_11X17" udm_name = "PC_MediaSize6" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_ROC8K270X390" udm_name = "PC_MediaSize26" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_ROC8K260X368" udm_name = "PC_MediaSize28" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_B4" udm_name = "PC_MediaSize20" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_EXECUTIVE_JIS" udm_name = "PC_MediaSize3" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_A2" udm_name = "" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		<BIDI qpb_key = "Config:SI_Config_PaperSize_CSHEET" udm_name = "" default = "NotSupport">
+			<DEFAULT_CONVERSION value="Support"/>
+		</BIDI>
+		
+		<!-- Secure Mode -->
+		
+	</BIDI_INFO>	
+</IOCONFIG>

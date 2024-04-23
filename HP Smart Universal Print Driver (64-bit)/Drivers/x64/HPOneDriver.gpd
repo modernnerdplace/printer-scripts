@@ -1,0 +1,1326 @@
+*%==========================================================================================*%
+*%           Copyright (c) Copyright (c) Hewlett-Packard Development Company L.P.	        *%
+*%                               All rights reserved.							 			*%
+*%==========================================================================================*%
+
+*%===============================================================================
+*% GPD File Entries Definition
+*%===============================================================================
+*GPDFileVersion: "0.99.7"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver.gpd"
+
+*%===============================================================================
+*% Include GPD by Microsoft
+*%===============================================================================
+*Include: "StdNames.gpd"
+*Include: "msxpsinc.gpd"
+*Include: "locale.gpd"
+*Include: "P6FONT.GPD"
+*Include: "PJL.GPD"
+*Include: "P6DISP.GPD"
+*Include: "PCLXL.GPD"
+*Include: "HPOneDriver-PCLXL.GPD"
+
+*%===============================================================================
+*% Include GPD Common Macros 
+*%===============================================================================
+*Include:  "HPOneDriver-Properties.gpd"
+
+*%===============================================================================
+*% Include GPD Resource 
+*%===============================================================================
+*Include: "HPOneDriver-StringResource.gpd"
+
+*%=============================================================================*%
+*% Include GPD files to perform pre processing on core features defined below. *%
+*%=============================================================================*%
+*Include: "HPOneDriver-PreFeatureDefinitions.gpd"
+
+*%===============================================================================
+*% Auto configuration specific                          
+*%===============================================================================
+*Ifdef: GDL_ENABLED
+*Include: "HPOneDriver-Autoconfig.gdl"
+*Endif: GDL_ENABLED
+*Ifdef: WINNT_60
+*BidiQueryFile: "HPOneDriver-Autoconfig.gdl"
+*Endif: WINNT_60
+
+
+*%===============================================================================
+*% Model Description
+*%===============================================================================
+*Ifdef: DRIVER_TYPE_SPD
+*ModelName: "HP Smart Printing"
+*Else:
+*ModelName: "HP Smart Universal Printing"
+*Endif: DRIVER_TYPE_SPD
+*MasterUnits: PAIR(1200, 1200)
+*Personality: "PCLXL"
+
+
+
+*%==============================================================================*%
+*%                                Printer Type.                                 *%
+*%==============================================================================*%
+*PrinterType: PAGE
+
+
+
+*%==============================================================================*%
+*%                               Maximum Copies                                 *%
+*%==============================================================================*%
+*MaxCopies: 9999
+
+
+
+*%==============================================================================*%
+*%                                   Macros                                     *%
+*%==============================================================================*%
+*Macros: XLCommands
+{
+	XL_ProtocolLevel2: ") HP-PCL XL;2;0;Comment Copyright(c) 1999-2011 Hewlett-Packard Corporation<0A>"
+	XL_ProtocolLevel3: ") HP-PCL XL;3;0;Comment Copyright(c) 1999-2011 Hewlett-Packard Corporation<0A>"
+	XL_OpenDataSource: =ubyte "<00>" =attr_ubyte =SourceType =ubyte "<01>" =attr_ubyte =DataOrg =OpenDataSource
+	XL_BeginSession300: =uint16_xy "<2C012C01>" =attr_ubyte =UnitsPerMeasure =ubyte
++	=eInch =attr_ubyte =Measure =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+	XL_BeginSession600: =uint16_xy "<58025802>" =attr_ubyte =UnitsPerMeasure =ubyte
++	=eInch =attr_ubyte =Measure =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+	XL_BeginSession1200: =uint16_xy "<B004B004>" =attr_ubyte =UnitsPerMeasure =ubyte
++	=eInch =attr_ubyte =Measure =ubyte =eBackChAndErrPage =attr_ubyte =ErrorReport =BeginSession
+}
+
+*%==============================================================================*%
+*%    Required commands. Must be present 
+*%==============================================================================*%
+*Command: CmdCR
+{
+	*Cmd: "<00>"
+}
+
+*Command: CmdLF
+{
+	*Cmd: "<00>"
+}
+
+*Command: CmdFF
+{
+	*Cmd: "<00>"
+}
+
+*Command: CmdSendBlockData
+{
+	*Cmd: "<00>"
+}
+
+*Command: CmdStartJob
+{
+	*Order: JOB_SETUP.1
+	*Cmd: =PJL_STARTJOB
+}
+
+
+*PrintSchemaPrivateNamespaceURI: "http://schemas.hp.com/ptpc/2006/1"
+*%==============================================================================*%
+*%                             Used resource DLLs.                              *%
+*%==============================================================================*%
+*Feature: RESDLL
+{
+	*Name: "resource dll files"
+	*ConcealFromUI?: TRUE
+	*Option: UniresDLL
+	{
+		*Name: "unires.dll"
+	}
+	*Option: mtresDLL
+	{
+		*Name: "HP.OneDriver.StringResource.dll"
+	}
+}
+
+*%==============================================================================*%
+*%                                  Includes.                                   *%
+*%==============================================================================*%
+*ResourceDLL: "HP.OneDriver.StringResource.dll"
+
+*%===============================================================================
+*% Include GPD - Bidi option
+*%===============================================================================
+*Include: "HPOneDriver-Bidi.gpd"
+
+*%===============================================================================
+*% Include GPD - Media
+*%===============================================================================
+*Include: "HPOneDriver-Media.gpd"
+
+*%===============================================================================
+*% Include GPD - Print Color processing
+*%===============================================================================
+*Include: "HPOneDriver-Color.gpd"
+
+*%===============================================================================
+*% Include GPD - Ink printer
+*%===============================================================================
+*Include: "HPOneDriver-Ink.gpd"
+
+*%===============================================================================
+*% Include GPD - Job Processing
+*%===============================================================================
+*Include: "HPOneDriver-Job.gpd"
+
+*%===============================================================================
+*% Include GPD - Print Quality 
+*%===============================================================================
+*Include: "HPOneDriver-PrintQuality.gpd"
+
+*%===============================================================================
+*% Include GPD - Output Bin / Stapling / Punching / Folding
+*%===============================================================================
+*Include: "HPOneDriver-Finisher.gpd"
+
+*%===============================================================================
+*% Include GPD - Output bin option
+*%===============================================================================
+*Include: "HPOneDriver-OutputBin.gpd"
+
+*%===============================================================================
+*% Include GPD - Installable option
+*%===============================================================================
+*Include: "HPOneDriver-Installable.gpd"
+
+*%==============================================================================*%
+*%                        MTI XPS Filter Configuration                          *%
+*%==============================================================================*%
+*Ifdef: MonotypeImagingReserved
+*XpsFilterConfiguration: 
+{
+    *Cpf:
+    {
+        *Options:
+        {
+            *PFAllowNonEmbeddedFontsEnable: TRUE
+			*PFAllowNonEmbeddedFontsDefaultLevel: "NoChange"
+			*PFCompressFontsEnable: TRUE
+			*PFCompressFontsDefaultMethod: "FLATE"
+			*PFCompressPagesEnable: TRUE
+			*PFCompressPagesDefaultMethod: "FLATE"
+			*PFRecompressImagesEnable: TRUE
+			*PFRecompressImagesDefaultMethod: "NoChange"
+		}
+    }
+	*General: 
+	{
+		*Features: 
+		{
+			*PageOrderEnable: TRUE
+			*DocCollateEnable: TRUE
+			*JobCollateEnable: TRUE
+			*JobCopyCountEnable: TRUE
+			*DocCopyCountEnable: TRUE
+			*PageCopyCountEnable: TRUE
+			*NUpEnable: TRUE
+			*WatermarksEnable: TRUE
+			*MtiCoversEnable: TRUE
+			*BookletEnable: TRUE
+			*OverlaysEnable: TRUE
+			*InterleavesEnable: TRUE
+			*PosterEnable: TRUE
+			*ScalingEnable: TRUE
+			*ExceptionsEnable: TRUE
+			*PageRangesEnable: TRUE
+			*BindingShiftEnable: TRUE
+			*MirrorImageEnable: TRUE
+			*SmartDuplexEnable: TRUE
+			*BookletOverrideNupEnable: FALSE
+			*PageOrderReverseDuplex: FALSE
+		}
+		*Options: 
+		{
+			*CollectInsetsEnable: FALSE
+			*ObeyDiscardsEnable: TRUE
+			*NUpEjectOnNewSizeEnable: FALSE
+			*NUpScaleMediaEnable: TRUE
+			*NUpSingleLayoutEnable: FALSE
+			*NUpMismatchRotateEnable: TRUE
+			*NUpMismatchRotateAngle: 90
+			*WmZoomEnable: FALSE
+			*WmZoomClipEnable: FALSE
+			*DocumentRelationSearchDistance: 3
+			*DeepQueryImageColorEnable: FALSE
+			*JobSetupComponent: "HP.OneDriver.ClientInterface.dll"
+			*NonXpsPassthroughEnable: TRUE
+			*NoCustomMatchSTDSize: TRUE
+		}
+		*Memory: 
+		{
+			*Scheme: 
+			{
+				*Physical: 0
+				*ManagedArena: 0
+				*ResourcePool: 10
+				*LanguagePool: 10
+				*GenericPool: 10
+				*Band: 4096
+				*TexturePool: 4096
+				*TextureNodes: 0
+				*ColorNodes: 4096
+				*Input: 4096
+				*Output: 4096
+			}
+			*Scheme: 
+			{
+				*Physical: 1024000
+				*ManagedArena: 0
+				*ResourcePool: 131070
+				*LanguagePool: 131070
+				*GenericPool: 65536
+				*Band: 4096
+				*TexturePool: 4096
+				*TextureNodes: 0
+				*ColorNodes: 4096
+				*Input: 4096
+				*Output: 4096
+			}
+			*Scheme: 
+			{
+				*Physical: 2048000
+				*ManagedArena: 0
+				*ResourcePool: 262144
+				*LanguagePool: 262144
+				*GenericPool: 131070
+				*Band: 4096
+				*TexturePool: 8192
+				*TextureNodes: 0
+				*ColorNodes: 4096
+				*Input: 4096
+				*Output: 4096
+			}
+		}
+		*Optimizations: 
+		{
+			*FontConsolidationEnable: TRUE
+			*FlattenStrokesEnable: FALSE
+			*FlattenLinearGradientGranularity: 12
+			*FlattenRadialGradientEnable: TRUE
+			*FlattenOpacityMaskEnable: FALSE
+			*FlattenThinStrokesEnable: TRUE
+			*FlattenTinyTilesImgThreshold: 1.28
+			*FlattenTinyTilesVisBrushEnable: TRUE
+			*FlattenOpacityEnable: FALSE
+			*ConvertImagesEnable: FALSE
+			*GlyphsGreekEnable: FALSE
+			*GlyphsVectorizeEnable: TRUE
+			*GlyphsVectorizeThreshold: 4096
+			*ImageHealingEnable: TRUE
+		}
+		*Rendering: 
+		{
+			*BlendForce: FALSE
+			*GlyphsBoldSimulationEmPercent: 2.0
+			*GlyphsItalicSimulationShearDegrees: 20.0
+			*DataDrivenCommandsEnable: TRUE
+			*EasyColorLibraryName: "hpfime53.dll"
+			*HybridRasterOcmDllName: "hpocmrasterhybrid.dll"
+			*RasterOcmDllName: "hpocmraster.dll"
+			*PrinterSDKName: "hpprintersdk.dll"
+		}
+	}
+	*Cxl: 
+	{
+		*Options: 
+		{
+			*XLNoBitmasksEnable: TRUE
+			*XLDebugInvertRasterEnable: FALSE
+			*XLDebugOutputBoundsEnable: FALSE
+			*XLDebugWriteBandsEnable: FALSE
+			*XLJpegPassthroughEnable: TRUE
+		}
+		*Optimizations: 
+		{
+			*XLJpegCompressionEnable: FALSE
+			*XLJpegCompressionLevel: 95
+		}
+	}
+}
+*Endif: MonotypeImagingReserved
+
+
+*%==============================================================================*%
+*% Orientation        															*%    
+*%==============================================================================*%
+*Feature: Orientation
+{
+    *rcNameID: =ORIENTATION_DISPLAY
+    *DefaultOption: PORTRAIT
+
+    *Option: PORTRAIT
+    {
+        *rcNameID: =PORTRAIT_DISPLAY
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.2
+			*Cmd: =ubyte =ePortraitOrientation =attr_ubyte =Orientation
+		}
+    }
+
+    *Option: LANDSCAPE_CC90
+    {
+        *rcNameID: =LANDSCAPE_DISPLAY
+		*PrintSchemaKeywordMap: "Landscape"
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.2
+			*Cmd: =ubyte =eLandscapeOrientation =attr_ubyte =Orientation
+		}
+    }
+}
+
+
+
+*%==============================================================================*%
+*%                                     Nup                                      *%
+*%==============================================================================*%
+*Feature: DocumentNUp
+{
+	*rcNameID: =IDS_PAGES_PER_SHEET_NO_HK
+	*PrintSchemaKeywordMap: "DocumentNUp"
+	*DefaultOption: 1
+	*Option: 1
+	{
+		*rcNameID: =IDS_1_PAGE_PER_SHEET
+	}
+	*Option: 2
+	{
+		*rcNameID: =IDS_2_PAGES_PER_SHEET
+	}
+	*Option: 4
+	{
+		*rcNameID: =IDS_4_PAGES_PER_SHEET
+	}
+	*Option: 6
+	{
+		*rcNameID: =IDS_6_PAGES_PER_SHEET
+	}
+	*Option: 9
+	{
+		*rcNameID: =IDS_9_PAGES_PER_SHEET
+	}
+	*Option: 16
+	{
+		*rcNameID: =IDS_16_PAGES_PER_SHEET
+	}
+}
+
+*Ifdef: DRIVER_ARCHITECTURE_V3
+
+*%==============================================================================*%
+*%                          NUp PresentationDirection                           *%
+*%==============================================================================*%
+*Feature: PresentationDirection
+{
+	*%rcNameID: =IDS_PAGESPERSHEET_LAYOUT
+	*Name: "PresentationDirection"
+	*DefaultOption: RightBottom
+	*ConcealFromUI?: TRUE
+	*Option: RightBottom
+	{
+		*%rcNameID: =IDS_RIGHT_DOWN
+		*Name: "RightBottom"
+		*PrintSchemaKeywordMap: "RightBottom"
+	}
+	*Option: BottomRight
+	{
+		*%rcNameID: =IDS_DOWN_RIGHT
+		*Name: "BottomRight"
+		*PrintSchemaKeywordMap: "BottomRight"
+	}
+	*Option: LeftBottom
+	{
+		*%rcNameID: =IDS_LEFT_DOWN
+		*Name: "LeftBottom"
+		*PrintSchemaKeywordMap: "LeftBottom"
+	}
+	*Option: BottomLeft
+	{
+		*%rcNameID: =IDS_DOWN_LEFT
+		*Name: "BottomLeft"
+		*PrintSchemaKeywordMap: "BottomLeft"
+	}
+}
+
+*%==============================================================================*%
+*%                                 NUp Borders                                  *%
+*%==============================================================================*%
+*Feature: DrawBorders
+{
+	*%rcNameID: =IDS_PAGEBORDERS
+	*Name: "DrawBorders"
+	*DefaultOption: Off
+	*ConcealFromUI?: TRUE
+	*Option: Off
+	{
+		*rcNameID: =IDS_OFF
+		*Name: "Off"
+	}
+	*Option: On
+	{
+		*rcNameID: =IDS_ON
+		*Name: "On"
+	}
+}
+
+*Endif: DRIVER_ARCHITECTURE_V3
+
+*%==============================================================================*%
+*%                                     Mech Offset
+*%==============================================================================*%
+*Feature: HPMechOffset
+{
+    *Name: "HPMechOffset"
+    *Option: 192
+     {
+     *Name: "" 
+     }
+}
+
+*%==============================================================================*%
+*%                                  Collation                                   *%
+*%==============================================================================*%
+*Feature: Collate
+{
+	*rcNameID: =IDS_COLLATE
+	*DefaultOption: ON	
+	*Option: OFF
+	{
+		*rcNameID: =IDS_OFF 
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{	
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL
+			{
+			}
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.2
+					*Cmd: "*Collate False"
+				}
+			}
+		}
+	}
+	*Option: ON
+	{
+	  *rcNameID: =IDS_ON
+	  *Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+			 *Command: CmdSelect
+		     {
+			 *Order: JOB_SETUP.2
+			 *Cmd: "@PJL SET QTY="%d{NumOfCopies}"<0A>"
+		     }
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL
+			{
+			}
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.2
+					*Cmd: "*Collate True"
+				}
+			}
+	    }
+			
+	}
+
+}
+
+*%==============================================================================*%
+*%                               JobDeviceLanguage                              *%
+*%==============================================================================*%
+*Feature: JobDeviceLanguage
+{
+	*Name: "Device Language"
+	*PrintSchemaKeywordMap: "JobDeviceLanguage"
+	*DefaultOption: PCL6
+	*ConcealFromUI?: FALSE 
+	*Option: None
+	{
+		*Name: "None"
+	}
+	*Option: PCL
+	{
+		*Name: "PCL"
+		*PrintSchemaKeywordMap: "PCL"
+	}
+	*Option: PCLmS
+	{
+		*Name: "PCLmS"
+	}
+	*Option: PCL6
+	{
+		*Name: "PCL6"
+	}
+	*Option: HybridPCL6
+	{
+		*Name: "HybridPCL6"
+	}
+	*Option: PS
+	{
+		*Name: "PS"
+	}
+	*Option: PDF
+	{
+		*Name: "PDF"
+	}
+}
+
+*Feature: JobDestination
+{
+	*Name: "Job Destination"
+	*DefaultOption: Device
+	*ConcealFromUI?: TRUE 
+	*Option: Device
+	{
+		*Name: "Device"
+	}
+	*Option: PDF
+	{
+		*Name: "PDF"
+	}
+	*Option: LocalNW_Device
+	{
+		*Name: "Local Network Device"
+	}
+	*Option: PushToClient
+	{
+		*Name: "Push To Client"
+	}
+}
+
+*Feature: JobTelemetryUserOption
+{
+	*Name: "Telemetry User Option"
+	*DefaultOption: OptOut
+	*ConcealFromUI?: TRUE 
+	*Option: OptOut
+	{
+		*Name: "OptOut"
+	}
+	*Option: OptIn
+	{
+		*Name: "OptIn"
+	}
+}
+
+
+
+*Ifdef: DRIVER_TYPE_SPD
+*%==============================================================================*%
+*%                                    Sides                                     *%
+*%==============================================================================*%
+*Feature: Duplex
+{
+	*rcNameID: =IDS_TWO_SIDED_PRINTING
+	*PrintSchemaKeywordMap: "JobDuplexAllDocumentsContiguously"
+	*DefaultOption: NONE
+	*Option: NONE
+	{
+		*rcNameID: =IDS_NONE
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+		        *Command: CmdSelect
+		        {
+			        *Order: PAGE_SETUP.3
+			        *Cmd: =ubyte "<00>" =attr_ubyte =SimplexPageMode
+		        }
+	         }	 
+	    }		
+	}
+	*Option: VERTICAL
+	{
+		*rcNameID: =IDS_LONG_EDGE_STANDARD
+	    *Switch: Orientation
+		{
+			*Case: PORTRAIT
+			{
+				*Switch: JobDeviceLanguage
+	            {
+		            *Case: PCL6
+		            {	      
+						*Command: CmdSelect
+						{
+							*Order: PAGE_SETUP.3
+							*Cmd: =ubyte =eDuplexVerticalBinding =attr_ubyte =DuplexPageMode
+						}  
+					}	 
+				}
+			}
+			*Case: LANDSCAPE_CC90
+			{
+				*Switch: JobDeviceLanguage
+	            {
+		            *Case: PCL6
+		            {      
+						*Command: CmdSelect
+						{
+							*Order: PAGE_SETUP.3
+							*Cmd: =ubyte =eDuplexHorizontalBinding =attr_ubyte =DuplexPageMode
+						}  
+					}						 	 
+				}  
+			}
+		}
+	}
+	*Option: HORIZONTAL
+	{
+		*rcNameID: =IDS_SHORT_EDGE
+		*Switch: Orientation
+		{
+			*Case: PORTRAIT
+			{
+				*Switch: JobDeviceLanguage
+	             {
+		            *Case: PCL6
+		            {		      
+						*Command: CmdSelect
+						{
+							*Order: PAGE_SETUP.3
+							*Cmd: =ubyte =eDuplexHorizontalBinding =attr_ubyte =DuplexPageMode
+						}  
+					}						 
+				} 
+			}
+			*Case: LANDSCAPE_CC90
+			{
+				*Switch: JobDeviceLanguage
+	            {
+		            *Case: PCL6
+		            {
+						*Command: CmdSelect
+						{
+						    *Order: PAGE_SETUP.3
+							*Cmd: =ubyte =eDuplexVerticalBinding =attr_ubyte =DuplexPageMode
+						}  
+					}					 							 
+				} 
+			}
+		}
+	}
+}
+*Endif: DRIVER_TYPE_SPD
+
+
+*%*************************************************************************************
+*%                            STATIC FEATURES
+*%*************************************************************************************
+
+*%-------------------------------------------------------------------------
+*%                                      HP Generic Ink Driver
+*%-------------------------------------------------------------------------
+*Feature: HPInkDriverType
+{
+	*Name: "HPInkDriverType"
+	*DefaultOption: HPStandardInkDriver
+	*Option: HPStandardInkDriver
+	{
+		*Name: ""
+	}
+	*Option: HPKarnakInkDriver
+	{
+		*Name: ""
+	}
+}
+
+*%-------------------------------------------------------------------------
+*%                              Borderless Printing
+*%-------------------------------------------------------------------------
+*Feature: BorderlessPrint
+{
+    *rcNameID: =IDS_BORDERLESSPRINTING
+	*%Name: "IDS_BORDERLESSPRINTING"
+    *DefaultOption: NO
+    *PrintSchemaKeywordMap: "PageBorderless"
+    *Option: NO
+    {
+       *rcNameID: =IDS_OFF
+        *PrintSchemaKeywordMap: "None"
+    }
+    *Option: BorderlessOverspray
+    {
+       *rcNameID: =IDS_ON
+	   *PrintSchemaKeywordMap: "Borderless"
+    }
+}
+
+*%==============================================================================*%
+*%                                  Snapping-TouchByUser
+*%  To Keep Track of User changes in Snapping and Photo User Experience features
+*%==============================================================================*%
+*Feature: TouchByUser
+{
+    *Name: "TouchByUser_ID"
+    *DefaultOption: Off
+    *ConcealFromUI?: TRUE
+
+    *Option: Off
+    {
+        *Name: ""
+    }
+    *Option: On
+    {
+        *Name: ""
+    }
+}
+
+*Ifdef: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%            HPInkDriverType constraints with CID						*%
+*%==============================================================================*%
+*InvalidCombination: LIST(HPInkDriverType.HPKarnakInkDriver, Product_Model.Product_Model.Product_Manhattan1)
+*InvalidCombination: LIST(HPInkDriverType.HPKarnakInkDriver,  Product_Model.Product_Model.Product_Manhattan2)
+*InvalidCombination: LIST(HPInkDriverType.HPKarnakInkDriver, Product_Model.Product_Model.Product_Manhattan3)
+
+*%==============================================================================*%
+*%                            PrinterInitialization                             *%
+*%==============================================================================*%
+*Feature: PrinterInitialization
+{
+	*Name: "Flip Pages Up"
+	*DefaultOption: NOTDONE
+	*ConcealFromUI?: TRUE
+	*Option: NOTDONE
+	{
+		*rcNameID: =IDS_OFF
+	}
+	*Option: DONE
+	{
+		*rcNameID: =IDS_ON
+	}
+}
+
+
+*%==============================================================================*%
+*%                                    Sides                                     *%
+*%==============================================================================*%
+*Feature: Duplex
+{
+	*rcNameID: =IDS_TWO_SIDED_PRINTING
+	*PrintSchemaKeywordMap: "JobDuplexAllDocumentsContiguously"
+	*%DefaultOption: NONE
+	*Switch: DuplexByDefault
+	{
+		*Case: enable
+		{
+			*DefaultOption: VERTICAL
+		}			
+		*default:
+		{
+			*DefaultOption: NONE
+		}
+	}
+	*Option: NONE
+	{
+		*rcNameID: =IDS_NONE
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+		        *Command: CmdSelect
+		        {
+			        *Order: PAGE_SETUP.3
+			        *Cmd: =ubyte "<00>" =attr_ubyte =SimplexPageMode
+		        }
+	         }
+			 *Case: PCLmS
+			 {
+			 }
+			 *Case: PCL
+			{
+			}			 
+			 *Case: PS
+		    {
+		        *Command: CmdSelect
+		        {
+			        *Order: PAGE_SETUP.3
+			        *Cmd: ="*Duplex None"
+		        }
+	         }
+	    }
+	}
+	*Option: VERTICAL
+	{
+		*rcNameID: =IDS_LONG_EDGE_STANDARD
+		*Switch: ManualDuplex
+		{
+			*Case: ManualSimplex
+			{
+				*Switch: Orientation
+				{
+					*Case: PORTRAIT
+					{
+						*Switch: JobDeviceLanguage
+	                     {
+		                     *Case: PCL6
+		                     {
+		      
+						       *Command: CmdSelect
+						        {
+						     	  *Order: PAGE_SETUP.3
+							      *Cmd: =ubyte =eDuplexVerticalBinding =attr_ubyte =DuplexPageMode
+						        }  
+							 }
+							  *Case: PCLmS
+			                  {
+							  }
+							  *Case: PCL
+			                  { 
+							  }
+							  *Case: PS
+		                     {
+		                        *Command: CmdSelect
+		                         {
+			                        *Order: PAGE_SETUP.3
+			                        *Cmd: ="*Duplex DuplexNoTumble"
+		                         }
+	                          }	 
+					     }
+					}
+					*Case: LANDSCAPE_CC90
+					{
+						*Switch: JobDeviceLanguage
+	                     {
+		                     *Case: PCL6
+		                     {
+		      
+						       *Command: CmdSelect
+						        {
+						     	  *Order: PAGE_SETUP.3
+							      *Cmd: =ubyte =eDuplexHorizontalBinding =attr_ubyte =DuplexPageMode
+						        }  
+							 }
+							 *Case: PCLmS
+			                  {  
+							  }
+							  *Case: PCL
+			                  {
+							  }						 
+							  *Case: PS
+		                     {
+		                        *Command: CmdSelect
+		                         {
+			                        *Order: PAGE_SETUP.3
+			                        *Cmd: ="*Duplex DuplexNoTumble"
+		                         }
+	                          }	 
+					     }  
+					}
+				}
+			}
+			*Case: ManualLongEdge
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.3
+					*Cmd: =ubyte "<00>" =attr_ubyte =SimplexPageMode
+				}
+			}
+			*Case: ManualShortEdge
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.3
+					*Cmd: =ubyte "<00>" =attr_ubyte =SimplexPageMode
+				}
+			}
+		}
+	}
+	*Option: HORIZONTAL
+	{
+		*rcNameID: =IDS_SHORT_EDGE
+		*Switch: ManualDuplex
+		{
+			*Case: ManualSimplex
+			{
+				*Switch: Orientation
+				{
+					*Case: PORTRAIT
+					{
+						*Switch: JobDeviceLanguage
+	                     {
+		                     *Case: PCL6
+		                     {
+		      
+						       *Command: CmdSelect
+						       {
+						     	 *Order: PAGE_SETUP.3
+							     *Cmd: =ubyte =eDuplexHorizontalBinding =attr_ubyte =DuplexPageMode
+
+						       }  
+							 }	
+							 *Case: PCLmS
+			                  {
+							  }
+							  *Case: PCL
+			                  {
+							  }					
+							  *Case: PS
+		                     {
+		                        *Command: CmdSelect
+		                        {
+			                       *Order: PAGE_SETUP.3
+			                       *Cmd: ="*Duplex DuplexTumble"
+		                        }
+	                          }	 
+					     } 
+					}
+					*Case: LANDSCAPE_CC90
+					{
+						*Switch: JobDeviceLanguage
+	                     {
+		                     *Case: PCL6
+		                     {
+		      
+						       *Command: CmdSelect
+						       {
+						     	 *Order: PAGE_SETUP.3
+							     *Cmd: =ubyte =eDuplexVerticalBinding =attr_ubyte =DuplexPageMode
+						       }  
+							 }
+							 *Case: PCLmS
+			                  {
+							  }
+							  *Case: PCL
+			                  {
+							  }					
+							  *Case: PS
+		                     {
+		                        *Command: CmdSelect
+		                        {
+			                      *Order: PAGE_SETUP.3
+			                      *Cmd: ="*Duplex DuplexTumble"
+		                        }
+	                          }	 							 
+					     } 
+					}
+				}
+			}
+			*Case: ManualLongEdge
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.3
+					*Cmd: =ubyte "<00>" =attr_ubyte =SimplexPageMode
+				}
+			}
+			*Case: ManualShortEdge
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.3
+					*Cmd: =ubyte "<00>" =attr_ubyte =SimplexPageMode
+				}
+			}
+		}
+	}
+}
+*%==============================================================================*%
+*%                           Manual Duplex Settings                             *%
+*%==============================================================================*%
+*Feature: ManualDuplex
+{
+	*rcNameID: =IDS_MANUAL_DUPLEX
+	*ConcealFromUI?: TRUE
+	*DefaultOption: ManualSimplex
+	*Option: ManualSimplex
+	{
+		*Name: "ManualSimplex"
+		*Command: CmdStartJob
+		{
+			*Order: JOB_SETUP.7
+			*Cmd: "@PJL SET MANUALDUPLEX=OFF<0A>"
+		}
+	}
+	*Option: ManualLongEdge
+	{
+		*Name: "ManualLongEdge"
+		*Command: CmdStartJob
+		{
+			*Order: JOB_SETUP.7
+			*Cmd: "@PJL SET ENHANCEDMANUALDUPLEX=ON<0A>@PJL SET BINDING=LONGEDGE<0A>"
+		}
+	}
+	*Option: ManualShortEdge
+	{
+		*Name: "ManualShortEdge"
+		*Command: CmdStartJob
+		{
+			*Order: JOB_SETUP.7
+			*Cmd: "@PJL SET ENHANCEDMANUALDUPLEX=ON<0A>@PJL SET BINDING=SHORTEDGE<0A>"
+		}
+	}
+}
+
+
+*%==============================================================================*%
+*%                                   Scaling                                    *%
+*%==============================================================================*%
+*Feature: PageScaling
+{
+	*rcNameID: =IDS_SCALIING
+	*PrintSchemaKeywordMap: "PageScaling"
+	*DefaultOption: NONE
+	*ConcealFromUI?: TRUE  *%temp false
+	*Option: NONE
+	{
+		*rcNameID: =IDS_ACTUAL_SIZE
+		*PrintSchemaKeywordMap: "None"
+	}
+	*Option: FitApplicationImageableSizeToPageImageableSize
+	{
+		*rcNameID: =IDS_PRINT_DOC_ON
+	}
+	*Option: CustomSquare
+	{
+		*rcNameID: =IDS_SCALE_MANUALLY
+		*PrintSchemaKeywordMap: "CustomSquare"
+	}
+}
+
+
+*%==============================================================================*%
+*%                                PageWatermark                                 *%
+*%==============================================================================*%
+*Feature: PageWatermark
+{
+	*rcNameID: =IDS_GB_WATERMARKS
+	*PrintSchemaKeywordMap: "PageWatermark"
+	*DefaultOption: Exclude
+	*ConcealFromUI?: TRUE
+	*Option: Exclude
+	{
+		*rcNameID: =IDS_NONE
+	}
+	*Option: Text
+	{
+		*rcNameID: =IDS_TEXT
+		*PrintSchemaKeywordMap: "Text"
+	}
+	*Option: Image
+	{
+		*rcNameID: =IDS_IMAGE
+	}
+	*Option: TemplateText
+	{
+		*Name: "Template Text"
+	}
+}
+
+*%==============================================================================*%
+*%                                Special Page                                  *%
+*%==============================================================================*%
+*Feature: PageSpecial
+{
+	*rcNameID: =IDS_SP
+	*%Name: "Special Page"
+	*DefaultOption: Off
+	*Option: Off
+	{
+		*rcNameID: =IDS_OFF
+	}
+	*Option: On
+	{
+		*rcNameID: =IDS_ON
+	}
+}
+
+*%==============================================================================*%
+*%                                 Tab Printing									*%
+*%==============================================================================*%
+*Feature: TabPrint
+{
+	*rcNameID: =IDS_TP
+	*%Name: "Tab Printing"
+	*DefaultOption: Off
+	*Option: Off
+	{
+		*rcNameID: =IDS_OFF
+	}
+	*Option: On
+	{
+		*rcNameID: =IDS_ON
+	}
+}
+
+*%******************************************************************************
+*%                             HPPrintOnBothSidesManually
+*%******************************************************************************
+*Feature: HPPrintOnBothSidesManually
+{
+    *rcNameID: =IDS_MANUAL_DUPLEX
+    *DefaultOption: OFF
+    *Option: OFF
+    {
+        *rcNameID: =IDS_OFF
+    }
+    *Option: ON
+    {
+        *rcNameID: =IDS_ON
+    }
+}
+*%******************************************************************************
+*%                            HP FeedType
+*%******************************************************************************
+
+*Feature: HPFeedType
+{
+    *Name: "HPFeedType"
+	*DefaultOption: HPCFeed
+    *Option: HPCFeed
+    {
+        *Name: ""
+    }
+	*Option: StarsStella
+    {
+        *Name: ""
+    }
+	*Option: HPStraightFeed
+    {
+        *Name: ""
+    }
+}
+
+*%==============================================================================*%
+*%                               DocumentBinding                                *%
+*%==============================================================================*%
+*Feature: DocumentBinding
+{
+	*rcNameID: =IDS_BOOKLET_PRINTING_NOHK
+	*PrintSchemaKeywordMap: "DocumentBinding"
+	*DefaultOption: NONE
+	*ConcealFromUI?: FALSE 
+	*Option: NONE
+	{
+		*rcNameID: =IDS_OFF
+		*PrintSchemaKeywordMap: "None"
+	}
+	
+	*Option: Booklet
+	{
+		*rcNameID: =IDS_BOOKLET_PRINTING_LEFT_EDGE
+		*PrintSchemaKeywordMap: "Booklet"
+	}
+
+	*Option: JapaneseBooklet
+	{
+		*rcNameID: =IDS_BOOKLET_PRINTING_RIGHT_EDGE
+	}
+	
+}
+
+*Ifdef: DRIVER_ARCHITECTURE_V3
+*%No duplex size
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_9)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_9)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_10)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_10)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_MONARCH)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_MONARCH)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_B5)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_B5)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_C4)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_C4)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_C5)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_C5)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_C6)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_C6)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.ENV_DL)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.ENV_DL)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.JENV_CHOU3)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.JENV_CHOU3)
+*InvalidCombination: LIST(Duplex.VERTICAL, PaperSize.JENV_CHOU4)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, PaperSize.JENV_CHOU4)
+
+*%No duplex type
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.ShelfEdgeLabels)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.ShelfEdgeLabels)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.HPPremiumInkjetTransparency)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.HPPremiumInkjetTransparency)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.transparencyColorLaser)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.transparencyColorLaser)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.transparencyMonoLaser)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.transparencyMonoLaser)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.transparency)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.transparency)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.Labels)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.Labels)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.Envelope)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.Envelope)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.HeavyEnvelope)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.HeavyEnvelope)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.filmOpaque)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.filmOpaque)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.HPPremiumInkjet)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.HPPremiumInkjet)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.HPAdvancedPhoto)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.HPAdvancedPhoto)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.HPEverydayPhotoMatte)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.HPEverydayPhotoMatte)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.photoOther)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.photoOther)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.transparencyOther)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.transparencyOther)
+*InvalidCombination: LIST(Duplex.VERTICAL, MediaType.HPPremiumPlusPhoto)
+*InvalidCombination: LIST(Duplex.HORIZONTAL, MediaType.HPPremiumPlusPhoto)
+*Endif: DRIVER_ARCHITECTURE_V3
+
+*Endif: DRIVER_TYPE_SUPD
+
+*Ifdef: DRIVER_ARCHITECTURE_V3
+
+%==============================================================================%
+*% IgnoreDminfo *%
+%==============================================================================%
+
+*Feature: DocumentIgnoreDminfo
+{
+	*Name: "DocumentIgnoreDminfo"
+	*DefaultOption: DminfoOn
+	*Option: DminfoOff
+	{ 
+		*Name: "Off" 
+	}
+	*Option: DminfoOn
+	{ 
+		*Name: "On" 
+	}
+}
+
+*Endif: DRIVER_ARCHITECTURE_V3
+
+
+
+*%==========================================================================================*%
+*% Include GPD files to override or perform post processing on core features defined above. *%
+*%==========================================================================================*%
+*Include: "HPOneDriver-PostFeatureDefinitions.gpd"
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%

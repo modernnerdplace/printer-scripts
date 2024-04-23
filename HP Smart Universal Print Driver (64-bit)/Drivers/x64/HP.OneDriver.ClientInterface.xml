@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLIENT_INTERFACE custom_config_file="HP.OneDriver.V4.PrintConfig.exe" popup_file="HP.OneDriver.V4.DynamicDialogAgent.exe" xmlns:psf="http://schemas.microsoft.com/windows/2003/08/printing/printschemaframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0000="http://schemas.hp.com/ptpc/2006/1" xmlns:psk="http://schemas.microsoft.com/windows/2003/08/printing/printschemakeywords">
+	
+	<!-- 
+		Request to popup window to get data from the user.
+		If at least one of the below conditions is satisfy with PT, Popup dlg will be called.
+		
+		attributes
+		- name : the type information name. Actually it is not used anywhere now.
+		- wait : if it is "TURE", callback Exe will wait until the process ends.
+		- param: Parameter used in the command to call Popup UI
+		- popup_file: this is optional, if popup_file is available, callback exe will use this name to call the command. If not, popup_file in <POPUP_CONDITIONS> will be used.
+	-->
+	<TYPE name="-n JOB_ACCOUNT" wait="TRUE" param="-t REQUEST">
+	
+		<!-- Condition is satisfy only when all the featuers are same in PT -->
+		<CONDITION name="JOB_ACCOUNT">
+			<psf:Feature name="ns0000:DocumentEJAMode">
+        <psf:Option name="ns0000:EJA_AccessCode"/>
+ 				<psf:Feature name="ns0000:PromptOnPrinting">
+					<psf:Option name="ns0000:ShowEJADialog"/>
+				</psf:Feature>
+			</psf:Feature>
+		</CONDITION>
+	</TYPE>
+	<TYPE name="-n JOB_STORAGE" wait="TRUE" param="-t REQUEST">
+        <!-- Condition is satisfy only when all the featuers are same in PT -->
+		<CONDITION name="JOB_STORAGE">
+		   <psf:Feature name="ns0000:JobStoragePrivateSecure">
+		      <psf:Option name="ns0000:PrivateSecureEncryptJob"/>
+           </psf:Feature>
+	   </CONDITION>
+	</TYPE>
+	
+	<!-- 
+		Request to popup window to show information to the user.
+		If at least one of the below conditions is satisfy with PT, Popup dlg will be called.
+	-->
+	<TYPE name="-n INFO" wait="FALSE" param="-t INFO">
+	
+		<!-- Condition is satisfy only when all the featuers are same in PT -->
+		<CONDITION name="MANUAL_DUPLEX">
+			<psf:Feature name="ns0000:JobManualDuplex">
+				<psf:Option name="ns0000:ManualLongEdge"/>
+			</psf:Feature>
+      <psf:Feature name="psk:JobDeviceLanguage">
+        <psf:Option name="ns0000:PCLmS"/>
+      </psf:Feature>
+		</CONDITION>
+		
+		<CONDITION name="MANUAL_DUPLEX">
+			<psf:Feature name="ns0000:JobManualDuplex">
+				<psf:Option name="ns0000:ManualShortEdge"/>
+			</psf:Feature>
+      <psf:Feature name="psk:JobDeviceLanguage">
+        <psf:Option name="ns0000:PCLmS"/>
+      </psf:Feature>
+		</CONDITION>
+	</TYPE>	
+	
+</CLIENT_INTERFACE>	

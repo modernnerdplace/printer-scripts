@@ -1,0 +1,5395 @@
+*%===============================================================================*%
+*%               Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                             All rights reserved.     		         *%
+*%===============================================================================*%
+
+*%******************************************************************************************
+*% HPOneDriver-Autoconfig.GDL
+*% This file implements the  *BidiQuery, *BidiResponse and *Option elements that correspond
+*% to the DuplexUnit feature in the driver GPD file. The feature
+*% name in the GDL file should exaclty match the corresponding feature and option names in the GPD.
+*%
+*% More GDL Autoconfiguration samples are found in the Windows Driver Kit "AutoConfig" sample
+*% http://msdn.microsoft.com/en-us/library/ff545148(VS.85).aspx
+*%******************************************************************************************
+
+*%==============================================================================*%
+*%                       Duplex Unit			                        *%
+*%==============================================================================*%
+
+*Feature: DuplexUnit
+{
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: DuplexUnit
+    {
+            *QueryString: "\Printer.Configuration.DuplexUnit:Installed"
+    }
+
+    *BidiResponse: DuplexUnit
+    {
+            *ResponseType: BIDI_BOOL
+            *ResponseData: ENUM_OPTION(DuplexUnit)
+    }
+
+    *Option: NotInstalled
+    {
+            *BidiValue: BOOL(FALSE)
+    }
+
+    *Option: Installed
+    {
+            *BidiValue: BOOL(TRUE)
+    }
+}
+
+
+*%==============================================================================*%
+*%                       EPEAT (DuplexByDefault)                                *%
+*%==============================================================================*%
+*Feature: DuplexByDefault
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: DuplexByDefault
+    {
+            *QueryString: "\Printer.Configuration.DuplexByDefault:Installed"
+    }
+
+    *BidiResponse: DuplexByDefault
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(DuplexByDefault)
+    }
+
+	*Option: disable
+	{
+        *BidiValue: STRING("false")
+	}
+	
+	*Option: enable
+	{
+        *BidiValue: STRING("true")
+	}
+
+}
+
+*%==============================================================================*%
+*%                    DeviceCollationControl (Installable)                      *%
+*%==============================================================================*%
+*Feature: DeviceCollationControl
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: DeviceCollationControl
+    {
+            *QueryString: "\Printer.Configuration.StorageMedia:Installed"
+    }
+
+    *BidiResponse: DeviceCollationControl
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(DeviceCollationControl)
+    }
+
+	*Option: auto
+	{
+        *BidiValue: STRING("true")
+	}
+
+	*Option: disable
+	{
+        *BidiValue: STRING("false")
+	}
+}
+
+*%******************************************************************************************
+*%                                      PaperSize_A3
+*%******************************************************************************************
+
+*Feature: PaperSize_A3
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PaperSize_A3
+    {
+            *QueryString: "\Printer.Configuration.PaperSize:A3"
+    }
+
+    *BidiResponse: PaperSize_A3
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PaperSize_A3)
+    }
+
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("iso_a3_297x420mm")
+    }
+}
+
+*%==============================================================================*%
+*%                       JobAccountingControl (Installable)                     *%
+*%==============================================================================*%
+*Feature: JobAccountingControl
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: JobAccountingControl
+    {
+            *QueryString: "\Printer.Configuration.EJA:Installed"
+    }
+
+    *BidiResponse: JobAccountingControl
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(JobAccountingControl)
+    }
+
+	*Option: disable
+	{
+        *BidiValue: STRING("false")
+	}
+
+	*Option: enable
+	{
+        *BidiValue: STRING("true")
+	}
+
+}
+
+*%==============================================================================*%
+*%                       JobStorageControl (Installable)                        *%
+*%==============================================================================*%
+*Feature: JobStorageControl
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: JobStorageControl
+    {
+            *QueryString: "\Printer.Configuration.JobStorage:Installed"
+    }
+
+    *BidiResponse: JobStorageControl
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(JobStorageControl)
+    }
+
+	*Option: Installed
+	{
+        *BidiValue: STRING("true")
+	}
+
+	*Option: NotInstalled
+	{
+        *BidiValue: STRING("false")
+	}
+}
+
+
+*%==============================================================================*%
+*%                       JobStorageEncryptionPasswordType (Installable)         *%
+*%==============================================================================*%
+*Feature: JobStorageEncryptionPasswordType
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: JobStorageEncryptionPasswordType
+    {
+            *QueryString: "\Printer.Configuration.SecureJobStorage:IsAlphaNumeric"
+    }
+
+    *BidiResponse: JobStorageEncryptionPasswordType
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(JobStorageEncryptionPasswordType)
+    }
+
+	*Option: enable
+	{
+        *BidiValue: STRING("true")
+	}
+
+	*Option: disable
+	{
+        *BidiValue: STRING("false")
+	}
+}
+
+*%==============================================================================*%
+*%                JobStorageEncryptionPasswordMinLength (Installable)           *%
+*%==============================================================================*%
+*Feature: JobStorageEncryptionPasswordMinLength {
+	*FeatureType: PRINTER_PROPERTY
+    *BidiQuery: JobStorageEncryptionPasswordMinLength {
+        *QueryString: "\Printer.Configuration.SecureJobStorage:PasswordMinLength"
+    } 
+    *BidiResponse: JobStorageEncryptionPasswordMinLength {
+        *ResponseType: BIDI_INT
+        *ResponseData: ENUM_OPTION (JobStorageEncryptionPasswordMinLength)
+    }
+    *Option: 4 {
+        *BidiValue: INT(4)
+    }
+    *Option: 6 {
+        *BidiValue: INT(6)
+    }
+}
+
+*%==============================================================================*%
+*%                JobStorageEncryptionPasswordMaxLength (Installable)           *%
+*%==============================================================================*%
+*Feature: JobStorageEncryptionPasswordMaxLength {
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: JobStorageEncryptionPasswordMaxLength {
+        *QueryString: "\Printer.Configuration.SecureJobStorage:PasswordMaxLength"
+    } 
+    *BidiResponse: JobStorageEncryptionPasswordMaxLength {
+        *ResponseType: BIDI_INT
+        *ResponseData: ENUM_OPTION (JobStorageEncryptionPasswordMaxLength)
+    }
+    *Option: 32 {
+        *BidiValue: INT(32)
+    }
+	*Option: 16 {
+        *BidiValue: INT(16)
+    }
+}
+
+*%==============================================================================*%
+*%                       TabPrintingControl (Installable)                       *%
+*%==============================================================================*%
+*Feature: TabPrintingControl
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: TabPrintingControl
+    {
+            *QueryString: "\Printer.Configuration.TabPrinting:Installed"
+    }
+
+    *BidiResponse: TabPrintingControl
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(TabPrintingControl)
+    }
+
+	*Option: disable
+	{
+        *BidiValue: STRING("false")
+	}
+	
+	*Option: enable
+	{
+        *BidiValue: STRING("true")
+	}
+
+}
+
+*%==============================================================================*%
+*%                       PrintContract Version Major                       *%
+*%==============================================================================*%
+*Feature: PrintContractVersionMajor
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PrintContractVersionMajor
+    {
+            *QueryString: "\Printer.Configuration.PrintContract:VersionMajor"
+    }
+
+    *BidiResponse: PrintContractVersionMajor
+    {
+            *ResponseType: BIDI_INT
+            *ResponseData: ENUM_OPTION(PrintContractVersionMajor)
+    }
+
+	*Option: 0
+	{
+        *BidiValue: INT(0)
+	}
+	
+	*Option: 1
+	{
+        *BidiValue: INT(1)
+	}
+    *Option: 2
+	{
+        *BidiValue: INT(2)
+	}
+    *Option: 3
+	{
+        *BidiValue: INT(3)
+	}
+    *Option: 4
+	{
+        *BidiValue: INT(4)
+	}
+    *Option: 5
+	{
+        *BidiValue: INT(5)
+	}
+    *Option: 6
+	{
+        *BidiValue: INT(6)
+	}
+    *Option: 7
+	{
+        *BidiValue: INT(7)
+	}
+    *Option: 8
+	{
+        *BidiValue: INT(8)
+	}
+    *Option: 9
+	{
+        *BidiValue: INT(9)
+	}
+
+}
+*%==============================================================================*%
+*%                       PrintContract Version Minor                       *%
+*%==============================================================================*%
+*Feature: PrintContractVersionMinor
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PrintContractVersionMinor
+    {
+            *QueryString: "\Printer.Configuration.PrintContract:VersionMinor"
+    }
+
+    *BidiResponse: PrintContractVersionMinor
+    {
+            *ResponseType: BIDI_INT
+            *ResponseData: ENUM_OPTION(PrintContractVersionMinor)
+    }
+
+	*Option: 0
+	{
+        *BidiValue: INT(0)
+	}
+	
+	*Option: 1
+	{
+        *BidiValue: INT(1)
+	}
+    *Option: 2
+	{
+        *BidiValue: INT(2)
+	}
+    *Option: 3
+	{
+        *BidiValue: INT(3)
+	}
+    *Option: 4
+	{
+        *BidiValue: INT(4)
+	}
+    *Option: 5
+	{
+        *BidiValue: INT(5)
+	}
+    *Option: 6
+	{
+        *BidiValue: INT(6)
+	}
+    *Option: 7
+	{
+        *BidiValue: INT(7)
+	}
+    *Option: 8
+	{
+        *BidiValue: INT(8)
+	}
+    *Option: 9
+	{
+        *BidiValue: INT(9)
+	}
+    *Option: 71
+	{
+        *BidiValue: INT(71)
+	}
+    *Option: 72
+	{
+        *BidiValue: INT(72)
+	}
+
+}
+*%==============================================================================*%
+*%                       EdgetoEdgeControl (Installable)                        *%
+*%==============================================================================*%
+*Feature: EdgetoEdgeControl
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: EdgetoEdgeControl
+    {
+            *QueryString: "\Printer.Configuration.EdgetoEdge:Installed"
+    }
+
+    *BidiResponse: EdgetoEdgeControl
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(EdgetoEdgeControl)
+    }
+
+	*Option: disable
+	{
+        *BidiValue: STRING("false")
+	}
+	
+	*Option: enable
+	{
+        *BidiValue: STRING("true")
+	}
+
+}
+
+*%==============================================================================*%
+*%                               ColorOrMonoPrinter                             *%
+*%==============================================================================*%
+*Feature: ColorOrMonoPrinter
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: ColorOrMonoPrinter
+    {
+            *QueryString: "\Printer.Consumables.Color003:Name"
+    }
+
+    *BidiResponse: ColorOrMonoPrinter
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(ColorOrMonoPrinter)
+    }
+
+	*Option: MonoPrinter
+	{
+		*BidiValue: STRING("Black")
+	}
+	*Option: ColorPrinter
+	{
+		*BidiValue: STRING("Cyan")
+	}
+}
+
+*Feature: IsAutoconfigDone
+{
+	
+	*FeatureType: PRINTER_PROPERTY
+	
+	*BidiQuery: IsAutoconfigDone
+    {
+            *QueryString: "\Printer.Consumables.Color001:Name"
+    }
+
+    *BidiResponse: IsAutoconfigDone
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(IsAutoconfigDone)
+    }
+
+
+	*Option: NOTYET
+	{
+		*BidiValue: STRING("NOTYET")
+	}
+	*Option: DONE_MIB
+	{
+		*BidiValue: STRING("Cyan")
+	}
+	*Option: DONE_WSD
+	{
+		*BidiValue: STRING("Black")
+	}
+}
+
+*%==============================================================================*%
+*%                         AdvancedColorOptionsAvailable                        *%
+*%==============================================================================*%
+*Feature: AdvancedColorOptionsAvailable
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: AdvancedColorOptionsAvailable
+    {
+            *QueryString: "\Printer.Configuration.AdvanceImageControl:Installed"
+    }
+
+    *BidiResponse: AdvancedColorOptionsAvailable
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(AdvancedColorOptionsAvailable)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+	*Option: Available
+	{
+		*BidiValue: STRING("advance-image-control")
+	}
+}
+
+*%==============================================================================*%
+*%                               ColorTableControl		                        *%
+*%==============================================================================*%
+*Feature: ColorTableControl
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: ColorTableControl
+    {
+            *QueryString: "\Printer.Configuration.RGBThemes:Installed"
+    }
+
+    *BidiResponse: ColorTableControl
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(ColorTableControl)
+    }
+
+	*Option: NotSupported
+	{
+		*BidiValue: STRING("false")
+	}
+	*Option: Supported
+	{
+		*BidiValue: STRING("rgb-color-themes")
+	}
+}
+
+*%==============================================================================*%
+*%                               CMYKColorTableControl		                        *%
+*%==============================================================================*%
+*Feature: CMYKColorTableControl
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: CMYKColorTableControl
+    {
+            *QueryString: "\Printer.Configuration.CMYKThemes:Installed"
+    }
+
+    *BidiResponse: CMYKColorTableControl
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(CMYKColorTableControl)
+    }
+
+	*Option: NotSupported
+	{
+		*BidiValue: STRING("false")
+	}
+	*Option: Supported
+	{
+		*BidiValue: STRING("cmyk-color-themes")
+	}
+}
+
+*%==============================================================================*%
+*%                               Ink Settings Available                         *%
+*%==============================================================================*%
+*Feature: AdvancedInkSettingsAvailable
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: AdvancedInkSettingsAvailable
+    {
+            *QueryString: "\Printer.Configuration.AdvanceInkControl:Installed"
+    }
+
+    *BidiResponse: AdvancedInkSettingsAvailable
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(AdvancedInkSettingsAvailable)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+	*Option: Available
+	{
+		*BidiValue: STRING("advance-ink-control")
+	}
+}
+
+
+*%=================================================================*%
+*%     GrayscaleSupport
+*%=================================================================*%
+*Feature: GrayscaleSupport
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: GrayscaleSupport {
+        *QueryString: "\Printer.Consumables.GrayscaleSupport:Installed"
+    } 
+
+    *BidiResponse: GrayscaleSupport {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (GrayscaleSupport)
+    }
+    *Option: NotSupported {
+        *BidiValue: STRING("monochrome")
+    }
+    *Option: Supported {
+        *BidiValue: STRING("process-black")
+    }
+
+}
+
+*%==============================================================================*%
+*%                          PQDisplayTagStandardType2                                     *%
+*%==============================================================================*%
+*Feature: PQDisplayTagStandardType2
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDisplayTagStandardType2
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType2:DisplayTag"
+    }
+
+    *BidiResponse: PQDisplayTagStandardType2
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDisplayTagStandardType2)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Normal
+	{
+		*BidiValue: STRING("1000")
+	}
+
+	*Option: FineLines_MaxDPI
+	{
+		*BidiValue: STRING("1002")
+	}
+
+    *Option: QuickView_Draft
+	{
+		*BidiValue: STRING("1003")
+	}
+
+	*Option: Enhanced
+	{
+		*BidiValue: STRING("1004")
+	}
+
+    *Option: EconoMode
+	{
+		*BidiValue: STRING("1005")
+	}
+
+	*Option: GeneralOffice_Draft
+	{
+		*BidiValue: STRING("3000")
+	}
+
+    *Option: Professional
+	{
+		*BidiValue: STRING("3001")
+	}
+
+	*Option: Presentation
+	{
+		*BidiValue: STRING("3002")
+	}
+
+    *Option: MaxDPI
+	{
+		*BidiValue: STRING("3003")
+	}
+
+	*Option: QuickDraft
+	{
+		*BidiValue: STRING("3020")
+	}
+
+    *Option: HPStandard
+	{
+		*BidiValue: STRING("3030")
+	}
+
+    *Option: Standard
+	{
+		*BidiValue: STRING("3035")
+	}
+
+    *Option: Premium
+	{
+		*BidiValue: STRING("3040")
+	}
+
+	*Option: Detailed
+	{
+		*BidiValue: STRING("3050")
+	}
+
+    *Option: HPHighSpeed
+	{
+		*BidiValue: STRING("3060")
+	}
+
+    *Option: HPColorSave
+	{
+		*BidiValue: STRING("3070")
+	}
+
+	*Option: HPTonerSave
+	{
+		*BidiValue: STRING("3080")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQModeStandardType2                                     *%
+*%==============================================================================*%
+*Feature: PQModeStandardType2
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQModeStandardType2
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType2:PQMode"
+    }
+
+    *BidiResponse: PQModeStandardType2
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQModeStandardType2)
+    }
+
+    *Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: 1
+	{
+		*BidiValue: STRING("1")
+	}
+
+	*Option: 2
+	{
+		*BidiValue: STRING("2")
+	}
+
+	*Option: 3
+	{
+		*BidiValue: STRING("3")
+	}
+
+    *Option: 4
+	{
+		*BidiValue: STRING("4")
+	}
+
+	*Option: 5
+	{
+		*BidiValue: STRING("5")
+	}
+
+	*Option: 6
+	{
+		*BidiValue: STRING("6")
+	}
+
+    *Option: 7
+	{
+		*BidiValue: STRING("7")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQNormalSupport                                     *%
+*%==============================================================================*%
+*Feature: PQNormalSupport
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQNormalSupport
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Normal:NormalDisplayTag"
+    }
+
+    *BidiResponse: PQNormalSupport
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQNormalSupport)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Laser
+	{
+		*BidiValue: STRING("1000")
+	}
+
+	*Option: Ink
+	{
+		*BidiValue: STRING("3001")
+	}
+}
+
+
+*%==============================================================================*%
+*%                          PQNormalDPI                                         *%
+*%==============================================================================*%
+*Feature: PQNormalDPI
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQNormalDPI
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Normal:NormalDPI"
+    }
+
+    *BidiResponse: PQNormalDPI
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQNormalDPI)
+    }
+
+    *Option: Res150Dpi
+	{
+		*BidiValue: STRING("150")
+	}
+
+	*Option: Res600Dpi
+	{
+		*BidiValue: STRING("600")
+	}
+
+	*Option: Res1200Dpi
+	{
+		*BidiValue: STRING("1200")
+	}
+
+	*Option: Res300Dpi
+	{
+		*BidiValue: STRING("300")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQNormalHintTag                                         *%
+*%==============================================================================*%
+*Feature: PQNormalHintTag
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQNormalHintTag
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Normal:NormalHintTag"
+    }
+
+    *BidiResponse: PQNormalHintTag
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQNormalHintTag)
+    }
+		
+    *Option: NotSupported 
+	{
+        *BidiValue: STRING("false")
+    }
+
+	*Option: IDS_HINT_2000_TAG
+	{
+		*BidiValue: STRING("2000")
+	}
+
+	*Option: IDS_HINT_2001_TAG
+	{
+		*BidiValue: STRING("2001")
+	}
+
+	*Option: IDS_HINT_4005_TAG
+	{
+		*BidiValue: STRING("4005")
+	}
+}
+
+
+*%==============================================================================*%
+*%                          PQDisplayTagStandardType1                                     *%
+*%==============================================================================*%
+*Feature: PQDisplayTagStandardType1
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDisplayTagStandardType1
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType1:DisplayTag"
+    }
+
+    *BidiResponse: PQDisplayTagStandardType1
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDisplayTagStandardType1)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Normal
+	{
+		*BidiValue: STRING("1000")
+	}
+
+	*Option: FineLines_MaxDPI
+	{
+		*BidiValue: STRING("1002")
+	}
+
+    *Option: QuickView_Draft
+	{
+		*BidiValue: STRING("1003")
+	}
+
+	*Option: Enhanced
+	{
+		*BidiValue: STRING("1004")
+	}
+
+    *Option: EconoMode
+	{
+		*BidiValue: STRING("1005")
+	}
+
+	*Option: GeneralOffice_Draft
+	{
+		*BidiValue: STRING("3000")
+	}
+
+    *Option: Professional
+	{
+		*BidiValue: STRING("3001")
+	}
+
+	*Option: Presentation
+	{
+		*BidiValue: STRING("3002")
+	}
+
+    *Option: MaxDPI
+	{
+		*BidiValue: STRING("3003")
+	}
+
+	*Option: QuickDraft
+	{
+		*BidiValue: STRING("3020")
+	}
+
+    *Option: HPStandard
+	{
+		*BidiValue: STRING("3030")
+	}
+
+    *Option: Standard
+	{
+		*BidiValue: STRING("3035")
+	}
+
+    *Option: Premium
+	{
+		*BidiValue: STRING("3040")
+	}
+
+	*Option: Detailed
+	{
+		*BidiValue: STRING("3050")
+	}
+
+    *Option: HPHighSpeed
+	{
+		*BidiValue: STRING("3060")
+	}
+
+    *Option: HPColorSave
+	{
+		*BidiValue: STRING("3070")
+	}
+
+	*Option: HPTonerSave
+	{
+		*BidiValue: STRING("3080")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQModeStandardType1                                     *%
+*%==============================================================================*%
+*Feature: PQModeStandardType1
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQModeStandardType1
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType1:PQMode"
+    }
+
+    *BidiResponse: PQModeStandardType1
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQModeStandardType1)
+    }
+
+    *Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: 1
+	{
+		*BidiValue: STRING("1")
+	}
+
+	*Option: 2
+	{
+		*BidiValue: STRING("2")
+	}
+
+	*Option: 3
+	{
+		*BidiValue: STRING("3")
+	}
+
+    *Option: 4
+	{
+		*BidiValue: STRING("4")
+	}
+
+	*Option: 5
+	{
+		*BidiValue: STRING("5")
+	}
+
+	*Option: 6
+	{
+		*BidiValue: STRING("6")
+	}
+
+    *Option: 7
+	{
+		*BidiValue: STRING("7")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQDraftSupport                                      *%
+*%==============================================================================*%
+*Feature: PQDraftSupport
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDraftSupport
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Draft:DraftDisplayTag"
+    }
+
+    *BidiResponse: PQDraftSupport
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDraftSupport)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Laser
+	{
+		*BidiValue: STRING("1003")
+	}
+
+	*Option: Ink
+	{
+		*BidiValue: STRING("3000")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQDraftDPI                                          *%
+*%==============================================================================*%
+*Feature: PQDraftDPI
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDraftDPI
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Draft:DraftDPI"
+    }
+
+    *BidiResponse: PQDraftDPI
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDraftDPI)
+    }
+
+    *Option: Res150Dpi
+	{
+		*BidiValue: STRING("150")
+	}
+
+	*Option: Res600Dpi
+	{
+		*BidiValue: STRING("600")
+	}
+
+	*Option: Res1200Dpi
+	{
+		*BidiValue: STRING("1200")
+	}
+
+	*Option: Res300Dpi
+	{
+		*BidiValue: STRING("300")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQDraftHintTag                                          *%
+*%==============================================================================*%
+*Feature: PQDraftHintTag
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDraftHintTag
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Draft:DraftHintTag"
+    }
+
+    *BidiResponse: PQDraftHintTag
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDraftHintTag)
+    }
+
+    *Option: NotSupported 
+	{
+        *BidiValue: STRING("false")
+    }
+
+	*Option: IDS_HINT_2003_TAG
+	{
+		*BidiValue: STRING("2003")
+	}
+
+	*Option: IDS_HINT_4000_TAG
+	{
+		*BidiValue: STRING("4000")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQDisplayTagStandardType3                                     *%
+*%==============================================================================*%
+*Feature: PQDisplayTagStandardType3
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDisplayTagStandardType3
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType3:DisplayTag"
+    }
+
+    *BidiResponse: PQDisplayTagStandardType3
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDisplayTagStandardType3)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Normal
+	{
+		*BidiValue: STRING("1000")
+	}
+
+	*Option: FineLines_MaxDPI
+	{
+		*BidiValue: STRING("1002")
+	}
+
+    *Option: QuickView_Draft
+	{
+		*BidiValue: STRING("1003")
+	}
+
+	*Option: Enhanced
+	{
+		*BidiValue: STRING("1004")
+	}
+
+    *Option: EconoMode
+	{
+		*BidiValue: STRING("1005")
+	}
+
+	*Option: GeneralOffice_Draft
+	{
+		*BidiValue: STRING("3000")
+	}
+
+    *Option: Professional
+	{
+		*BidiValue: STRING("3001")
+	}
+
+	*Option: Presentation
+	{
+		*BidiValue: STRING("3002")
+	}
+
+    *Option: MaxDPI
+	{
+		*BidiValue: STRING("3003")
+	}
+
+	*Option: QuickDraft
+	{
+		*BidiValue: STRING("3020")
+	}
+
+    *Option: HPStandard
+	{
+		*BidiValue: STRING("3030")
+	}
+
+    *Option: Standard
+	{
+		*BidiValue: STRING("3035")
+	}
+
+    *Option: Premium
+	{
+		*BidiValue: STRING("3040")
+	}
+
+	*Option: Detailed
+	{
+		*BidiValue: STRING("3050")
+	}
+
+    *Option: HPHighSpeed
+	{
+		*BidiValue: STRING("3060")
+	}
+
+    *Option: HPColorSave
+	{
+		*BidiValue: STRING("3070")
+	}
+
+	*Option: HPTonerSave
+	{
+		*BidiValue: STRING("3080")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQModeStandardType3                                     *%
+*%==============================================================================*%
+*Feature: PQModeStandardType3
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQModeStandardType3
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType3:PQMode"
+    }
+
+    *BidiResponse: PQModeStandardType3
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQModeStandardType3)
+    }
+
+	*Option: 1
+	{
+		*BidiValue: STRING("1")
+	}
+
+	*Option: 2
+	{
+		*BidiValue: STRING("2")
+	}
+
+	*Option: 3
+	{
+		*BidiValue: STRING("3")
+	}
+
+    *Option: 4
+	{
+		*BidiValue: STRING("4")
+	}
+
+	*Option: 5
+	{
+		*BidiValue: STRING("5")
+	}
+
+	*Option: 6
+	{
+		*BidiValue: STRING("6")
+	}
+
+    *Option: 7
+	{
+		*BidiValue: STRING("7")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQBestSupport                                       *%
+*%==============================================================================*%
+*Feature: PQBestSupport
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQBestSupport
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Best:BestDisplayTag"
+    }
+
+    *BidiResponse: PQBestSupport
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQBestSupport)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Laser
+	{
+		*BidiValue: STRING("1004")
+	}
+
+	*Option: Ink
+	{
+		*BidiValue: STRING("3002")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQBestDPI                                           *%
+*%==============================================================================*%
+*Feature: PQBestDPI
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQBestDPI
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Best:BestDPI"
+    }
+
+    *BidiResponse: PQBestDPI
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQBestDPI)
+    }
+
+    *Option: Res150Dpi
+	{
+		*BidiValue: STRING("150")
+	}
+
+	*Option: Res600Dpi
+	{
+		*BidiValue: STRING("600")
+	}
+
+	*Option: Res1200Dpi
+	{
+		*BidiValue: STRING("1200")
+	}
+
+	*Option: Res300Dpi
+	{
+		*BidiValue: STRING("300")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQBestHintTag                                          *%
+*%==============================================================================*%
+*Feature: PQBestHintTag
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQBestHintTag
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Best:BestHintTag"
+    }
+
+    *BidiResponse: PQBestHintTag
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQBestHintTag)
+    }
+
+    *Option: NotSupported 
+	{
+        *BidiValue: STRING("false")
+    }
+
+	*Option: IDS_HINT_2004_TAG
+	{
+		*BidiValue: STRING("2004")
+	}
+
+	*Option: IDS_HINT_4010_TAG
+	{
+		*BidiValue: STRING("4010")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQDisplayTagStandardType4                                     *%
+*%==============================================================================*%
+*Feature: PQDisplayTagStandardType4
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDisplayTagStandardType4
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType4:DisplayTag"
+    }
+
+    *BidiResponse: PQDisplayTagStandardType4
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDisplayTagStandardType4)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Normal
+	{
+		*BidiValue: STRING("1000")
+	}
+
+	*Option: FineLines_MaxDPI
+	{
+		*BidiValue: STRING("1002")
+	}
+
+    *Option: QuickView_Draft
+	{
+		*BidiValue: STRING("1003")
+	}
+
+	*Option: Enhanced
+	{
+		*BidiValue: STRING("1004")
+	}
+
+    *Option: EconoMode
+	{
+		*BidiValue: STRING("1005")
+	}
+
+	*Option: GeneralOffice_Draft
+	{
+		*BidiValue: STRING("3000")
+	}
+
+    *Option: Professional
+	{
+		*BidiValue: STRING("3001")
+	}
+
+	*Option: Presentation
+	{
+		*BidiValue: STRING("3002")
+	}
+
+    *Option: MaxDPI
+	{
+		*BidiValue: STRING("3003")
+	}
+
+	*Option: QuickDraft
+	{
+		*BidiValue: STRING("3020")
+	}
+
+    *Option: HPStandard
+	{
+		*BidiValue: STRING("3030")
+	}
+
+    *Option: Standard
+	{
+		*BidiValue: STRING("3035")
+	}
+
+    *Option: Premium
+	{
+		*BidiValue: STRING("3040")
+	}
+
+	*Option: Detailed
+	{
+		*BidiValue: STRING("3050")
+	}
+
+    *Option: HPHighSpeed
+	{
+		*BidiValue: STRING("3060")
+	}
+
+    *Option: HPColorSave
+	{
+		*BidiValue: STRING("3070")
+	}
+
+	*Option: HPTonerSave
+	{
+		*BidiValue: STRING("3080")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQModeStandardType4                                     *%
+*%==============================================================================*%
+*Feature: PQModeStandardType4
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQModeStandardType4
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType4:PQMode"
+    }
+
+    *BidiResponse: PQModeStandardType4
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQModeStandardType4)
+    }
+
+    *Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: 1
+	{
+		*BidiValue: STRING("1")
+	}
+
+	*Option: 2
+	{
+		*BidiValue: STRING("2")
+	}
+
+	*Option: 3
+	{
+		*BidiValue: STRING("3")
+	}
+
+    *Option: 4
+	{
+		*BidiValue: STRING("4")
+	}
+
+	*Option: 5
+	{
+		*BidiValue: STRING("5")
+	}
+
+	*Option: 6
+	{
+		*BidiValue: STRING("6")
+	}
+
+    *Option: 7
+	{
+		*BidiValue: STRING("7")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQMaxSupport										*%
+*%==============================================================================*%
+*Feature: PQMaxSupport
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQMaxSupport
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Max:MaxDisplayTag"
+    }
+
+    *BidiResponse: PQMaxSupport
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQMaxSupport)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Laser
+	{
+		*BidiValue: STRING("1002")
+	}
+
+	*Option: Ink
+	{
+		*BidiValue: STRING("3003")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQMaxDPI                                            *%
+*%==============================================================================*%
+*Feature: PQMaxDPI
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQMaxDPI
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Max:MaxDPI"
+    }
+
+    *BidiResponse: PQMaxDPI
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQMaxDPI)
+    }
+
+    *Option: Res150Dpi
+	{
+		*BidiValue: STRING("150")
+	}
+
+	*Option: Res600Dpi
+	{
+		*BidiValue: STRING("600")
+	}
+
+	*Option: Res1200Dpi
+	{
+		*BidiValue: STRING("1200")
+	}
+
+	*Option: Res300Dpi
+	{
+		*BidiValue: STRING("300")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQMaxHintTag                                          *%
+*%==============================================================================*%
+*Feature: PQMaxHintTag
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQMaxHintTag
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Max:MaxHintTag"
+    }
+
+    *BidiResponse: PQMaxHintTag
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQMaxHintTag)
+    }
+
+    *Option: NotSupported 
+	{
+        *BidiValue: STRING("false")
+    }
+
+	*Option: IDS_HINT_2002_TAG
+	{
+		*BidiValue: STRING("2002")
+	}
+
+	*Option: IDS_HINT_4015_TAG
+	{
+		*BidiValue: STRING("4015")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQDisplayTagStandardType5                                     *%
+*%==============================================================================*%
+*Feature: PQDisplayTagStandardType5
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQDisplayTagStandardType5
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType5:DisplayTag"
+    }
+
+    *BidiResponse: PQDisplayTagStandardType5
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQDisplayTagStandardType5)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Normal
+	{
+		*BidiValue: STRING("1000")
+	}
+
+	*Option: FineLines_MaxDPI
+	{
+		*BidiValue: STRING("1002")
+	}
+
+    *Option: QuickView_Draft
+	{
+		*BidiValue: STRING("1003")
+	}
+
+	*Option: Enhanced
+	{
+		*BidiValue: STRING("1004")
+	}
+
+    *Option: EconoMode
+	{
+		*BidiValue: STRING("1005")
+	}
+
+	*Option: GeneralOffice_Draft
+	{
+		*BidiValue: STRING("3000")
+	}
+
+    *Option: Professional
+	{
+		*BidiValue: STRING("3001")
+	}
+
+	*Option: Presentation
+	{
+		*BidiValue: STRING("3002")
+	}
+
+    *Option: MaxDPI
+	{
+		*BidiValue: STRING("3003")
+	}
+
+	*Option: QuickDraft
+	{
+		*BidiValue: STRING("3020")
+	}
+
+    *Option: HPStandard
+	{
+		*BidiValue: STRING("3030")
+	}
+
+    *Option: Standard
+	{
+		*BidiValue: STRING("3035")
+	}
+
+    *Option: Premium
+	{
+		*BidiValue: STRING("3040")
+	}
+
+	*Option: Detailed
+	{
+		*BidiValue: STRING("3050")
+	}
+
+    *Option: HPHighSpeed
+	{
+		*BidiValue: STRING("3060")
+	}
+
+    *Option: HPColorSave
+	{
+		*BidiValue: STRING("3070")
+	}
+
+	*Option: HPTonerSave
+	{
+		*BidiValue: STRING("3080")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQModeStandardType5                                     *%
+*%==============================================================================*%
+*Feature: PQModeStandardType5
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQModeStandardType5
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.StandardType5:PQMode"
+    }
+
+    *BidiResponse: PQModeStandardType5
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQModeStandardType5)
+    }
+
+    *Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: 1
+	{
+		*BidiValue: STRING("1")
+	}
+
+	*Option: 2
+	{
+		*BidiValue: STRING("2")
+	}
+
+	*Option: 3
+	{
+		*BidiValue: STRING("3")
+	}
+
+    *Option: 4
+	{
+		*BidiValue: STRING("4")
+	}
+
+	*Option: 5
+	{
+		*BidiValue: STRING("5")
+	}
+
+	*Option: 6
+	{
+		*BidiValue: STRING("6")
+	}
+
+    *Option: 7
+	{
+		*BidiValue: STRING("7")
+	}
+}
+
+*%==============================================================================*%
+*%                          PQEconomodeSupport									*%
+*%==============================================================================*%
+*Feature: PQEconomodeSupport
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQEconomodeSupport
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Economode:EcoSupported"
+    }
+
+    *BidiResponse: PQEconomodeSupport
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQEconomodeSupport)
+    }
+
+	*Option: NotAvailable
+	{
+		*BidiValue: STRING("false")
+	}
+
+	*Option: Available
+	{
+		*BidiValue: STRING("1005")
+	}
+}
+
+
+*%==============================================================================*%
+*%                          PQEconomodeDPI                                            *%
+*%==============================================================================*%
+*Feature: PQEconomodeDPI
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: PQEconomodeDPI
+    {
+            *QueryString: "\Printer.Configuration.PrintQuality.Economode:EcoDPI"
+    }
+
+    *BidiResponse: PQEconomodeDPI
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PQEconomodeDPI)
+    }
+
+    *Option: Res150Dpi
+	{
+		*BidiValue: STRING("150")
+	}
+
+	*Option: Res600Dpi
+	{
+		*BidiValue: STRING("600")
+	}
+
+	*Option: Res1200Dpi
+	{
+		*BidiValue: STRING("1200")
+	}
+
+	*Option: Res300Dpi
+	{
+		*BidiValue: STRING("300")
+	}
+}
+*%==============================================================================*%
+*%                          PQEconomodeHintTag									*%
+*%==============================================================================*%
+*Feature: PQEconomodeHintTag {
+
+    *FeatureType: PRINTER_PROPERTY
+   
+    *BidiQuery: PQEconomodeHintTag
+	{
+        *QueryString: "\Printer.Configuration.PrintQuality.Economode:EcoHintTag"
+    }
+    *BidiResponse: PQEconomodeHintTag {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PQEconomodeHintTag)
+    } 
+
+    *Option: NotSupported 
+	{
+        *BidiValue: STRING("false")
+    }
+
+    *Option: IDS_HINT_2005_TAG 
+	{
+        *BidiValue: STRING("2005")
+    }
+
+}
+
+*%==============================================================================
+*%                                  Folding                                    
+*%==============================================================================
+*%=================================================================*%
+*%     PC_VFoldType
+*%=================================================================*%
+
+*Feature: PC_VFoldType {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_VFoldType {
+        *QueryString: "\Printer.Finishing.Foldings.VFold:Installed"
+    } 
+
+    *BidiResponse: PC_VFoldType {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_VFoldType)
+    }
+    *Option: NotInstalled
+	{
+		*BidiValue: STRING("None")
+	}
+	*Option: Installed
+	{
+		*BidiValue: STRING("v-fold")
+	}
+
+}
+
+*%=================================================================*%
+*%     PC_VFoldMaxSheets
+*%=================================================================*%
+
+*Feature: PC_VFoldMaxSheets {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_VFoldMaxSheets {
+        *QueryString: "\Printer.Finishing.Foldings.VFold:MaxSheetsPerSet"
+    } 
+    *BidiResponse: PC_VFoldMaxSheets {
+        *ResponseType: BIDI_INT
+        *ResponseData: ENUM_OPTION (PC_VFoldMaxSheets)
+    }
+	*Option: DefaultMode
+	{
+		*BidiValue: INT(-1)
+	}
+	*Option: SetMode
+	{
+		*BidiValue: INT(1)
+	}
+
+}
+
+*%=================================================================*%
+*%     PC_CFoldType
+*%=================================================================*%
+
+*Feature: PC_CFoldType {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_CFoldType {
+        *QueryString: "\Printer.Finishing.Foldings.CFold:Installed"
+    } 
+    *BidiResponse: PC_CFoldType {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_CFoldType)
+    }
+    *Option: NotInstalled
+	{
+		*BidiValue: STRING("None")
+	}
+	*Option: Installed
+	{
+		*BidiValue: STRING("c-fold")
+	}
+}
+
+*%=================================================================*%
+*%     PC_CFoldMaxSheets
+*%=================================================================*%
+
+*Feature: PC_CFoldMaxSheets {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_CFoldMaxSheets {
+        *QueryString: "\Printer.Finishing.Foldings.CFold:MaxSheetsPerSet"
+    } 
+
+    *BidiResponse: PC_CFoldMaxSheets {
+        *ResponseType: BIDI_INT
+        *ResponseData: ENUM_OPTION (PC_CFoldMaxSheets)
+    }
+	*Option: DefaultMode
+	{
+		*BidiValue: INT(-1)
+	}
+	*Option: SetMode
+	{
+		*BidiValue: INT(1)
+	}
+
+}
+
+*%=================================================================*%
+*%     PC_StapleTopLeft
+*%=================================================================*%
+
+*Feature: PC_StapleTopLeft {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleTopLeft {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeLeft1pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleTopLeft {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleTopLeft)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleTopLeft")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleTopRight
+*%=================================================================*%
+
+*Feature: PC_StapleTopRight {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleTopRight {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeRight1pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleTopRight {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleTopRight)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleTopRight")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleDualLeft
+*%=================================================================*%
+
+*Feature: PC_StapleDualLeft {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleDualLeft {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeLeft2pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleDualLeft {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleDualLeft)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleDualLeft")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleDualRight
+*%=================================================================*%
+
+*Feature: PC_StapleDualRight {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleDualRight {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeRight2pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleDualRight {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleDualRight)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleDualRight")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleDualTop
+*%=================================================================*%
+
+*Feature: PC_StapleDualTop {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleDualTop {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeTop2pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleDualTop {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleDualTop)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleDualTop")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleDualBottom
+*%=================================================================*%
+
+*Feature: PC_StapleDualBottom {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleDualBottom {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeBottom2pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleDualBottom {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleDualBottom)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleDualBottom")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleTripleLeft
+*%=================================================================*%
+
+*Feature: PC_StapleTripleLeft {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleTripleLeft {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeLeft3pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleTripleLeft {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleTripleLeft)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleTripleLeft")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleTripleTop
+*%=================================================================*%
+
+*Feature: PC_StapleTripleTop {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleTripleTop {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeTop3pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleTripleTop {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleTripleTop)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleTripleTop")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleTripleRight
+*%=================================================================*%
+
+*Feature: PC_StapleTripleRight {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleTripleRight {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeRight3pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleTripleRight {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleTripleRight)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleTripleRight")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleTripleBottom
+*%=================================================================*%
+
+*Feature: PC_StapleTripleBottom {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleTripleBottom {
+        *QueryString: "\Printer.Finishing.Staplings.StapletypeBottom3pt:Installed"
+    } 
+
+    *BidiResponse: PC_StapleTripleBottom {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleTripleBottom)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("StapleTripleBottom")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_StapleFoldAndStitch
+*%=================================================================*%
+
+*Feature: PC_StapleFoldAndStitch {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_StapleFoldAndStitch {
+        *QueryString: "\Printer.Finishing.BookletMakerUnit:FoldAndStitchSupport"
+    } 
+
+    *BidiResponse: PC_StapleFoldAndStitch {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_StapleFoldAndStitch)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("SaddleStitch")
+    }
+
+}
+
+
+
+*%=================================================================*%
+*%     PC_FoldAndStitchForceReverseOrderSupport
+*%=================================================================*%
+
+*Feature: PC_FoldAndStitchForceReverseOrderSupport
+{
+	*FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_FoldAndStitchForceReverseOrderSupport
+    {
+			*QueryString: "\Printer.Finishing.BookletMakerUnit:FoldAndStitchDirection"
+    }
+
+    *BidiResponse: PC_FoldAndStitchForceReverseOrderSupport
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(PC_FoldAndStitchForceReverseOrderSupport)
+    }
+
+	*Option: NotSupported
+	{
+		*BidiValue: STRING("Inward")
+	}
+
+	*Option: Supported
+	{
+		*BidiValue: STRING("Outward")
+	}
+}
+
+*%=================================================================*%
+*%     PC_PunchRegion
+*%=================================================================*%
+
+*Feature: PC_PunchRegion {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_PunchRegion {
+        *QueryString: "\Printer.Finishing.Punchings.Region:Name"
+    } 
+
+    *BidiResponse: PC_PunchRegion {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_PunchRegion)
+    }
+	
+	*Option: US {
+		*BidiValue: STRING("US")
+    }
+	
+	*Option: DIN {
+		*BidiValue: STRING("EU")
+    }
+	
+	*Option: SWD {
+		*BidiValue: STRING("SW")
+    }
+}
+
+
+*%=================================================================*%
+*%     PC_TwoHolePunchLeft
+*%=================================================================*%
+
+*Feature: PC_TwoHolePunchLeft {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_TwoHolePunchLeft {
+        *QueryString: "\Printer.Finishing.Punchings.PunchLeft2pt:Installed"
+    } 
+
+    *BidiResponse: PC_TwoHolePunchLeft {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_TwoHolePunchLeft)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("TwoHolesLeft")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_TwoHolePunchRight
+*%=================================================================*%
+
+*Feature: PC_TwoHolePunchRight {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_TwoHolePunchRight {
+        *QueryString: "\Printer.Finishing.Punchings.PunchRight2pt:Installed"
+    } 
+
+    *BidiResponse: PC_TwoHolePunchRight {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_TwoHolePunchRight)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("TwoHolesRight")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_TwoHolePunchTop
+*%=================================================================*%
+
+*Feature: PC_TwoHolePunchTop {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_TwoHolePunchTop {
+        *QueryString: "\Printer.Finishing.Punchings.PunchTop2pt:Installed"
+    } 
+
+    *BidiResponse: PC_TwoHolePunchTop {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_TwoHolePunchTop)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("TwoHolesTop")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_TwoHolePunchBottom
+*%=================================================================*%
+
+*Feature: PC_TwoHolePunchBottom {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_TwoHolePunchBottom {
+        *QueryString: "\Printer.Finishing.Punchings.PunchBottom2pt:Installed"
+    } 
+
+    *BidiResponse: PC_TwoHolePunchBottom {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_TwoHolePunchBottom)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("TwoHolesBottom")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_ThreeHolePunchLeft
+*%=================================================================*%
+
+*Feature: PC_ThreeHolePunchLeft {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_ThreeHolePunchLeft {
+        *QueryString: "\Printer.Finishing.Punchings.PunchLeft3pt:Installed"
+    } 
+
+    *BidiResponse: PC_ThreeHolePunchLeft {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_ThreeHolePunchLeft)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("ThreeHolesLeft")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_ThreeHolePunchRight
+*%=================================================================*%
+
+*Feature: PC_ThreeHolePunchRight {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_ThreeHolePunchRight {
+        *QueryString: "\Printer.Finishing.Punchings.PunchRight3pt:Installed"
+    } 
+
+    *BidiResponse: PC_ThreeHolePunchRight {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_ThreeHolePunchRight)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("ThreeHolesRight")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_ThreeHolePunchTop
+*%=================================================================*%
+
+*Feature: PC_ThreeHolePunchTop {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_ThreeHolePunchTop {
+        *QueryString: "\Printer.Finishing.Punchings.PunchTop3pt:Installed"
+    } 
+
+    *BidiResponse: PC_ThreeHolePunchTop {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_ThreeHolePunchTop)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("ThreeHolesTop")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_ThreeHolePunchBottom
+*%=================================================================*%
+
+*Feature: PC_ThreeHolePunchBottom {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_ThreeHolePunchBottom {
+        *QueryString: "\Printer.Finishing.Punchings.PunchBottom3pt:Installed"
+    } 
+
+    *BidiResponse: PC_ThreeHolePunchBottom {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_ThreeHolePunchBottom)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("ThreeHolesBottom")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_FourHolePunchLeft
+*%=================================================================*%
+
+*Feature: PC_FourHolePunchLeft {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_FourHolePunchLeft {
+        *QueryString: "\Printer.Finishing.Punchings.PunchLeft4pt:Installed"
+    } 
+
+    *BidiResponse: PC_FourHolePunchLeft {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_FourHolePunchLeft)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("FourHolesLeft")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_FourHolePunchRight
+*%=================================================================*%
+
+*Feature: PC_FourHolePunchRight {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_FourHolePunchRight {
+        *QueryString: "\Printer.Finishing.Punchings.PunchRight4pt:Installed"
+    } 
+
+    *BidiResponse: PC_FourHolePunchRight {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_FourHolePunchRight)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("FourHolesRight")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_FourHolePunchTop
+*%=================================================================*%
+
+*Feature: PC_FourHolePunchTop {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_FourHolePunchTop {
+        *QueryString: "\Printer.Finishing.Punchings.PunchTop4pt:Installed"
+    } 
+
+    *BidiResponse: PC_FourHolePunchTop {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_FourHolePunchTop)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("FourHolesTop")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_FourHolePunchBottom
+*%=================================================================*%
+
+*Feature: PC_FourHolePunchBottom {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_FourHolePunchBottom {
+        *QueryString: "\Printer.Finishing.Punchings.PunchBottom4pt:Installed"
+    } 
+
+    *BidiResponse: PC_FourHolePunchBottom {
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_FourHolePunchBottom)
+    }
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+    *Option: Installed {
+        *BidiValue: STRING("FourHolesBottom")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray2
+*%=================================================================*%
+*Feature: PC_OptionalTray2
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray2
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray002:Installed"
+    }
+    *BidiResponse: PC_OptionalTray2
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray2)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+
+*%=================================================================*%
+*%     PC_OptionalTray3
+*%=================================================================*%
+*Feature: PC_OptionalTray3 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray3 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray003:Installed"
+    }
+    *BidiResponse: PC_OptionalTray3 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray3)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray4
+*%=================================================================*%
+*Feature: PC_OptionalTray4 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray4 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray005:Installed"
+    }
+    *BidiResponse: PC_OptionalTray4 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray4)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray5
+*%=================================================================*%
+*Feature: PC_OptionalTray5 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray5 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray006:Installed"
+    }
+    *BidiResponse: PC_OptionalTray5 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray5)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray6
+*%=================================================================*%
+*Feature: PC_OptionalTray6 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray6 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray007:Installed"
+    }
+    *BidiResponse: PC_OptionalTray6 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray6)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray7
+*%=================================================================*%
+*Feature: PC_OptionalTray7 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray7 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray008:Installed"
+    }
+    *BidiResponse: PC_OptionalTray7 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray7)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray8
+*%=================================================================*%
+*Feature: PC_OptionalTray8 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray8 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray009:Installed"
+    }
+    *BidiResponse: PC_OptionalTray8 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray8)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray9
+*%=================================================================*%
+*Feature: PC_OptionalTray9 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray9 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray010:Installed"
+    }
+    *BidiResponse: PC_OptionalTray9 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray9)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalTray10
+*%=================================================================*%
+*Feature: PC_OptionalTray10 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalTray10 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray011:Installed"
+    }
+    *BidiResponse: PC_OptionalTray10 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalTray10)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_OptionalEnvelopeFeeder
+*%=================================================================*%
+*Feature: PC_OptionalEnvelopeFeeder 
+{
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_OptionalEnvelopeFeeder 
+    {
+        *QueryString: "\Printer.Layout.InputBins.Tray004:Installed"
+    }
+    *BidiResponse: PC_OptionalEnvelopeFeeder 
+    {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_OptionalEnvelopeFeeder)
+    }
+    
+    *Option: NotInstalled 
+    {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed 
+    {
+        *BidiValue: STRING("true")
+    }
+}
+
+
+*%==============================================================================
+*%                  		     Output Bin                  					
+*%==============================================================================
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin1
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin1 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin1 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin1:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin1 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin1)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin2
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin2 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin2 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin2:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin2 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin2)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin3
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin3 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin3 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin3:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin3 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin3)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin4
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin4 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin4 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin4:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin4 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin4)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin5
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin5 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin5 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin5:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin5 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin5)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin6
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin6 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin6 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin6:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin6 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin6)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin7
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin7 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin7 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin7:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin7 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin7)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin8
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin8 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin8 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin8:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin8 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin8)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin9
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin9 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin9 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin9:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin9 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin9)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin10
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin10 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin10 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin10:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin10 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin10)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin11
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin11 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin11 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin11:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin11 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin11)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+	
+	*Option: PC_AlternateBinFaceUp {
+        *BidiValue: STRING("face-up")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+}
+
+*%=================================================================*%
+*%     PC_BIDIOptionalOutputbin12
+*%=================================================================*%
+*Feature: PC_BIDIOptionalOutputbin12 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOptionalOutputbin12 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin12:Name"
+    }
+    *BidiResponse: PC_BIDIOptionalOutputbin12 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOptionalOutputbin12)
+    }
+    
+    *Option: PC_StandardBin {
+        *BidiValue: STRING("Bin0")
+    }
+
+    *Option: PC_EngineOptionalBin1 {
+        *BidiValue: STRING("Engine-optional1")
+    }
+
+    *Option: PC_OutputBin1 {
+        *BidiValue: STRING("Mailbox1")
+    }
+
+    *Option: PC_OutputBin2 {
+        *BidiValue: STRING("Mailbox2")
+    }
+
+    *Option: PC_OutputBin3 {
+        *BidiValue: STRING("Mailbox3")
+    }
+
+    *Option: PC_OutputBin4 {
+        *BidiValue: STRING("Mailbox4")
+    }
+
+    *Option: PC_OutputBin5 {
+        *BidiValue: STRING("Mailbox5")
+    }
+
+    *Option: PC_OutputBin6 {
+        *BidiValue: STRING("Mailbox6")
+    }
+
+    *Option: PC_OutputBin7 {
+        *BidiValue: STRING("Mailbox7")
+    }
+
+    *Option: PC_OutputBin8 {
+        *BidiValue: STRING("Mailbox8")
+    }
+
+    *Option: PC_STACKER {
+        *BidiValue: STRING("Stacker1")
+    }
+
+    *Option: PC_SEPERATOR {
+        *BidiValue: STRING("Bin2")
+    }
+
+    *Option: PC_COLLATOR {
+        *BidiValue: STRING("Bin1")
+    }
+
+    *Option: PC_FACEUP {
+        *BidiValue: STRING("face-up")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery1
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery1 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery1 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin1:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery1 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery1)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery2
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery2 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery2 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin2:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery2 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery2)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery3
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery3 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery3 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin3:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery3 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery3)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery4
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery4 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery4 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin4:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery4 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery4)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery5
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery5 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery5 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin5:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery5 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery5)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery6
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery6 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery6 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin6:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery6 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery6)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery7
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery7 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery7 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin7:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery7 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery7)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery8
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery8 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery8 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin8:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery8 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery8)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery9
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery9 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery9 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin9:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery9 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery9)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery10
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery10 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery10 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin10:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery10 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery10)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery11
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery11 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery11 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin11:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery11 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery11)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputPageDelivery12
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputPageDelivery12 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputPageDelivery12 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin12:PageDelivery"
+    }
+    *BidiResponse: PC_BIDIMediaOutputPageDelivery12 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputPageDelivery12)
+    }
+    
+    *Option: FACEUP {
+        *BidiValue: STRING("FaceUp")
+    }
+
+    *Option: FACEDOWN {
+        *BidiValue: STRING("FaceDown")
+    }
+
+    *Option: BOTH {
+        *BidiValue: STRING("FaceUpOrFaceDown")
+    }
+
+}
+
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit1
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit1 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit1 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin1:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit1 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit1)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("Mailbox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit2
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit2 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit2 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin2:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit2 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit2)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit3
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit3 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit3 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin3:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit3 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit3)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit4
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit4 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit4 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin4:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit4 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit4)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit5
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit5 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit5 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin5:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit5 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit5)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit6
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit6 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit6 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin6:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit6 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit6)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit7
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit7 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit7 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin7:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit7 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit7)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit8
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit8 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit8 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin8:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit8 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit8)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit9
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit9 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit9 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin9:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit9 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit9)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit10
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit10 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit10 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin10:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit10 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit10)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit11
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit11 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit11 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin11:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit11 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit11)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIOutputModeUnit12
+*%=================================================================*%
+*Feature: PC_BIDIOutputModeUnit12 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIOutputModeUnit12 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin12:OpMode"
+    }
+    *BidiResponse: PC_BIDIOutputModeUnit12 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIOutputModeUnit12)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("None")
+    }
+
+    *Option: MailBox {
+        *BidiValue: STRING("MailBox")
+    }
+
+    *Option: Stacker {
+        *BidiValue: STRING("Stacker")
+    }
+
+    *Option: FunctionSeparator {
+        *BidiValue: STRING("FunctionSeparator")
+    }
+
+    *Option: JobCollator {
+        *BidiValue: STRING("JobCollator")
+    }
+
+    *Option: JobSeparator {
+        *BidiValue: STRING("JobSeparator")
+    }
+
+}
+
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit1
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit1 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit1 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin1:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit1 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit1)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit2
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit2 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit2 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin2:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit2 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit2)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit3
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit3 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit3 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin3:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit3 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit3)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit4
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit4 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit4 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin4:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit4 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit4)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit5
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit5 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit5 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin5:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit5 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit5)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit6
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit6 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit6 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin6:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit6 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit6)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit7
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit7 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit7 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin7:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit7 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit7)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit8
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit8 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit8 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin8:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit8 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit8)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit9
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit9 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit9 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin9:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit9 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit9)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit10
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit10 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit10 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin10:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit10 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit10)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit11
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit11 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit11 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin11:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit11 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit11)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     PC_BIDIMediaOutputFoldUnit12
+*%=================================================================*%
+*Feature: PC_BIDIMediaOutputFoldUnit12 {
+
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: PC_BIDIMediaOutputFoldUnit12 {
+        *QueryString: "\Printer.Finishing.OutputBins.Bin12:Booklet"
+    }
+    *BidiResponse: PC_BIDIMediaOutputFoldUnit12 {
+    
+        *ResponseType: BIDI_STRING
+        *ResponseData: ENUM_OPTION (PC_BIDIMediaOutputFoldUnit12)
+    }
+    
+    *Option: NotInstalled {
+        *BidiValue: STRING("false")
+    }
+
+    *Option: Installed {
+        *BidiValue: STRING("true")
+    }
+
+}
+
+*%=================================================================*%
+*%     Product_CID
+*%=================================================================*%
+*Feature: Product_CID
+{
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: Product_CID
+    {
+            *QueryString: "\Printer.DeviceInfo:CompatibleId"
+    }
+
+    *BidiResponse: Product_CID
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(Product_CID)
+    }
+	*Option: 1284_CID_HPLJPCLMSMV1
+	{
+        *BidiValue: STRING("1284_CID_HPLJPCLMSMV1")
+	}
+	*Option: 1284_CID_HPLJPDLV1
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLV1")
+	}
+    *Option: 1284_CID_HPIJVIPAV9
+	{
+        *%Old OPA - 3M
+        *BidiValue: STRING("1284_CID_HPIJVIPAV9")
+	}
+    *% PC0.72 CID *%
+    *Option: 1284_CID_HPIJCCBV1
+	{
+        *BidiValue: STRING("1284_CID_HPIJCCBV1")
+	}
+    *Option: 1284_CID_HPIJCCAV1
+	{
+        *BidiValue: STRING("1284_CID_HPIJCCAV1")
+	}
+    *Option: 1284_CID_HPIJOPAV1
+	{
+        *BidiValue: STRING("1284_CID_HPIJOPAV1")
+	}
+    *Option: 1284_CID_HPIJOPBV1
+	{
+        *BidiValue: STRING("1284_CID_HPIJOPBV1")
+	}
+    *Option: 1284_CID_HPLJPCLMSCV2
+	{
+        *BidiValue: STRING("1284_CID_HPLJPCLMSCV2")
+	}
+    *Option: 1284_CID_HPLJPCLMSMV2
+	{
+        *BidiValue: STRING("1284_CID_HPLJPCLMSMV2")
+	}
+    *Option: 1284_CID_HPLJPDLCV3
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLCV3")
+	}
+    *Option: 1284_CID_HPLJPDLMV3
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLMV3")
+	}
+    *Option: 1284_CID_HPLJPDLCV5
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLCV5")
+	}
+    *Option: 1284_CID_HPLJPDLMV5
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLMV5")
+	}
+    *Option: 1284_CID_HPLJPDLCV9
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLCV9")
+	}
+    *Option: 1284_CID_HPLJPDLMV9
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLMV9")
+	}
+    *Option: 1284_CID_HPIJPDLCV1
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLCV1")
+	}
+    *Option: 1284_CID_HPIJPDLMV1
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLMV1")
+	}
+    *Option: 1284_CID_HPIJPDLCV3
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLCV3")
+	}
+    *Option: 1284_CID_HPIJPDLMV3
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLMV3")
+	}
+    *Option: 1284_CID_HPIJPDLCV5
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLCV5")
+	}
+    *Option: 1284_CID_HPIJPDLMV5
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLMV5")
+	}
+    *Option: 1284_CID_HPIJPDLCV9
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLCV9")
+	}
+    *Option: 1284_CID_HPIJPDLMV9
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLMV9")
+	}
+    *Option: 1284_CID_HPLJPDLCME
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLCME")
+	}
+    *Option: 1284_CID_HPLJPDLMME
+	{
+        *BidiValue: STRING("1284_CID_HPLJPDLMME")
+	}
+    *Option: 1284_CID_HPIJPDLCME
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLCME")
+	}
+    *Option: 1284_CID_HPIJPDLMME
+	{
+        *BidiValue: STRING("1284_CID_HPIJPDLMME")
+	}
+    *Option: Product_Unknown
+	{
+        *BidiValue: STRING("")
+	}	
+}
+
+*%=================================================================*%
+*%     Product_ModelName
+*%=================================================================*%
+*Feature: Product_Model
+{
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: Product_Model
+    {
+            *QueryString: "\Printer.DeviceInfo:ModelName"
+    }
+
+    *BidiResponse: Product_Model
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(Product_Model)
+    }
+	*Option: Product_Manhattan1
+	{
+        *BidiValue: STRING("HP OfficeJet Pro 9010 series")
+	}
+	*Option: Product_Manhattan2
+	{
+        *BidiValue: STRING("HP OfficeJet Pro 9020 series")
+	}
+	*Option: Product_Manhattan3
+	{
+        *BidiValue: STRING("HP OfficeJet 9010 series")
+	}
+}
+*%=================================================================*%
+*%     Product_Model_FDNR
+*%=================================================================*%
+*Feature: Product_Model_FDNR
+{
+    *FeatureType: PRINTER_PROPERTY
+    *BidiQuery: Product_Model_FDNR
+    {
+            *QueryString: "\Printer.DeviceInfo:ModelName"
+    }
+
+    *BidiResponse: Product_Model_FDNR
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(Product_Model_FDNR)
+    }
+	*Option: FDNRPCLCFeed { *BidiValue: STRING("HP OfficeJet Pro 9010 series")}
+	*Option: FDNRPCLCFeed_1 { *BidiValue: STRING("HP OfficeJet Pro 9020 series")}
+	*Option: FDNRPCLCFeed_2 { *BidiValue: STRING("HP OfficeJet 9010 series")}
+    *Option: FDNR6 { *BidiValue: STRING("HP Color LaserJet Flow E87640")}
+    *Option: FDNR6_1 { *BidiValue: STRING("HP Color LaserJet MFP E87650")}
+    *Option: FDNR6_2 { *BidiValue: STRING("HP Color LaserJet Flow E87650")}
+    *Option: FDNR6_3 {*BidiValue: STRING("HP Color LaserJet MFP E87660")}
+    *Option: FDNR6_4 { *BidiValue: STRING("HP Color LaserJet Flow E87660")}
+    *Option: FDNR6_5{ *BidiValue: STRING("HP LaserJet MFP E72835")}
+    *Option: FDNR6_6{*BidiValue: STRING("HP Color LaserJet MFP E77822")}
+    *Option: FDNR6_7{*BidiValue: STRING("HP Color LaserJet Flow E77822")  }
+    *Option: FDNR6_8{*BidiValue: STRING("HP Color LaserJet MFP E77825")  }
+    *Option: FDNR6_9{*BidiValue: STRING("HP Color LaserJet Flow E77825")}
+    *Option: FDNR6_10{*BidiValue: STRING("HP Color LaserJet MFP E77830")}
+    *Option: FDNR6_11{*BidiValue: STRING("HP Color LaserJet Flow E77830")}
+    *Option: FDNR6_12{*BidiValue: STRING("HP LaserJet MFP E72525")}
+    *Option: FDNR6_13{*BidiValue: STRING("HP LaserJet Flow MFP E72525")}
+    *Option: FDNR6_14{*BidiValue: STRING("HP LaserJet MFP E72530")}
+    *Option: FDNR6_15{*BidiValue: STRING("HP LaserJet Flow MFP E72530")}
+    *Option: FDNR6_16{*BidiValue: STRING("HP LaserJet MFP E72535")}
+    *Option: FDNR6_17{*BidiValue: STRING("HP LaserJet Flow MFP E72535")}
+    *%Jasper Gems2_0
+    *Option: FDNR6_18{*BidiValue: STRING("HP Color LaserJet MFP E877")}
+    *Option: FDNR6_19{*BidiValue: STRING("HP Color LaserJet Flow MFP E877")}
+    *Option: FDNR6_20{*BidiValue: STRING("HP Color LaserJet MFP E87740")}
+    *Option: FDNR6_21{*BidiValue: STRING("HP Color LaserJet Flow E87740")}
+    *Option: FDNR6_22{*BidiValue: STRING("HP Color LaserJet MFP E87750")}
+    *Option: FDNR6_23{*BidiValue: STRING("HP Color LaserJet Flow E87750")}
+    *Option: FDNR6_24{*BidiValue: STRING("HP Color LaserJet MFP E87760")}
+    *Option: FDNR6_25{*BidiValue: STRING("HP Color LaserJet Flow E87760")}
+    *Option: FDNR6_26{*BidiValue: STRING("HP Color LaserJet MFP E87770")}
+    *Option: FDNR6_27{*BidiValue: STRING("HP Color LaserJet Flow E87770")}
+    *%Moonstone
+    *Option: FDNR6_28{*BidiValue: STRING("HP LaserJet MFP E826")}
+    *Option: FDNR6_29{*BidiValue: STRING("HP LaserJet Flow MFP E826")}
+    *Option: FDNR6_30{*BidiValue: STRING("HP LaserJet MFP E82650")}
+    *Option: FDNR6_31{*BidiValue: STRING("HP LaserJet Flow E82650")}
+    *Option: FDNR6_32{*BidiValue: STRING("HP LaserJet MFP E82660")}
+    *Option: FDNR6_33{*BidiValue: STRING("HP LaserJet Flow E82660")}
+    *Option: FDNR6_34{*BidiValue: STRING("HP LaserJet MFP E82670")}
+    *Option: FDNR6_35{*BidiValue: STRING("HP LaserJet Flow E82670")}
+    *%Citrine
+    *Option: FDNR6_36{*BidiValue: STRING("HP Color LaserJet MFP E786")}
+    *Option: FDNR6_37{*BidiValue: STRING("HP Color LaserJet Flow MFP E786")}
+    *Option: FDNR6_38{*BidiValue: STRING("HP Color LaserJet MFP E78625")}
+    *Option: FDNR6_39{*BidiValue: STRING("HP Color LaserJet Flow E78625")}
+    *Option: FDNR6_40{*BidiValue: STRING("HP Color LaserJet MFP E78630")}
+    *Option: FDNR6_41{*BidiValue: STRING("HP Color LaserJet Flow E78630")}
+    *Option: FDNR6_42{*BidiValue: STRING("HP Color LaserJet MFP E78635")}
+    *Option: FDNR6_43{*BidiValue: STRING("HP Color LaserJet Flow E78635")}
+    *%Pearl
+    *Option: FDNR6_44{*BidiValue: STRING("HP LaserJet MFP E731")}
+    *Option: FDNR6_45{*BidiValue: STRING("HP LaserJet Flow MFP E731")}
+    *Option: FDNR6_46{*BidiValue: STRING("HP LaserJet MFP E73130")}
+    *Option: FDNR6_47{*BidiValue: STRING("HP LaserJet Flow E73130")}
+    *Option: FDNR6_48{*BidiValue: STRING("HP LaserJet MFP E73135")}
+    *Option: FDNR6_49{*BidiValue: STRING("HP LaserJet Flow E73135")}
+    *Option: FDNR6_50{*BidiValue: STRING("HP LaserJet MFP E73140")}
+    *Option: FDNR6_51{*BidiValue: STRING("HP LaserJet Flow E73140")}
+    *%Ammolite
+    *Option: FDNRGeneric{*BidiValue: STRING("HP Color LaserJet MFP E785")}
+    *Option: FDNRGeneric_2{*BidiValue: STRING("HP Color LaserJet MFP E78523")}
+    *Option: FDNRGeneric_3{*BidiValue: STRING("HP Color LaserJet MFP E78528")}
+    *%Morganite
+    *Option: FDNRGeneric_4{*BidiValue: STRING("HP LaserJet MFP E730")}
+    *Option: FDNRGeneric_5{*BidiValue: STRING("HP LaserJet MFP E73025")}
+    *Option: FDNRGeneric_6{*BidiValue: STRING("HP LaserJet MFP E73030")}
+
+    *%Edison
+    *Option: FDNRGeneric_7{*BidiValue: STRING("HP Color LaserJet 5700")}
+                        
+    *%Edison Managed    
+    *Option: FDNRGeneric_8{*BidiValue: STRING("HP Color LaserJet X557")}
+                        
+    *%Curie             
+    *Option: FDNRGeneric_9{*BidiValue: STRING("HP Color LaserJet MFP 5800")}
+    *Option: FDNRGeneric_10{*BidiValue: STRING("HP Color LaserJet Flow 5800")}
+                        
+    *%Curie Managed     
+    *Option: FDNRGeneric_11{*BidiValue: STRING("HP Color LaserJet MFP X579")}
+    *Option: FDNRGeneric_12{*BidiValue: STRING("HP Color LaserJet Flow X579")}
+                 
+    *%Hopper
+    *Option: FDNR12{*BidiValue: STRING("HP Color LaserJet 6700")}
+    *Option: FDNR12_2{*BidiValue: STRING("HP Color LaserJet 6701")}
+                 
+    *%Hopper Managed
+    *Option: FDNR12_3{*BidiValue: STRING("HP Color LaserJet X654")}
+    *Option: FDNR12_4{*BidiValue: STRING("HP Color LaserJet X65455")}
+    *Option: FDNR12_5{*BidiValue: STRING("HP Color LaserJet X65465")}
+                   
+    *%Bell     
+    *Option: FDNR12_6{*BidiValue: STRING("HP Color LaserJet MFP 6800")}
+    *Option: FDNR12_7{*BidiValue: STRING("HP Color LaserJet Flow 6800")}
+    *Option: FDNR12_8{*BidiValue: STRING("HP Color LaserJet MFP 6801")}
+                 
+    *%Bell Managed
+    *Option: FDNR12_9{*BidiValue: STRING("HP Color LaserJet MFP X677")}
+    *Option: FDNR12_10{*BidiValue: STRING("HP Color LaserJet Flow X677")}
+    *Option: FDNR12_11{*BidiValue: STRING("HP Color LaserJet MFP X67765")}
+    *Option: FDNR12_12{*BidiValue: STRING("HP Color LaserJet Flow X67765")}
+    *Option: FDNR12_13{*BidiValue: STRING("HP Color LaserJet MFP X67755")}
+    *Option: FDNR12_14{*BidiValue: STRING("HP Color LaserJet Flow X67755")}
+
+    *Option: FDNR1_1 {*BidiValue: STRING("HP Color LaserJet Pro M479")}
+    *Option: FDNR1_2 {*BidiValue: STRING("HP Color LaserJet Pro M478f-9f")}
+    *Option: FDNR1_3 {*BidiValue: STRING("HP LaserJet Pro M428-M429")}
+    *Option: FDNR1_4 {*BidiValue: STRING("HP LaserJet Pro M329")}
+    *Option: FDNR1_5 {*BidiValue: STRING("HP LaserJet Pro M428f-M429f")}
+    *Option: FDNR1_6 {*BidiValue: STRING("HP LaserJet Pro M304-M305")}
+    *Option: FDNR1_7 {*BidiValue: STRING("HP LaserJet Pro M404-M405")}
+    *Option: FDNR1_8 {*BidiValue: STRING("HP Color LaserJet Pro M453")}
+    *Option: FDNR1_9 {*BidiValue: STRING("HP Color LaserJet Pro M454")}
+    *Option: FDNR1_10 {*BidiValue: STRING("HP Color LaserJet Pro M456")}
+    *Option: FDNR1_11 {*BidiValue: STRING("HP Color LaserJet Pro M457")}
+    *Option: FDNR1_12 {*BidiValue: STRING("HP Color LaserJet Pro M458")}
+    *% Ulysses
+    *Option: FDNR1_13 {*BidiValue: STRING("HP Color LaserJet Pro 4201")}
+    *Option: FDNR1_14 {*BidiValue: STRING("HP Color LaserJet Pro 4202")}
+    *Option: FDNR1_15 {*BidiValue: STRING("HP Color LaserJet Pro 4203")}
+    *% Selene
+    *Option: FDNR1_16 {*BidiValue: STRING("HP Color LaserJet Pro MFP 4301")}
+    *Option: FDNR1_17 {*BidiValue: STRING("HP Color LaserJet Pro MFP 4302")}
+    *Option: FDNR1_18 {*BidiValue: STRING("HP Color LaserJet Pro MFP 4303")}
+    *Option: FDNRHorizon {*BidiValue: STRING("HP LaserJet M207-M212")}
+    *Option: FDNRHorizon_1 {*BidiValue: STRING("HP LaserJet M109-M112")}
+    *Option: FDNRHorizon_2 {*BidiValue: STRING("HP LaserJet MFP M232-M237")}
+    *Option: FDNRHorizon_3 {*BidiValue: STRING("HP LaserJet MFP M139-M142")}
+    
+}
+
+*%==============================================================================*%
+*%                          Easy Color Default                                     *%
+*%==============================================================================*%
+*Feature: EasyColorDefault
+{
+	*FeatureType: PRINTER_PROPERTY
+
+    *BidiQuery: EasyColorDefault
+    {
+            *QueryString: "\Printer.Configuration.EasyColorDefaultSupport:Installed"
+    }
+
+    *BidiResponse: EasyColorDefault
+    {
+            *ResponseType: BIDI_STRING
+            *ResponseData: ENUM_OPTION(EasyColorDefault)
+    }
+
+	*Option: ECOff
+	{
+		*BidiValue: STRING("ECOff")
+	}
+
+	*Option: ECConservative
+	{
+		*BidiValue: STRING("ECConservative")
+	}
+	*Option: ECOn
+	{
+		*BidiValue: STRING("ECAuto")
+	}
+}
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%

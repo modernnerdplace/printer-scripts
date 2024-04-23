@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bidi:Schema xmlns:bidi="http://schemas.microsoft.com/windows/2010/09/printing/usbbidi">
+  <!--Version 3.16-->
+  <Property name="Printer">
+    <Property name="Configuration">
+      <Property name="AdvanceImageControl">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.AdvanceImageControl:Installed;MultiStrCompString;GetSimplePrinterAttributes;hp-image-enhancement-support;advance-image-control=advance-image-control" drvPrinterEvent="true" />
+      </Property>
+      <Property name="RGBThemes">
+				<Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.RGBThemes:Installed;MultiStrCompString;GetSimplePrinterAttributes;hp-image-enhancement-support;rgb-color-themes=rgb-color-themes" drvPrinterEvent="true" />
+			</Property>
+			<Property name="CMYKThemes">
+				<Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.CMYKThemes:Installed;MultiStrCompString;GetSimplePrinterAttributes;hp-image-enhancement-support;cmyk-color-themes=cmyk-color-themes" drvPrinterEvent="true" />
+			</Property>
+      <!-- Query for Edge to Edge Support-->
+      <Property name="EdgetoEdge">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.EdgetoEdge:Installed;GetAttributeString;GetSimplePrinterAttributes;hp-edge-to-edge-support;01=true;00=false" drvPrinterEvent="true" />
+      </Property>
+      <Property name="AdvanceInkControl">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.AdvanceInkControl:Installed;MultiStrCompString;GetSimplePrinterAttributes;hp-image-enhancement-support;advance-ink-control=advance-ink-control" drvPrinterEvent="true" />
+      </Property>
+      <!-- Query for Tab Printing Support-->
+      <Property name="TabPrinting">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.TabPrinting:Installed;GetAttributeString;GetSimplePrinterAttributes;tabbed-printing-supported;01=true;00=false" drvPrinterEvent="true" />
+      </Property>
+      <Property name="EJA">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.EJA:Installed;GetAttributeString;GetSimplePrinterAttributes;hp-job-accounting-quota-supported;01=true;00=false" drvPrinterEvent="true" />
+      </Property>
+      <Property name="MediaType">
+        <!-- PCv1.0 -->
+        <!--1-10-->
+        <Property name="Type1">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type1:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;0" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type1:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;0" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type1:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;0" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type2">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type2:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;1" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type2:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;1" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type2:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;1" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type3">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type3:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;2" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type3:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;2" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type3:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;2" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type4">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type4:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;3" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type4:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;3" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type4:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;3" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type5">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type5:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;4" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type5:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;4" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type5:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;4" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type6">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type6:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;5" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type6:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;5" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type6:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;5" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type7">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type7:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;6" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type7:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;6" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type7:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;6" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type8">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type8:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;7" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type8:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;7" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type8:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;7" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type9">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type9:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;8" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type9:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;8" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type9:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;8" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type10">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type10:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;9" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type10:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;9" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type10:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;9" drvPrinterEvent="true"/>
+        </Property>
+        <!--11-20-->
+        <Property name="Type11">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type11:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;10" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type11:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;10" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type11:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;10" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type12">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type12:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;11" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type12:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;11" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type12:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;11" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type13">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type13:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;12" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type13:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;12" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type13:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;12" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type14">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type14:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;13" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type14:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;13" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type14:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;13" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type15">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type15:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;14" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type15:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;14" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type15:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;14" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type16">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type16:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;15" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type16:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;15" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type16:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;15" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type17">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type17:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;16" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type17:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;16" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type17:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;16" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type18">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type18:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;17" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type18:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;17" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type18:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;17" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type19">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type19:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;18" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type19:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;18" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type19:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;18" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type20">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type20:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;19" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type20:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;19" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type20:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;19" drvPrinterEvent="true"/>
+        </Property>
+        <!--21-30-->
+        <Property name="Type21">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type21:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;20" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type21:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;20" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type21:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;20" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type22">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type22:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;21" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type22:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;21" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type22:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;21" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type23">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type23:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;22" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type23:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;22" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type23:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;22" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type24">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type24:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;23" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type24:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;23" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type24:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;23" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type25">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type25:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;24" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type25:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;24" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type25:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;24" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type26">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type26:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;25" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type26:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;25" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type26:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;25" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type27">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type27:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;26" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type27:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;26" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type27:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;26" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type28">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type28:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;27" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type28:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;27" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type28:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;27" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type29">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type29:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;28" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type29:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;28" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type29:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;28" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type30">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type30:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;29" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type30:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;29" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type30:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;29" drvPrinterEvent="true"/>
+        </Property>
+        <!--31-40-->
+        <Property name="Type31">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type31:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;30" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type31:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;30" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type31:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;30" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type32">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type32:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;31" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type32:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;31" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type32:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;31" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type33">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type33:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;32" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type33:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;32" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type33:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;32" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type34">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type34:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;33" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type34:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;33" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type34:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;33" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type35">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type35:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;34" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type35:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;34" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type35:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;34" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type36">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type36:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;35" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type36:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;35" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type36:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;35" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type37">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type37:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;36" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type37:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;36" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type37:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;36" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type38">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type38:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;37" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type38:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;37" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type38:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;37" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type39">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type39:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;38" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type39:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;38" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type39:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;38" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type40">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type40:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;39" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type40:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;39" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type40:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;39" drvPrinterEvent="true"/>
+        </Property>
+        <!--41-51-->
+        <Property name="Type41">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type41:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;40" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type41:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;40" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type41:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;40" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type42">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type42:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;41" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type42:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;41" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type42:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;41" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type43">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type43:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;42" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type43:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;42" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type43:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;42" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type44">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type44:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;43" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type44:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;43" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type44:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;43" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type45">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type45:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;44" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type45:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;44" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type45:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;44" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type46">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type46:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;45" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type46:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;45" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type46:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;45" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type47">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type47:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;46" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type47:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;46" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type47:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;46" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type48">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type48:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;47" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type48:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;47" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type48:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;47" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type49">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type49:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;48" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type49:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;48" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type49:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;48" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type50">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type50:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;49" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type50:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;49" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type50:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;49" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type51">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type51:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;50" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type51:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;50" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type51:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;50" drvPrinterEvent="true"/>
+        </Property>
+        <!-- PC v0.72 Start -->
+        <!--52-61-->
+        <Property name="Type52">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type52:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;51" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type52:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;51" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type52:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;51" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type53">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type53:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;52" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type53:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;52" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type53:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;52" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type54">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type54:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;53" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type54:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;53" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type54:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;53" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type55">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type55:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;54" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type55:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;54" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type55:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;54" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type56">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type56:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;55" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type56:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;55" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type56:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;55" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type57">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type57:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;56" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type57:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;56" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type57:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;56" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type58">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type58:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;57" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type58:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;57" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type58:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;57" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type59">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type59:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;58" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type59:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;58" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type59:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;58" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type60">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type60:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;59" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type60:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;59" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type60:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;59" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="Type61">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type61:Supported;GetAttributeFromGroupBool;GetSimplePrinterAttributes;media-type-supported;60" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type61:Name;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;60" drvPrinterEvent="true"/>
+          <Value name="Name072" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.MediaType.Type61:Name072;GetAttributeFromGroup;GetSimplePrinterAttributes;media-type-supported;60" drvPrinterEvent="true"/>
+        </Property>
+        <!-- PC v0.72 End -->
+      </Property>
+      <Property name="DuplexUnit">
+        <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Configuration.DuplexUnit:Installed;MultiStrCompBool;GetSimplePrinterAttributes;sides-supported;two-sided-long-edge;two-sided-short-edge" drvPrinterEvent="true" />
+      </Property>
+      <Property name="DuplexByDefault">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.DuplexByDefault:Installed;GetAttributeString;GetSimplePrinterAttributes;hp-default-duplex-standard;01=true;00=false" drvPrinterEvent="true" />
+      </Property>
+      <Property name="StorageMedia">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.StorageMedia:Installed;GetAttributeString;GetSimplePrinterAttributes;hp-save-job-storage-available;01=true;00=false" drvPrinterEvent="true" />
+      </Property>
+      <Property name="JobStorage">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.JobStorage:Installed;GetAttributeString;GetSimplePrinterAttributes;hp-save-job-storage-available;01=true;00=false" drvPrinterEvent="true"/>
+      </Property>
+      <Property name="SecureJobStorage">
+        <!--Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.SecureJobStorage:Supported;GetAttributeString;GetSimplePrinterAttributes;hp-save-job-encryption-supported;aes128=aes128,aes256;aes256=aes128,aes256" drvPrinterEvent="true" /-->
+        <Value name="IsAlphaNumeric" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.SecureJobStorage:IsAlphaNumeric;GetAttributeString;GetSimplePrinterAttributes;hp-save-job-password-type;numeric=false;alphanumeric=true" drvPrinterEvent="true" />
+        <Value name="PasswordMaxLength" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.SecureJobStorage:PasswordMaxLength;GetAttributeString;GetSimplePrinterAttributes;hp-save-job-password-max-length" drvPrinterEvent="true" />
+        <Value name="PasswordMinLength" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.SecureJobStorage:PasswordMinLength;GetAttributeString;GetSimplePrinterAttributes;hp-save-job-password-min-length" drvPrinterEvent="true" />
+      </Property>
+      <Property name="Resolution">
+        <Value name="150dpi" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Capabilities.Resolution:150dpi;MultiStrCompString;GetSimplePrinterAttributes;printer-resolution-supported;150x150dpi=150" drvPrinterEvent="true" />
+        <Value name="300dpi" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Capabilities.Resolution:300dpi;MultiStrCompString;GetSimplePrinterAttributes;printer-resolution-supported;300x300dpi=300" drvPrinterEvent="true" />
+        <Value name="600dpi" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Capabilities.Resolution:600dpi;MultiStrCompString;GetSimplePrinterAttributes;printer-resolution-supported;600x600dpi=600" drvPrinterEvent="true" />
+        <Value name="1200dpi" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Capabilities.Resolution:1200dpi;MultiStrCompString;GetSimplePrinterAttributes;printer-resolution-supported;1200x1200dpi=1200" drvPrinterEvent="true" />
+      </Property>
+      <Property name="PaperSize">
+        
+        <Value name="A3" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:A3;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_a3_297x420mm=iso_a3_297x420mm" drvPrinterEvent="true" />
+        <Value name="A4" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:A4;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_a4_210x297mm=iso_a4_210x297mm" drvPrinterEvent="true" />
+        <Value name="Letter" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Letter;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_letter_8.5x11in=na_letter_8.5x11in" drvPrinterEvent="true" />
+        <Value name="Legal" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Legal;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_legal_8.5x14in=na_legal_8.5x14in" drvPrinterEvent="true" />
+        <Value name="Executive" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Executive;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_executive_7.25x10.5in=na_executive_7.25x10.5in" drvPrinterEvent="true" />
+        <Value name="Statement" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Statement;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_invoice_5.5x8.5in=na_invoice_5.5x8.5in" drvPrinterEvent="true" />
+        <Value name="Oficio8Dot5x13" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Oficio8Dot5x13;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_foolscap_8.5x13in=na_foolscap_8.5x13in" drvPrinterEvent="true" />
+        <Value name="11x17" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:11x17;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_ledger_11x17in=na_ledger_11x17in" drvPrinterEvent="true" />
+        <Value name="12x18" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:12x18;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_arch-b_12x18in=na_arch-b_12x18in" drvPrinterEvent="true" />
+        <Value name="3x5" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:3x5;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_index-3x5_3x5in=na_index-3x5_3x5in" drvPrinterEvent="true" />
+        <Value name="4x6" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:4x6;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_index-4x6_4x6in=na_index-4x6_4x6in" drvPrinterEvent="true" />
+        <Value name="5x7" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:5x7;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_5x7_5x7in=na_5x7_5x7in" drvPrinterEvent="true" />
+        <Value name="5x8" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:5x8;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_index-5x8_5x8in=na_index-5x8_5x8in" drvPrinterEvent="true" />
+        <Value name="A5" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:A5;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_a5_148x210mm=iso_a5_148x210mm" drvPrinterEvent="true" />
+        <Value name="A6" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:A6;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_a6_105x148mm=iso_a6_105x148mm" drvPrinterEvent="true" />
+        <Value name="RA3" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:RA3;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_ra3_305x430mm=iso_ra3_305x430mm" drvPrinterEvent="true" />
+        <Value name="SRA3" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:SRA3;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_sra3_320x450mm=iso_sra3_320x450mm" drvPrinterEvent="true" />
+        <Value name="RA4" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:RA4;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_ra4_215x305mm=iso_ra4_215x305mm" drvPrinterEvent="true" />
+        <Value name="SRA4" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:SRA4;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_sra4_225x320mm=iso_sra4_225x320mm" drvPrinterEvent="true" />
+        <Value name="B4" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:B4;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jis_b4_257x364mm=jis_b4_257x364mm" drvPrinterEvent="true" />
+        <Value name="B5" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:B5;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jis_b5_182x257mm=jis_b5_182x257mm" drvPrinterEvent="true" />
+        <Value name="B6" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:B6;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jis_b6_128x182mm=jis_b6_128x182mm" drvPrinterEvent="true" />
+        <Value name="L9x13cm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:L9x13cm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;oe_photo-l_3.5x5in=oe_photo-l_3.5x5in" drvPrinterEvent="true" />
+        <Value name="10x15cm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:10x15cm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;om_small-photo_100x150mm=om_small-photo_100x150mm" drvPrinterEvent="true" />
+        <Value name="Oficio216x340mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Oficio216x340mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_oficio_8.5x13.4in=na_oficio_8.5x13.4in" drvPrinterEvent="true" />
+        <Value name="8K270x390mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:8K270x390mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;om_8k_270x390mm=om_8k_270x390mm" drvPrinterEvent="true" />
+        <Value name="16K195x270mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:16K195x270mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;om_16k_195x270mm=om_16k_195x270mm" drvPrinterEvent="true" />
+        <Value name="8K260x368mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:8K260x368mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;om_8k_260x368mm=om_8k_260x368mm" drvPrinterEvent="true" />
+        <Value name="16K184x260mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:16K184x260mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;om_16k_184x260mm=om_16k_184x260mm" drvPrinterEvent="true" />
+        <Value name="8K273x394mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:8K273x394mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;roc_8k_10.75x15.5in=roc_8k_10.75x15.5in" drvPrinterEvent="true" />
+        <Value name="16K197x273mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:16K197x273mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;roc_16k_7.75x10.75in=roc_16k_7.75x10.75in" drvPrinterEvent="true" />
+        <Value name="JapanesePostcard" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:JapanesePostcard;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jpn_hagaki_100x148mm=jpn_hagaki_100x148mm" drvPrinterEvent="true" />
+        <Value name="DoubleJapanPostcardRotated" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:DoubleJapanPostcardRotated;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jpn_oufuku_148x200mm=jpn_oufuku_148x200mm" drvPrinterEvent="true" />
+        <Value name="Envelope9" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Envelope9;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_number-9_3.875x8.875in=na_number-9_3.875x8.875in" drvPrinterEvent="true" />
+        <Value name="Envelope10" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:Envelope10;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_number-10_4.125x9.5in=na_number-10_4.125x9.5in" drvPrinterEvent="true" />
+        <Value name="EnvelopeMonarch" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeMonarch;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_monarch_3.875x7.5in=na_monarch_3.875x7.5in" drvPrinterEvent="true" />
+        <Value name="EnvelopeB5" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeB5;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_b5_176x250mm=iso_b5_176x250mm" drvPrinterEvent="true" />
+        <Value name="EnvelopeC5" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeC5;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_c5_162x229mm=iso_c5_162x229mm" drvPrinterEvent="true" />
+        <Value name="EnvelopeC6" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeC6;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_c6_114x162mm=iso_c6_114x162mm" drvPrinterEvent="true" />
+        <Value name="EnvelopeDL" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeDL;MultiStrCompString;GetSimplePrinterAttributes;media-supported;iso_dl_110x220mm=iso_dl_110x220mm" drvPrinterEvent="true" />
+        <Value name="EnvelopeChou3" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeChou3;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jpn_chou3_120x235mm=jpn_chou3_120x235mm" drvPrinterEvent="true" />
+        <Value name="EnvelopeChou4" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeChou4;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jpn_chou4_90x205mm=jpn_chou4_90x205mm" drvPrinterEvent="true" />
+        <Value name="2L127x178mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:2L127x178mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;jpn_photo-2l_127x177.8mm=jpn_photo-2l_127x177.8mm" drvPrinterEvent="true" />
+        <Value name="4x5in" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:4x5in;MultiStrCompString;GetSimplePrinterAttributes;media-supported;oe_photo_4x5in=oe_photo_4x5in" drvPrinterEvent="true" />
+        <Value name="4x12in" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:4x12in;MultiStrCompString;GetSimplePrinterAttributes;media-supported;oe_photo_4x12in=oe_photo_4x12in" drvPrinterEvent="true" />
+        <Value name="6And3QuarterEnvelope" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:6And3QuarterEnvelope;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_personal_3.625x6.5in=na_personal_3.625x6.5in" drvPrinterEvent="true" />
+        <Value name="8x10in" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:8x10in;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_govt-letter_8x10in=na_govt-letter_8x10in" drvPrinterEvent="true" />
+        <Value name="EnvelopeA2111x146mm" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:EnvelopeA2111x146mm;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_a2_4.375x5.75in=na_a2_4.375x5.75in" drvPrinterEvent="true" />
+        <Value name="11x14in" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:11x14in;MultiStrCompString;GetSimplePrinterAttributes;media-supported;na_edp_11x14in=na_edp_11x14in" drvPrinterEvent="true" />
+        <Value name="5x5in" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PaperSize:5x5in;MultiStrCompString;GetSimplePrinterAttributes;media-supported;oe_photo_5x5in=oe_photo_5x5in" drvPrinterEvent="true" />
+      </Property>
+      <Property name="PrintContract">
+        <Value name="VersionMajor" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintContract:VersionMajor;GetAttributeString;GetSimplePrinterAttributes;hp-pc-version-major" drvPrinterEvent="true" />
+        <Value name="VersionMinor" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintContract:VersionMinor;GetAttributeString;GetSimplePrinterAttributes;hp-pc-version-minor" drvPrinterEvent="true" />
+      </Property>
+      <Property name="PrintQuality">
+        <Property name="Draft">
+          <Value name="DraftDPI" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Draft:DraftDPI;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;optimal-resolution;300=300,600=600,1200=1200;string" drvPrinterEvent="true" />
+          <Value name="DraftDisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Draft:DraftDisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003;string" drvPrinterEvent="true" />
+          <Value name="DraftHintTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Draft:DraftHintTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015;string" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Normal">
+          <Value name="NormalDPI" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Normal:NormalDPI;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;optimal-resolution;300=300,600=600,1200=1200;string" drvPrinterEvent="true" />
+          <Value name="NormalDisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Normal:NormalDisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003;string" drvPrinterEvent="true" />
+          <Value name="NormalHintTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Normal:NormalHintTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015;string" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Best">
+          <Value name="BestDPI" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Best:BestDPI;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;optimal-resolution;300=300,600=600,1200=1200;string" drvPrinterEvent="true" />
+          <Value name="BestDisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Best:BestDisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003;string" drvPrinterEvent="true" />
+          <Value name="BestHintTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Best:BestHintTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015;string" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Max">
+          <Value name="MaxDPI" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Max:MaxDPI;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;optimal-resolution;300=300,600=600,1200=1200;string" drvPrinterEvent="true" />
+          <Value name="MaxDisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Max:MaxDisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003;string" drvPrinterEvent="true" />
+          <Value name="MaxHintTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Max:MaxHintTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015;string" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Economode">
+          <Value name="EcoDPI" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Economode:EcoDPI;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;optimal-resolution;300=300,600=600,1200=1200;string" drvPrinterEvent="true" />
+          <Value name="EcoSupported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Economode:EcoSupported;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003;string" drvPrinterEvent="true" />
+          <Value name="EcoHintTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.Economode:EcoHintTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015;string" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StandardType1">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType1:Supported;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;type;3=true,4=true,5=true,10=true,11=true;string" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType1:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;type;3=Draft,4=Normal,5=High,10=Max,11=Economode;string" drvPrinterEvent="true"/>
+          <Value name="OptimalResolution" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType1:OptimalResolution;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;optimal-resolution;150=150,300=300,600=600,1200=1200;string" drvPrinterEvent="true"/>
+          <Value name="ImageTechnology" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType1:ImageTechnology;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015,4020=4020,4030=4030,4040=4040,4050=4050,4060=4060,4070=4070,4080=4080,4090=4090,5000=5000,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="DisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType1:DisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003,3020=3020,3030=3030,3035=3035,3040=3040,3050=3050,3060=3060,3070=3070,3080=3080,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="PQMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType1:PQMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;1;pq-mode;1=1,2=2,3=3,4=4,5=5,6=6,7=7;string" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="StandardType2">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType2:Supported;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;type;3=true,4=true,5=true,10=true,11=true;string" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType2:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;type;3=Draft,4=Normal,5=High,10=Max,11=Economode;string" drvPrinterEvent="true"/>
+          <Value name="OptimalResolution" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType2:OptimalResolution;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;optimal-resolution;150=150,300=300,600=600,1200=1200;string" drvPrinterEvent="true"/>
+          <Value name="ImageTechnology" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType2:ImageTechnology;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015,4020=4020,4030=4030,4040=4040,4050=4050,4060=4060,4070=4070,4080=4080,4090=4090,5000=5000,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="DisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType2:DisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003,3020=3020,3030=3030,3035=3035,3040=3040,3050=3050,3060=3060,3070=3070,3080=3080,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="PQMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType2:PQMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;2;pq-mode;1=1,2=2,3=3,4=4,5=5,6=6,7=7;string" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="StandardType3">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType3:Supported;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;type;3=true,4=true,5=true,10=true,11=true;string" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType3:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;type;3=Draft,4=Normal,5=High,10=Max,11=Economode;string" drvPrinterEvent="true"/>
+          <Value name="OptimalResolution" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType3:OptimalResolution;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;optimal-resolution;150=150,300=300,600=600,1200=1200;string" drvPrinterEvent="true"/>
+          <Value name="ImageTechnology" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType3:ImageTechnology;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015,4020=4020,4030=4030,4040=4040,4050=4050,4060=4060,4070=4070,4080=4080,4090=4090,5000=5000,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="DisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType3:DisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003,3020=3020,3030=3030,3035=3035,3040=3040,3050=3050,3060=3060,3070=3070,3080=3080,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="PQMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType3:PQMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;3;pq-mode;1=1,2=2,3=3,4=4,5=5,6=6,7=7;string" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="StandardType4">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType4:Supported;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;type;3=true,4=true,5=true,10=true,11=true;string" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType4:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;type;3=Draft,4=Normal,5=High,10=Max,11=Economode;string" drvPrinterEvent="true"/>
+          <Value name="OptimalResolution" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType4:OptimalResolution;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;optimal-resolution;150=150,300=300,600=600,1200=1200;string" drvPrinterEvent="true"/>
+          <Value name="ImageTechnology" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType4:ImageTechnology;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015,4020=4020,4030=4030,4040=4040,4050=4050,4060=4060,4070=4070,4080=4080,4090=4090,5000=5000,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="DisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType4:DisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003,3020=3020,3030=3030,3035=3035,3040=3040,3050=3050,3060=3060,3070=3070,3080=3080,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="PQMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType4:PQMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;4;pq-mode;1=1,2=2,3=3,4=4,5=5,6=6,7=7;string" drvPrinterEvent="true"/>
+        </Property>
+        <Property name="StandardType5">
+          <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType5:Supported;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;type;3=true,4=true,5=true,10=true,11=true;string" drvPrinterEvent="true"/>
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType5:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;type;3=Draft,4=Normal,5=High,10=Max,11=Economode;string" drvPrinterEvent="true"/>
+          <Value name="OptimalResolution" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType5:OptimalResolution;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;optimal-resolution;150=150,300=300,600=600,1200=1200;string" drvPrinterEvent="true"/>
+          <Value name="ImageTechnology" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType5:ImageTechnology;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;imaging-technology;2000=2000,2001=2001,2002=2002,2003=2003,2004=2004,2005=2005,4000=4000,4005=4005,4010=4010,4015=4015,4020=4020,4030=4030,4040=4040,4050=4050,4060=4060,4070=4070,4080=4080,4090=4090,5000=5000,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="DisplayTag" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType5:DisplayTag;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;display-string;1000=1000,1002=1002,1003=1003,1004=1004,1005=1005,3000=3000,3001=3001,3002=3002,3003=3003,3020=3020,3030=3030,3035=3035,3040=3040,3050=3050,3060=3060,3070=3070,3080=3080,3=3,4=4,5=5,10=10,11=11;string" drvPrinterEvent="true"/>
+          <Value name="PQMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.PrintQuality.StandardType5:PQMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-print-quality-supported;5;pq-mode;1=1,2=2,3=3,4=4,5=5,6=6,7=7;string" drvPrinterEvent="true"/>
+        </Property>
+      </Property>
+      <Property name="EasyColorDefaultSupport">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Configuration.EasyColorDefaultSupport:Installed;MultiStrCompString;GetSimplePrinterAttributes;hp-easycolor-default;ec-off=ECOff;ec-conservative=ECConservative;ec-auto=ECAuto;string" drvPrinterEvent="true"/>
+      </Property>
+    </Property>
+    <!-- Query for Status-->
+    <Property name="Status">
+      <Property name="Summary">
+        <Value name="StateReason" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Status.Summary:StateReason;GetAttributeString;GetSimplePrinterAttributes;printer-state-reasons" drvPrinterEvent="true" />
+      </Property>
+    </Property>
+    <Property name="DeviceInfo">
+      <Property name="PagesPerMinute">
+          <!-- PCv1.0 -->
+          <Value name="Value" accessType="Get" type="BIDI_STRING" queryKey="\Printer.DeviceInfo.PagesPerMinute:Value;GetAttributeString;GetSimplePrinterAttributes;pages-per-minute" drvPrinterEvent="true" />
+      </Property>
+      <Property name="SecureEncryptJobStorage">
+        <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey="\Printer.DeviceInfo.SecureEncryptJobStorage:Supported;GetAttributeValue;GetSimplePrinterAttributes;hp-save-job-encryption-supported" drvPrinterEvent="true" />
+        </Property>
+    	<!-- PCv0.81 Feature Access Control queries Start-->
+	    <Property name="FeatureAccessControl">
+		  <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey= "\Printer.DeviceInfo.FeatureAccessControl:Supported;GetAttributeValue;GetSimplePrinterAttributes;hp-print-feature-control-by-user-permission" drvPrinterEvent="true"/>
+	    </Property>
+	    <!-- PCv0.81 Feature Access Control queries End-->
+	    <!-- PCv0.81 Feature Access Control by Local Quota queries Start-->
+	    <Property name="FeatureAccessControlByLocalQuota">
+	      <Value name="Supported" accessType="Get" type="BIDI_STRING" queryKey= "\Printer.DeviceInfo.FeatureAccessControlByLocalQuota:Supported;GetAttributeValue;GetSimplePrinterAttributes;hp-print-feature-control-by-local-quota" drvPrinterEvent="true"/>
+	    </Property>
+	    <!-- PCv0.81 Feature Access Control by Local Quota queries End-->
+      </Property>
+    <!-- Query for Color-->
+    <Property name="Consumables">
+      <Property name="Color003">
+        <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Consumables.Color003:Name;MultiStrCompString;GetSimplePrinterAttributes;print-color-mode-supported;color=cyan" drvPrinterEvent="true" />
+      </Property>
+      <Property name="Color001">
+        <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Consumables.Color001:Name;MultiStrCompString;GetSimplePrinterAttributes;print-color-mode-supported;auto=Black" drvPrinterEvent="true" />
+      </Property>
+      <Property name="GrayscaleSupport">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Consumables.GrayscaleSupport:Installed;MultiStrCompString;GetSimplePrinterAttributes;print-color-mode-supported;auto-monochrome=process-black" drvPrinterEvent="true" />
+      </Property>
+    </Property>
+    <!-- Query for InputBins-->
+    <Property name="Layout">
+      <Property name="InputBins">
+        <Property name="PhotoTrayUnit002">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.PhotoTrayUnit002:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;PhotoTray" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Tray001">
+					<Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray001:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 1" drvPrinterEvent="true"/>
+					<Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray001:MediaType;GetAttributeString;GetTrayAttributes;media-col-default;auto;media-type" drvPrinterEvent="true"/>
+					<Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray001:MediaSize;GetAttributeString;GetTrayAttributes;media-col-default;auto;media-size.media-size-name" drvPrinterEvent="true"/>
+					<Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray001:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-default;auto;media-source-properties.media-source-feed-direction" drvPrinterEvent="true"/>
+					<Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray001:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 1;maxcapacity" drvPrinterEvent="true"/>
+					<Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray001:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 1;level" drvPrinterEvent="true"/>
+				</Property>
+				<Property name="Tray002">
+					<Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray002:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 2" drvPrinterEvent="true"/>
+					<Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray002:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-2;media-type" drvPrinterEvent="true"/>
+					<Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray002:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-2;media-size.media-size-name" drvPrinterEvent="true"/>
+					<Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray002:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-2;media-source-properties.media-source-feed-direction" drvPrinterEvent="true"/>
+					<Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray002:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 2;maxcapacity" drvPrinterEvent="true"/>
+					<Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray002:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 2;level" drvPrinterEvent="true"/>
+				</Property>
+        <Property name="Tray003">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray003:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 3" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray003:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-3;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray003:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-3;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray003:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-3;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray003:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 3;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray003:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 3;level" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Tray005">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray005:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 4" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray005:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-4;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray005:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-4;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray005:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-4;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray005:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 4;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray005:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 4;level" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Tray006">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray006:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 5" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray006:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-5;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray006:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-5;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray006:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-5;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray006:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 5;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray006:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 5;level" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Tray007">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray007:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 6" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray007:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-6;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray007:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-6;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray007:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-6;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray007:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 6;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray007:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 6;level" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Tray008">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray008:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 7" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray008:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-7;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray008:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-7;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray008:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-7;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray008:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 7;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray008:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 7;level" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Tray009">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray009:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 8" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray009:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-8;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray009:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-8;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray009:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-8;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray009:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 8;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray009:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 8;level" drvPrinterEvent="true" />
+        </Property>
+          <Property name="Tray010">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray010:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 9" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray010:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-9;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray010:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-9;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray010:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-9;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray010:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 9;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray010:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 9;level" drvPrinterEvent="true" />
+        </Property>
+            <Property name="Tray011">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray011:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Tray 10" drvPrinterEvent="true" />
+          <Value name="MediaType" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray011:MediaType;GetAttributeString;GetTrayAttributes;media-col-ready;tray-10;media-type" drvPrinterEvent="true" />
+          <Value name="MediaSize" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray011:MediaSize;GetAttributeString;GetTrayAttributes;media-col-ready;tray-10;media-size.media-size-name" drvPrinterEvent="true" />
+          <Value name="FeedDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray011:FeedDirection;GetAttributeString;GetTrayAttributes;media-col-ready;tray-10;media-source-properties.media-source-feed-direction" drvPrinterEvent="true" />
+          <Value name="Capacity" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray011:Capacity;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 10;maxcapacity" drvPrinterEvent="true" />
+          <Value name="Level" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Layout.InputBins.Tray011:Level;GetOctetStringValues;GetSimplePrinterAttributes;printer-input-tray;Tray 10;level" drvPrinterEvent="true" />
+        </Property>        
+        <Property name="Tray004">
+          <Value name="Installed" accessType="Get" type="BIDI_BOOL" queryKey="\Printer.Layout.InputBins.Tray004:Installed;GetOctetStringValues2;GetSimplePrinterAttributes;printer-input-tray;Envelope Feeder" drvPrinterEvent="true" />
+        </Property>
+      </Property>
+    </Property>
+    <Property name="Finishing">
+      <!-- Query for OutputBins-->
+      <Property name="OutputBins">
+       <Property name="Bin1">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin1:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;1;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin1:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;1;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin1:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;1;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin1:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;1;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin2">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin2:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;2;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin2:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;2;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin2:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;2;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin2:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;2;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin3">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin3:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;3;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin3:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;3;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin3:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;3;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin3:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;3;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin4">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin4:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;4;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin4:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;4;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin4:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;4;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin4:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;4;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin5">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin5:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;5;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin5:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;5;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin5:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;5;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin5:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;5;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin6">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin6:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;6;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin6:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;6;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin6:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;6;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin6:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;6;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin7">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin7:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;7;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin7:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;7;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin7:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;7;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin7:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;7;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin8">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin8:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;8;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin8:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;8;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin8:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;8;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin8:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;8;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin9">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin9:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;9;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin9:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;9;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin9:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;9;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin9:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;9;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin10">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin10:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;10;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin10:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;10;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin10:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;10;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin10:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;10;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin11">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin11:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;11;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin11:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;11;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin11:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;11;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin11:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;11;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+				<Property name="Bin12">
+				  <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin12:Name;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;12;name;2=Bin0,3=Engine-optional1,4=face-up,5=Mailbox1,6=Mailbox2,7=Mailbox3,8=Mailbox4,9=Mailbox5,10=Mailbox6,11=Mailbox7,12=Mailbox8,13=Stacker1,14=Bin1,15=Bin2;string" drvPrinterEvent="true" />
+				  <Value name="Booklet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin12:Booklet;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;12;physical-fold-unit;1=true,0=false;string" drvPrinterEvent="true" />
+				  <Value name="PageDelivery" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin12:PageDelivery;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;12;page-delivery;1=FaceUp,2=FaceDown,3=FaceUpOrFaceDown;string" drvPrinterEvent="true" />
+				  <Value name="OpMode" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.OutputBins.Bin12:OpMode;GetCollectionAttributes;GetSimplePrinterAttributes;hp-outputbins-supported;12;mode;1=None,2=Mailbox,3=Stacker,4=FunctionSeparator,5=JobSeparator,6=JobCollator;string" drvPrinterEvent="true" />
+				</Property>
+      </Property>
+      <!-- Query for Staplings-->
+      <Property name="Staplings">
+        <Property name="StapletypeLeft1pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeLeft1pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;20;StapleTopLeft" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeLeft2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeLeft2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;28;StapleDualLeft" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeLeft3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeLeft3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;32;StapleTripleLeft" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeRight1pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeRight1pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;22;StapleTopRight" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeRight2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeRight2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;30;StapleDualRight" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeRight3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeRight3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;34;StapleTripleRight" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeTop2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeTop2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;29;StapleDualTop" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeTop3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeTop3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;33;StapleTripleTop" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeBottom2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeBottom2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;31;StapleDualBottom" drvPrinterEvent="true" />
+        </Property>
+        <Property name="StapletypeBottom3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Staplings.StapletypeBottom3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;35;StapleTripleBottom" drvPrinterEvent="true" />
+        </Property>
+      </Property>
+      <!-- Query for Punchings-->
+      <Property name="Punchings">
+        <Property name="PunchLeft2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchLeft2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;74;TwoHolesLeft" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchRight2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchRight2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;76;TwoHolesRight" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchTop2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchTop2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;75;TwoHolesTop" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchBottom2pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchBottom2pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;77;TwoHolesBottom" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchLeft3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchLeft3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;78;ThreeHolesLeft" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchRight3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchRight3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;80;ThreeHolesRight" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchTop3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchTop3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;79;ThreeHolesTop" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchBottom3pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchBottom3pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;81;ThreeHolesBottom" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchLeft4pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchLeft4pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;82;FourHolesLeft" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchRight4pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchRight4pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;84;FourHolesRight" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchTop4pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchTop4pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;83;FourHolesTop" drvPrinterEvent="true" />
+        </Property>
+        <Property name="PunchBottom4pt">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.PunchBottom4pt:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;85;FourHolesBottom" drvPrinterEvent="true" />
+        </Property>
+        <Property name="Region">
+          <Value name="Name" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Punchings.Region:Name;GetStringFromEnumerations;GetSimplePrinterAttributes;hp-punch-unit-region;1=us,2=eu,3=sw" drvPrinterEvent="true" />
+        </Property>
+      </Property>
+      <!-- Query for Foldings-->
+      <Property name="Foldings">
+        <Property name="CFold">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Foldings.CFold:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;96;c-fold" drvPrinterEvent="true" />
+          <Value name="MaxSheetsPerSet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Foldings.CFold:MaxSheetsPerSet;GetCollectionAttributes;GetSimplePrinterAttributes;finishings-col-database;finishing-template=fold-letter,media-size-name=iso_a4_210x297mm;media-sheets-supported;1-3=3,1-25=25,1-65=65,1-5=5;string;hvd" drvPrinterEvent="true" />
+        </Property>
+        <Property name="VFold">
+          <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Foldings.VFold:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;93;v-fold" drvPrinterEvent="true" />
+          <Value name="MaxSheetsPerSet" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.Foldings.VFold:MaxSheetsPerSet;GetCollectionAttributes;GetSimplePrinterAttributes;finishings-col-database;finishing-template=fold-half,media-size-name=iso_a4_210x297mm;media-sheets-supported;1-3=3,1-25=25,1-65=65,1-5=5;string;hvd" drvPrinterEvent="true" />
+        </Property>
+      </Property>
+      <Property name="BookletMakerUnit">
+        <Value name="Installed" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.BookletMakerUnit:Installed;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;13;SaddleStitch"  drvPrinterEvent="true"/>
+        <Value name="FoldAndStitchSupport" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.BookletMakerUnit:FoldAndStitchSupport;GetStringFromEnumerations;GetSimplePrinterAttributes;finishings-supported;13;SaddleStitch"  drvPrinterEvent="true"/>
+        <Value name="FoldAndStitchDirection" accessType="Get" type="BIDI_STRING" queryKey="\Printer.Finishing.BookletMakerUnit:FoldAndStitchDirection;GetAttributeString;GetSimplePrinterAttributes;hp-booklet-fold-direction;01=Inward;02=Outward"  drvPrinterEvent="true"/>
+      </Property>
+    </Property>
+  </Property>
+</bidi:Schema>

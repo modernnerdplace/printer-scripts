@@ -1,0 +1,244 @@
+*%===============================================================================*%
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                              All rights reserved.				             *%
+*%===============================================================================*%
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-Job.gpd"
+
+*Include:  "StdNames.gpd"
+*%Include: "PJL.GPD"
+*Include:  "PCLXL.GPD"
+*Include:  "HPOneDriver-Properties.gpd"
+*Include:  "HPOneDriver-StringResource.gpd"
+
+*%==============================================================================*%
+*%                                PageRotate180                                 *%
+*%==============================================================================*%
+*Feature: PageRotate180
+{
+	*rcNameID: =IDS_ROTATE
+	*DefaultOption: NoRotation
+	*Option: NoRotation
+	{
+		*rcNameID: =IDS_OFF
+	}
+	*Option: Rotate180
+	{
+		*rcNameID: =IDS_ON
+	}
+
+}
+
+*%==============================================================================*%
+*%                                PageMirrorImage(PostScript Driver)            *%
+*%==============================================================================*%
+*Feature: PageMirrorImage
+{
+	*rcNameID: =IDS_MIRROR_IMAGE
+	*%Name: "Mirror Image"
+	*PrintSchemaKeywordMap: "PageMirrorImage"
+	*DefaultOption: Off
+	*Option: Off
+	{
+	    *PrintSchemaKeywordMap: "None"
+		*rcNameID: =IDS_OFF		
+	}
+	*Option: MirrorImageWidth
+	{
+	    *PrintSchemaKeywordMap: "MirrorImageWidth"
+		*rcNameID: =IDS_ON
+	}
+}
+
+*%==============================================================================*%
+*%                                JobPageOrder                                  *%
+*%==============================================================================*%
+*Feature: JobPageOrder
+{
+	*rcNameID: =IDS_REVERSE_PAGE_ORDER
+	*PrintSchemaKeywordMap: "JobPageOrder"
+	*%ConcealFromUI?: TRUE
+	*ConcealFromUI?: FALSE
+	*DefaultOption: Standard
+	*Option: Standard
+	{
+		*rcNameID: =IDS_FRONT_TO_BACK
+		*PrintSchemaKeywordMap: "Standard"
+	}
+	*Option: Reverse
+	{
+		*rcNameID: =IDS_BACK_TO_FRONT
+		*PrintSchemaKeywordMap: "Reverse"
+	}
+}
+
+*Ifdef: DRIVER_ARCHITECTURE_V3
+
+*%==============================================================================*%
+*%                                 HPJobAccountingType                          *%
+*%==============================================================================*%
+*Feature: DocumentEJAMode
+{
+	*rcNameID: =IDS_JOB_ACCOUNTING_TYPE
+	*DefaultOption: EJAOff
+	*Option: EJAOff
+    {
+		*rcNameID: =IDS_OFF
+    }
+	*Option: EJA_AccessCode
+    {
+		*rcNameID: =IDS_JOB_ACCOUNTING_USER_TYPE
+    }
+}
+
+*Endif: DRIVER_ARCHITECTURE_V3
+
+*Ifdef: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                                 JobStorage                                   *%
+*%==============================================================================*%
+*Feature: JobStorage
+{
+	*rcNameID: =IDS_JR_MODE
+	*%Name: "Job Storage Mode"
+	*DefaultOption: JobStorageOff
+	*ConcealFromUI?: TRUE
+	*Option: JobStorageOff
+	{
+		*rcNameID: =IDS_OFF
+		*%Name: "Off"
+	}
+	*Option: JobStoragePersonalJob
+	{
+		*%rcNameID: =IDS_STORE_JOB_UNTIL_PRINTED
+		*Name: "Personal Job"
+	}
+	*Option: JobStorageStoreJob
+	{
+		*rcNameID: =IDS_RETAIN_JOB_AFTER_PRINTING
+	}
+}
+
+*%==============================================================================*%
+*%                           JobStorageJobNameExist                             *%
+*%==============================================================================*%
+*Feature: JobStorageJobNameExist
+{
+	*Name: "if job name exists"
+	*DefaultOption: JobNameExistsUse
+	*Option: JobNameExistsUse
+	{
+		*Name: "Use Job Name + (1-99)"
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.12
+			        *Cmd: "@PJL SET DUPLICATEJOB=APPEND<0A>"
+				}
+			}
+			*Case: PS
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.12
+					*Cmd: "@PJL SET DUPLICATEJOB=APPEND"
+				}
+			}
+        }
+	}
+	*Option: JobNameExistsReplace
+	{
+		*Name: "Replace Existing File"
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.12
+			        *Cmd: "@PJL SET DUPLICATEJOB=REPLACE<0A>"
+				}
+			}
+			*Case: PS
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.12
+					*Cmd: "@PJL SET DUPLICATEJOB=REPLACE"
+				}
+			}
+        }
+	}
+}
+
+*%==============================================================================*%
+*%                           JobStoragePrivateSecure                      
+*%==============================================================================*%
+*Feature: JobStoragePrivateSecure
+{
+	*rcNameID: =IDS_MAKE_JOB_PRIVATE_SECURE
+	*DefaultOption: PrivateSecureOff
+	*ConcealFromUI?: TRUE
+	
+	*Option: PrivateSecureOff
+	{
+		*rcNameID: =IDS_PRINT_JOB_NORMALLY
+	}
+	*Option: PrivateSecurePINtoPrint
+	{
+		*rcNameID: =IDS_PIN_PROTECTED_JOB
+	}
+	*Option: PrivateSecureEncryptJob
+	{
+		*rcNameID: =IDS_SEP_JOB
+	}
+}
+
+*%==============================================================================*%
+*%                             JobStorageUserName                         
+*%==============================================================================*%
+*Feature: JobStorageUserName
+{
+	*rcNameID: =IDS_JR_USER_NAME
+	*DefaultOption: UserNameCurrent
+	*ConcealFromUI?: TRUE
+	*Option: UserNameCurrent
+	{
+		*rcNameID: =IDS_RB_AUTOMATIC
+	}
+	*Option: UserNameCustom
+	{
+		*rcNameID: =IDS_CUSTOM
+	}
+}
+
+*%==============================================================================*%
+*%                              JobStorageJobName                         
+*%==============================================================================*%
+*Feature: JobStorageJobName
+{
+	*rcNameID: =IDS_JR_JOB_NAME
+	*DefaultOption: JobNameAuto
+	*ConcealFromUI?: TRUE
+	*Option: JobNameAuto
+	{
+		*rcNameID: =IDS_RB_AUTOMATIC
+	}
+	*Option: JobNameCustom
+	{
+		*rcNameID: =IDS_CUSTOM
+	}
+}
+
+*Endif: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%
+

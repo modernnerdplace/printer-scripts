@@ -1,0 +1,399 @@
+*%===============================================================================*%
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                              All rights reserved.				             *%
+*%===============================================================================*%
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-Ink.gpd"
+
+*Include:  "StdNames.gpd"
+*%Include: "PJL.GPD"
+*Include:  "PCLXL.GPD"
+*Include:  "HPOneDriver-Properties.gpd"
+*Include:  "HPOneDriver-StringResource.gpd"
+
+*Ifdef: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                                 InkDryTime                                   *%
+*%==============================================================================*%
+*Feature: DocumentInkDryTime
+{
+	*rcNameID: =IDS_DRY_TIME
+	*ConcealFromUI?: FALSE
+	*DefaultOption: PrintDefault
+	*Option: PrintDefault
+	{
+		*%Name: "Printer Default"
+		*rcNameID: =IDS_PRINTER_DEFAULT
+	}
+	*Option: DryZero
+	{
+		*rcNameID: =IDS_0
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.4
+			   *Cmd: "@PJL SET DRYTIME=0<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.4
+			   *Cmd: "@PJL SET DRYTIME=0"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: DryMedium
+	{
+		*rcNameID: =IDS_FONT_DRY_MEDIUM
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.4
+			   *Cmd: "@PJL SET DRYTIME=4<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.4
+			   *Cmd: "@PJL SET DRYTIME=4"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: DryLong
+	{
+		*rcNameID: =IDS_LONG_DRY
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.4
+			   *Cmd: "@PJL SET DRYTIME=7<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.4
+			   *Cmd: "@PJL SET DRYTIME=7"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+}
+
+*%==============================================================================*%
+*%                                InkSaturation                                 *%
+*%==============================================================================*%
+*Feature: DocumentInkSaturation
+{
+	*rcNameID: =IDS_SATURATION
+	*ConcealFromUI?: FALSE
+	*DefaultOption: PrintDefault
+	*Option: PrintDefault
+	{
+		*%Name: "Printer Default"
+		*rcNameID: =IDS_PRINTER_DEFAULT
+	}
+	*Option: SaturationM2
+	{
+		*%Name: "-2"
+		*rcNameID: =IDS_M2
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=0<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=0"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: SaturationM1
+	{
+		*%Name: "-1"
+		*rcNameID: =IDS_M1
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=2<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=2"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: SaturationZero
+	{
+		*rcNameID: =IDS_0
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=4<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=4"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: SaturationOne
+	{
+		*rcNameID: =IDS_1
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=6<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=6"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: SaturationTwo
+	{
+		*rcNameID: =IDS_2
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=8<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.5
+			   *Cmd: "@PJL SET SATURATION=8"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+}
+
+*%==============================================================================*%
+*%                               BlackInkSpread                                 *%
+*%==============================================================================*%
+*Feature: DocumentBlackInkSpread
+{
+	*rcNameID: =IDS_BLACK_INK_SPREAD
+	*ConcealFromUI?: FALSE
+	*DefaultOption: PrintDefault
+	*Option: PrintDefault
+	{
+		*%Name: "Printer Default"
+		*rcNameID: =IDS_PRINTER_DEFAULT
+	}
+	*Option: InkSpreadLeast
+	{
+		*rcNameID: =IDS_SPREAD_LEAST
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.6
+			   *Cmd: "@PJL SET INKBLEED=7<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.6
+			   *Cmd: "@PJL SET INKBLEED=7"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: InkSpreadLess
+	{
+		*rcNameID: =IDS_DRY_LESS
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.6
+			   *Cmd: "@PJL SET INKBLEED=4<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.6
+			   *Cmd: "@PJL SET INKBLEED=4"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+	*Option: InkSpreadDefault
+	{
+		*rcNameID: =IDS_DEFAULT
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.6
+			   *Cmd: "@PJL SET INKBLEED=0<0A>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	      *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: JOB_SETUP.6
+			   *Cmd: "@PJL SET INKBLEED=0"
+		     }
+	       }
+	      }
+		*Constraints: LIST(AdvancedInkSettingsAvailable.NotAvailable)
+	}
+}
+
+*Endif: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%

@@ -1,0 +1,19 @@
+<!--
+© Copyright 2019 HP Development Company, L.P.
+
+   All rights reserved.
+   
+Generate from: HPOneDriver-PipelineConfig.xml
+On: 2018-04-1204:34:49
+
+Abstract:
+
+HP filter configuration file. This identifies the
+filters that comprise the filter pipeline and their order.
+    -->
+<Filters>
+  <Filter dll="hpxpspdlconverter.dll" clsid="{28393d6e-ffc9-42d3-8d92-3c37f32a8d44}" name="HP Vibhuti XPS.PDL Conversion Filter">
+    <Input guid="{4d47a67c-66cc-4430-850e-daf466fe5bc4}" comment="IID_IPrintReadStream" />
+    <Output guid="{65bb7f1b-371e-4571-8ac7-912f510c1a38}" comment="IID_IPrintWriteStream" />
+  </Filter>
+</Filters>

@@ -1,0 +1,50 @@
+*Macros: DataTag
+{
+	attr_ubyte:     "<f8>"
+}
+
+*Macros: OperatorTag_Extended
+{
+	SetHalftoneMethod:		"<6D>"
+	SetNeutralAxis:			"<7E>"
+	SetColorTrapping:		"<92>"
+	SetAdaptiveHalftoning:	"<94>"
+	SetColorTreatment:      "<58>"
+}
+
+*Macros: AttributeTag_Extended
+{
+	AllObjectTypes:			"<1D>" 
+	TextObjects:			"<1E>"
+	VectorObjects:			"<1F>"
+	RasterObjects:			"<20>"	
+	ColorTreatment:         "<78>"
+}
+
+*Macros: AttributeEnum_Extended
+{
+	eDisable:				"<00>"
+	eEnable:				"<01>"
+	eMax: 					"<01>"
+	eNormal:				"<02>"
+	eLight:					"<03>"	
+	
+	eTonerBlack:			"<00>"
+	eProcessBlack:			"<01>"
+	
+	eHighLPI:				"<00>"
+	eMediumLPI:				"<01>"
+	eLowLPI:				"<02>"
+
+	E_SCREENMATCH_STANDARDIZED:           "<81>"
+    E_IMAGE_STANDARDIZED:                 "<83>"
+    E_ADOBERGB_STANDARDIZED:              "<84>"
+    E_DEVICERGB_STANDARDIZED:             "<85>"
+    E_VIVID_STANDARDIZED:                 "<87>"
+    E_CUSTOMRGB_STANDARDIZED:             "<82>"
+
+	*%% ColorSpace
+    eGray: "<01>" 
+    eRGB: "<02>" 
+
+}

@@ -1,0 +1,1083 @@
+
+[Version]
+Signature="$Windows NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%Provider%
+CatalogFile=HPIPPStub.CAT
+DriverVer=05/18/2022, 1.0.0.1
+;====================================================
+
+[DestinationDirs]
+; By default, files will be copied to \windows\system.
+DefaultDestDir=11
+
+[ControlFlags]
+; Remove comment from this line if all devices are PnP.
+ExcludeFromSelect=*
+
+[Manufacturer]
+%Mfg%=Models,NTamd64.6.0,NTamd64.6.1,NTamd64.6.2,NTamd64.6.3,NTx86.5.1,NTx86.6.0,NTx86.6.1,NTx86.6.2,NTx86.6.3,NTamd64.5.2,NTARM64,NTARM
+
+; Windows 2K is not supported
+;[Models]
+;; ; No support for Windows 2000
+;RubyLJ_UW
+; Windows XP
+[Models.NTx86.5.1]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+[Models.NTamd64.5.2]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+[Models.NTx86.6.0]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01	
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+[Models.NTx86.6.1]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+[Models.NTx86.6.2]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+[Models.NTx86.6.3]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+; Windows x64
+[Models.NTamd64.6.0]
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+; Windows x64
+[Models.NTamd64.6.1]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+; Windows x64
+[Models.NTamd64.6.2]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+; Windows x64
+[Models.NTamd64.6.3]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Manhattan
+%HPODPRINTERS% = DMR.USB, USB\Vid_03f0&Pid_2554&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+[Models.NTARM64]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+[Models.NTARM]
+;Ruby
+%HPODPRINTERS% = DMR.USB, USB\VID_03F0&PID_b32a&mi_01
+%HPODPRINTERS1% = DMR.USB, USB\VID_03F0&PID_b32a&mi_03
+;Selene
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0A72&mi_00
+
+;Jasper Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F52A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Ammolite Color
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F92A&mi_03
+
+;Citrine Color LaserJet Managed MFP
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F72A&mi_03
+
+;Moonstone Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F62A&mi_03
+
+;Morganite Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_FA2A&mi_03
+
+;Pearl Managed LJ
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_F82A&mi_03
+
+;Edison
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0375&mi_03
+
+;Edison Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0575&mi_03
+
+;Curie  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0475&mi_03
+
+;Curie Managed  
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0675&mi_03
+
+;Hopper   
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0E74&mi_03
+
+;Hopper Managed 
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0F74&mi_03
+
+;Bell
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0175&mi_03
+
+;Bell Managed
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_01
+%HPODPRINTERS% = DMR.USB, USB\vid_03F0&Pid_0275&mi_03
+
+; *****************************************************************************************
+;           Windows XP (Whistler) and later
+; *****************************************************************************************
+
+[DMR.Usb]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x0
+FeatureScore=00
+AddReg=DMR.UsbReg
+CopyFiles=Nothing
+
+[DMR.Usb.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[DMR.UsbReg]
+; This all depends on which kernel services you need
+; Hardware configuration is not known
+HKR,,HardwareConfig,1,1
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,"usbscan.sys"
+
+[SourceDisksNames]
+1 = %CD%,,,
+
+[SourceDisksFiles]
+
+[Nothing]
+
+[Strings]
+; Always put strings down here so they can be easily localized to
+; other languages.
+
+Provider="Hewlett-Packard"
+Mfg="Hewlett-Packard"
+CD="hp cd"
+HPODPRINTERS = "HP Smart Universal Printing(IPP WinUSB)"
+HPODPRINTERS1 = "HP Smart Universal Printing(IPP1 WinUSB)"
+

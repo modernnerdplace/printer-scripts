@@ -1,0 +1,726 @@
+*%===============================================================================*%
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                              All rights reserved.						     *%
+*%===============================================================================*%
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-Installable.gpd"
+
+*Include:  "StdNames.gpd"
+*%Include: "PJL.GPD"
+*Include:  "PCLXL.GPD"
+*Include:  "HPOneDriver-Properties.gpd"
+*Include:  "HPOneDriver-StringResource.gpd"
+
+*Ifdef: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                          CONFIG_DuplexMode (Installable)                      *%
+*%==============================================================================*%
+*Feature: CONFIG_DuplexMode
+{
+	*rcNameID: =IDS_OPTIONAL_DUPLEXER
+	*DefaultOption: AutoConfig
+
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+		*%Constraints: LIST(DuplexUnit.Installed)
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+		*%Constraints: LIST(DuplexUnit.NotInstalled)
+
+	}
+}
+
+
+
+*%==============================================================================*%
+*%                             CONFIG_Tray2 (Installable)                              *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray2
+{
+	*rcNameID: =IDS_TRAY2
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+*%==============================================================================*%
+*%                             CONFIG_Tray3 (Installable)                              *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray3
+{
+	*rcNameID: =IDS_TRAY_3
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*%==============================================================================*%
+*%                             CONFIG_Tray4 (Installable)                       *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray4
+{
+	*rcNameID: =IDS_TRAY_4
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*%==============================================================================*%
+*%                             CONFIG_Tray5 (Installable)                       *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray5
+{
+	*rcNameID: =IDS_TRAY_5
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*%==============================================================================*%
+*%                             CONFIG_Tray6 (Installable)                              *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray6
+{
+	*rcNameID: =IDS_TRAY_6
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+*%==============================================================================*%
+*%                             CONFIG_Tray7 (Installable)                              *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray7
+{
+	*rcNameID: =IDS_TRAY_7
+	*%Name: "Tray 7"
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+*%==============================================================================*%
+*%                             CONFIG_Tray8 (Installable)                              *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray8
+{
+	*rcNameID: =IDS_TRAY_8
+	*%Name: "Tray 8"
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+*%==============================================================================*%
+*%                             CONFIG_Tray9 (Installable)                              *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray9
+{
+	*rcNameID: =IDS_TRAY_9
+	*%Name: "Tray 9"
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+*%==============================================================================*%
+*%                             CONFIG_Tray10 (Installable)                              *%
+*%==============================================================================*%
+*Feature: CONFIG_Tray10
+{
+	*rcNameID: =IDS_TRAY_10
+	*%Name: "Tray 10"
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*%==============================================================================*%
+*%                            CONFIG_envfeed (Installable)                             *%
+*%==============================================================================*%
+*Feature: CONFIG_envfeed
+{
+	*rcNameID: =IDS_ENVELOPE_FEEDER
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*InvalidCombination: LIST(CONFIG_Tray2.NotInstalled, InputBin.Tray2)
+*InvalidCombination: LIST(CONFIG_Tray2.NotInstalled, InputBin.PhotoTray)
+*InvalidCombination: LIST(CONFIG_Tray3.NotInstalled, InputBin.Tray3)
+*InvalidCombination: LIST(CONFIG_Tray4.NotInstalled, InputBin.Tray4)
+*InvalidCombination: LIST(CONFIG_Tray5.NotInstalled, InputBin.Tray5)
+*InvalidCombination: LIST(CONFIG_Tray6.NotInstalled, InputBin.Tray6)
+*InvalidCombination: LIST(CONFIG_Tray7.NotInstalled, InputBin.Tray7)
+*InvalidCombination: LIST(CONFIG_Tray8.NotInstalled, InputBin.Tray8)
+*InvalidCombination: LIST(CONFIG_Tray9.NotInstalled, InputBin.Tray9)
+*InvalidCombination: LIST(CONFIG_Tray10.NotInstalled, InputBin.Tray10)
+*InvalidCombination: LIST(CONFIG_envfeed.NotInstalled, InputBin.envFeed)
+
+*InvalidCombination: LIST(CONFIG_Tray2.AutoConfig, PC_OptionalTray2.NotInstalled, InputBin.PhotoTray)
+*InvalidCombination: LIST(CONFIG_Tray3.AutoConfig, PC_OptionalTray3.NotInstalled, InputBin.Tray3)
+*InvalidCombination: LIST(CONFIG_Tray4.AutoConfig, PC_OptionalTray4.NotInstalled, InputBin.Tray4)
+*InvalidCombination: LIST(CONFIG_Tray5.AutoConfig, PC_OptionalTray5.NotInstalled, InputBin.Tray5)
+*InvalidCombination: LIST(CONFIG_Tray6.AutoConfig, PC_OptionalTray6.NotInstalled, InputBin.Tray6)
+*InvalidCombination: LIST(CONFIG_Tray7.AutoConfig, PC_OptionalTray7.NotInstalled, InputBin.Tray7)
+*InvalidCombination: LIST(CONFIG_Tray8.AutoConfig, PC_OptionalTray8.NotInstalled, InputBin.Tray8)
+*InvalidCombination: LIST(CONFIG_Tray9.AutoConfig, PC_OptionalTray9.NotInstalled, InputBin.Tray9)
+*InvalidCombination: LIST(CONFIG_Tray10.AutoConfig, PC_OptionalTray10.NotInstalled, InputBin.Tray10)
+*InvalidCombination: LIST(CONFIG_envfeed.AutoConfig, PC_OptionalEnvelopeFeeder.NotInstalled, InputBin.envFeed)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%==============================================================================*%
+*%                          CONFIG_DeviceCollationControl (Installable)          *%
+*%==============================================================================*%
+*Feature: CONFIG_DeviceCollationControl
+{
+	*rcNameID: =IDS_MOPIER_MODE
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*%==============================================================================*%
+*%                             CONFIG_ColorOrMonoPrinter (Installable)                        *%
+*%==============================================================================*%
+*Feature: CONFIG_ColorOrMonoPrinter
+{
+	*rcNameID: =IDS_DEVICE_RENDER_TYPE
+	*DefaultOption: AutoConfig
+	
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: MonoPrinter
+	{
+		*rcNameID: =IDS_DEVICE_TYPE_MONOCHROME
+	}
+	*Option: ColorPrinter
+	{
+		*rcNameID: =IDS_DEVICE_TYPE_COLOR
+	}
+}
+
+*InvalidCombination: LIST(CONFIG_ColorOrMonoPrinter.MonoPrinter, ColorMode.CompositeOutput)
+*InvalidCombination: LIST(CONFIG_ColorOrMonoPrinter.MonoPrinter, ColorMode.ColorOutput)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+*InvalidCombination: LIST(CONFIG_ColorOrMonoPrinter.AutoConfig, ColorOrMonoPrinter.MonoPrinter, ColorMode.CompositeOutput)
+*InvalidCombination: LIST(CONFIG_ColorOrMonoPrinter.AutoConfig, ColorOrMonoPrinter.MonoPrinter, ColorMode.ColorOutput)
+*InvalidCombination: LIST(CONFIG_ColorOrMonoPrinter.AutoConfig, GrayscaleSupport.NotSupported, ColorMode.CompositeOutput)
+*Endif: DRIVER_ARCHITECTURE_V4
+
+
+*%==============================================================================
+*%                    CONFIG_OutputBinMode (Installable)                      
+*%==============================================================================
+*Feature: CONFIG_OutputBinMode
+{
+	*rcNameID: =IDS_OPTIONAL_OUTPUT_BIN
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: HP2BinMailBox
+	{
+		*rcNameID: =IDS_HP_2_BIN_MAILBOX
+	}
+	*Option: HP3BinMailBox
+	{
+		*rcNameID: =IDS_HP_3_BIN_MAILBOX
+	}
+	*Option: HP5BinMailBox
+	{
+		*rcNameID: =IDS_HP_5_BIN_MAILBOX
+	}
+	*Option: HP8BinMailBox
+	{
+		*rcNameID: =IDS_HP_8_BIN_MAILBOX
+	}
+	*Option: HPStackerBin
+	{
+		*rcNameID: =IDS_HP_STACKER_BIN
+	}
+	*Option: HPCollatorBin
+	{
+		*rcNameID: =IDS_HP_COLLATOR_BIN
+	}
+	*Option: HPJobSeparator
+	{
+		*rcNameID: =IDS_HP_JOB_SEPARATOR_BIN
+	}
+	*Option: OptionalAlternateBin
+	{
+		*rcNameID: =IDS_OPTIONAL_ALTERNATE_BIN
+	}
+	*Option: StandardAlternateBin
+	{
+		*rcNameID: =IDS_STANDARD_ALTERNATE_BIN
+	}
+	*Option: StandardBin
+	{
+		*rcNameID: =IDS_STANDARD_OUTPUT_BIN
+	}
+}
+
+
+*%==============================================================================
+*%                          CONFIG_StapleMode (Installable)                      
+*%==============================================================================
+*Feature: CONFIG_StapleMode
+{
+	*rcNameID: =IDS_STAPLING_UNIT
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: OneStapleCONFIG
+	{
+		*rcNameID: =IDS_1_STAPLE_UNIT
+		*Constraints: LIST(Stapling.StapleDualLeft, Stapling.StapleDualRight, Stapling.StapleDualTop, Stapling.StapleDualBottom, Stapling.StapleDualTopOrLeft, Stapling.StapleTripleLeft, Stapling.StapleTripleRight, Stapling.StapleTripleTop, Stapling.StapleTripleBottom, Stapling.StapleTripleTopOrLeft)
+	}
+	*Option: TwoStapleCONFIG
+	{
+		*rcNameID: =IDS_2_STAPLE_UNIT
+		*Constraints: LIST(Stapling.StapleTripleLeft, Stapling.StapleTripleRight, Stapling.StapleTripleTop, Stapling.StapleTripleBottom, Stapling.StapleTripleTopOrLeft)
+	}
+	*Option: ThreeStapleCONFIG
+	{
+		*rcNameID: =IDS_3_STAPLE_UNIT
+	}
+}
+
+*%==============================================================================
+*%                    CONFIG_FoldAndStitchMode (Installable)                     
+*%==============================================================================
+*Feature: CONFIG_FoldAndStitchMode
+{
+	*rcNameID: =IDS_BOOKLET_MAKER_UNIT
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*%==============================================================================
+*%                           CONFIG_PunchMode (Installable)                            
+*%==============================================================================
+*Feature: CONFIG_PunchMode
+{
+	*ConflictPriority: 2
+	*rcNameID: =IDS_PUNCH_UNIT
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: PunchUnit23
+	{
+		*rcNameID: =IDS_2BY3HOLE
+	}
+	*Option: PunchUnit42
+	{
+		*rcNameID: =IDS_MFD_2BY4HOLES
+	}
+	*Option: Swedish4PunchUnit
+	{
+		*rcNameID: =IDS_4HOLE
+	}
+}
+
+
+*%==============================================================================*%
+*%                           VFoldMode (Installable)                            *%
+*%==============================================================================*%
+*Feature: CONFIG_VFoldMode
+{
+	*rcNameID: =IDS_VFOLD_UNIT
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+
+*%==============================================================================*%
+*%                           CFoldMode (Installable)                            *%
+*%==============================================================================*%
+*Feature: CONFIG_CFoldMode
+{
+	*rcNameID: =IDS_CFOLD_UNIT
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*%==============================================================================*%
+*% Feature: Embedded Job Accounting 
+*%==============================================================================*%
+*Feature: CONFIG_EmbeddedJobAccounting
+{
+	*rcNameID: =IDS_JOB_ACCOUNTING
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: AutoConfig
+	*ConcealFromUI?: FALSE
+
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+    *Option: NotInstalled
+    {
+        *rcNameID: =IDS_NOTINSTALLED
+    }
+    *Option: Installed
+    {
+        *rcNameID: =IDS_INSTALLED
+    }
+}
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+*InvalidCombination: LIST(CONFIG_EmbeddedJobAccounting.AutoConfig, JobAccountingControl.disable, DocumentEJAMode.EJA_AccessCode)
+*InvalidCombination: LIST(CONFIG_EmbeddedJobAccounting.NotInstalled, DocumentEJAMode.EJA_AccessCode)
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%==============================================================================*%
+*%                       CONFIG_JobStorage (Installable)                   
+*%==============================================================================*%
+*Feature: CONFIG_JobStorage
+{
+	*rcNameID: =IDS_JOBSTORAGETAB_NAME
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+		*%Constraints: LIST(JobStoragePrivateSecure.PrivateSecurePINtoPrint)
+		*%Constraints: LIST(JobStoragePrivateSecure.PrivateSecureEncryptJob)
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+
+*%==============================================================================*%
+*%                CONFIG_JobStorageEncryptionControl (Installable)         
+*%==============================================================================*%
+*Feature: CONFIG_JobStorageEncryptionControl
+{
+	*rcNameID: =IDS_SECURE_PRINTING
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+		*%Constraints: LIST(JobStoragePrivateSecure.PrivateSecureEncryptJob)
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*InvalidCombination: LIST(CONFIG_JobStorage.NotInstalled, JobStoragePrivateSecure.PrivateSecurePINtoPrint)
+*InvalidCombination: LIST(CONFIG_JobStorage.NotInstalled, JobStoragePrivateSecure.PrivateSecureEncryptJob)
+*InvalidCombination: LIST(CONFIG_JobStorageEncryptionControl.NotInstalled, JobStoragePrivateSecure.PrivateSecureEncryptJob)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*InvalidCombination: LIST(CONFIG_JobStorage.AutoConfig, JobStorageControl.NotInstalled, JobStoragePrivateSecure.PrivateSecurePINtoPrint)
+*InvalidCombination: LIST(CONFIG_JobStorage.AutoConfig, JobStorageControl.NotInstalled, JobStoragePrivateSecure.PrivateSecureEncryptJob)
+
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%==============================================================================*%
+*%                   CONFIG_EdgetoEdgeControl (Installable)         
+*%==============================================================================*%
+*Feature: CONFIG_EdgetoEdgeControl
+{
+	*rcNameID: =IDS_EDGE_TO_EDGE
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+*InvalidCombination: LIST(CONFIG_EdgetoEdgeControl.AutoConfig, EdgetoEdgeControl.disable, DocumentMargins.Alternate)
+*InvalidCombination: LIST(CONFIG_EdgetoEdgeControl.NotInstalled, DocumentMargins.Alternate)
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%==============================================================================*%
+*%                   CONFIG_EdgetoEdgeControl (Installable)         
+*%==============================================================================*%
+*Feature: CONFIG_TabPrintingControl
+{
+	*rcNameID: =IDS_TP
+	*%Name: "Tab Printing"
+	*DefaultOption: AutoConfig
+	*FeatureType: PRINTER_PROPERTY
+	*ConcealFromUI?: FALSE
+	*Option: AutoConfig
+	{
+		*rcNameID: =IDS_AUTO_CONFIG
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+}
+
+*InvalidCombination: LIST(CONFIG_TabPrintingControl.AutoConfig, TabPrintingControl.disable, TabPrint.On)
+*InvalidCombination: LIST(CONFIG_TabPrintingControl.NotInstalled, TabPrint.On)
+
+*InvalidCombination: LIST(CONFIG_TabPrintingControl.AutoConfig, TabPrintingControl.disable, MediaType.tab)
+*InvalidCombination: LIST(CONFIG_TabPrintingControl.NotInstalled, MediaType.tab)
+
+*%==============================================================================*%
+*% Feature: CONFIG_JobSeparatorMode
+*%==============================================================================*%
+*Feature: CONFIG_JobSeparatorMode
+{
+	*rcNameID: =IDS_JOB_SEPARATOR
+    *FeatureType: PRINTER_PROPERTY
+    *DefaultOption: disable
+	*ConcealFromUI?: FALSE
+
+	*Option: disable
+	{
+		*rcNameID: =IDS_DISABLED
+	}
+	*Option: enable
+	{
+		*rcNameID: =IDS_ENABLED
+	}
+}
+
+*Endif: DRIVER_TYPE_SUPD
+
+*Ifdef: DRIVER_TYPE_SPD
+*%==============================================================================*%
+*%                          CONFIG_NotifyPrinterStatus (Installable)            *%
+*%==============================================================================*%
+*Feature: CONFIG_NotifyPrinterStatus
+{
+	*rcNameID: =IDS_STATUS_NOTIFICATION
+	*%Name: "Status Notification"
+	*FeatureType: PRINTER_PROPERTY
+	*Option: True
+	{
+		*rcNameID: =IDS_ON
+	}
+	*Option: False
+	{
+		*rcNameID: =IDS_OFF
+	}
+}
+*Endif: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%

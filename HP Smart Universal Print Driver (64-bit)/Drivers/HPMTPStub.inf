@@ -1,0 +1,118 @@
+
+[Version]
+Signature="$Windows NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%Provider%
+CatalogFile=HPMTPStub.CAT
+DriverVer=05/18/2022, 1.0.0.1
+;====================================================
+
+[DestinationDirs]
+; By default, files will be copied to \windows\system.
+DefaultDestDir=11
+
+[ControlFlags]
+; Remove comment from this line if all devices are PnP.
+ExcludeFromSelect=*
+
+[Manufacturer]
+%Mfg%=Models,NTx86.5.1,NTamd64.5.2,NTx86.6.0,NTamd64.6.0,NTARM64,NTARM
+
+; Windows 2K is not supported
+;[Models]
+;; ; No support for Windows 2000
+;ManhattanOJ
+; Windows XP
+[Models.NTx86.5.1]
+;Manhattan
+%HPODPRINTERS% = Null, USB\Vid_03f0&Pid_2554&mi_04
+;Ulysses
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0E72&mi_02
+;Selene
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0A72&mi_03
+
+[Models.NTamd64.5.2]
+;Manhattan
+%HPODPRINTERS% = Null, USB\Vid_03f0&Pid_2554&mi_04
+;Ulysses
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0E72&mi_02
+;Selene
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0A72&mi_03
+
+[Models.NTx86.6.0]
+;Manhattan
+%HPODPRINTERS% = Null, USB\Vid_03f0&Pid_2554&mi_04
+;Ulysses
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0E72&mi_02
+;Selene
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0A72&mi_03
+
+[Models.NTamd64.6.0]
+;Manhattan
+%HPODPRINTERS% = Null, USB\Vid_03f0&Pid_2554&mi_04
+;Ulysses
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0E72&mi_02
+;Selene
+%HPODPRINTERS% = Null, USB\vid_03F0&Pid_0A72&mi_03
+
+[Models.NTARM64]
+[Models.NTARM]
+
+
+; *****************************************************************************************
+;           Windows XP (Whistler) and later
+; *****************************************************************************************
+
+[DMR.Usb]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x0
+FeatureScore=00
+AddReg=DMR.UsbReg
+CopyFiles=Nothing
+
+[DMR.Usb.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[DMR.Usb.HW]
+AddReg=REST.Reg
+
+[REST.Reg]
+HKR,,REST,0x00010001,0x1
+
+
+[DMR.UsbReg]
+; This all depends on which kernel services you need
+; Hardware configuration is not known
+HKR,,HardwareConfig,1,1
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,"usbscan.sys"
+
+[SourceDisksNames]
+1 = %CD%,,,
+
+[SourceDisksFiles]
+
+[Nothing]
+
+[Null]
+FeatureScore=ff
+CopyFiles=Nothing	
+AddReg=Nothing
+
+[Null.Services]
+AddService = ,2
+
+[Strings]
+; Always put strings down here so they can be easily localized to
+; other languages.
+
+Provider="Hewlett-Packard"
+Mfg="Hewlett-Packard"
+CD="hp cd"
+HPODPRINTERS = "HP Smart Universal Printing(MTP NULL)"
+

@@ -1,0 +1,924 @@
+*%===============================================================================*%
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                              All rights reserved.							 *%
+*%===============================================================================*%
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-OutputBin.gpd"
+
+*Include:  "StdNames.gpd"
+*%Include: "PJL.GPD"
+*Include:  "PCLXL.GPD"
+*Include:  "HPOneDriver-Properties.gpd"
+*Include:  "HPOneDriver-StringResource.gpd"
+
+*Ifdef: DRIVER_TYPE_SUPD
+
+*%==============================================================================
+*%                         UI_OutputBinFaceUpOrientation                        
+*%==============================================================================
+*Feature: UI_OutputBinFaceUpOrientation
+{
+	*rcNameID: =IDS_FACE_UP_STRAIGHT_PATH
+	*DefaultOption: PrinterDefault
+	*ConcealFromUI?: TRUE
+	*Option: PrinterDefault
+	{
+		*rcNameID: =IDS_PRINTER_DEFAULT
+	}
+	*Option: NotSupported
+	{
+		*rcNameID: =IDS_NO
+		*Command: CmdSelect
+		{
+			*Order: JOB_SETUP.19
+			*Cmd: "@PJL SET PROCESSINGTYPE=<22>FACE_DOWN<22><0A>@PJL SET PROCESSINGOPTION=<22>FACE_DOWN<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+		}
+	}
+	*Option: Supported
+	{
+		*rcNameID: =IDS_YES
+		*Command: CmdSelect
+		{
+			*Order: JOB_SETUP.19
+			*Cmd: "@PJL SET PROCESSINGTYPE=<22>FACE_UP<22><0A>@PJL SET PROCESSINGOPTION=<22>FACE_UP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+		}
+			
+	}
+}
+
+
+*%==============================================================================
+*%                                  OutputBin                                
+*%==============================================================================
+*Feature: OutputBin
+{
+	*rcNameID: =IDS_OUTPUT_BIN
+	*DefaultOption: AutomaticallySelect
+	*PrintSchemaKeywordMap: "JobOutputBin"
+	*Option: AutomaticallySelect
+	{
+		*rcNameID: =IDS_AUTO_SELECT
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=AUTO<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin Auto,AUTO"
+				}
+			}
+		}
+	}
+	*Option: PC_StandardBin
+	{
+		*rcNameID: =IDS_STANDARD_BIN
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{	
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=STANDARDBIN<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCStandardBin,STANDARD BIN"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_EngineOptionalBin1
+	{
+		*rcNameID: =IDS_OPTIONAL_OUTPUT_BIN
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{	
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALENGINEBIN1<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCEngineOptionalOutputBin,OPTIONAL ENGINEBIN 1"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_AlternateBinFaceUp
+	{
+		*rcNameID: =IDS_ALTERNATE_BIN
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{	
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=FACEUPBIN<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCAlternateBin,FACE UP BIN"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin1
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_1
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{	
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN1<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin1,OPTIONAL OUTBIN 1"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin2
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_2
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{	
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN2<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin2,OPTIONAL OUTBIN 2"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin3
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_3
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN3<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin3,OPTIONAL OUTBIN 3"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin4
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_4
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN4<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin4,OPTIONAL OUTBIN 4"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin5
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_5
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN5<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin5,OPTIONAL OUTBIN 5"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin6
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_6
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN6<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin6,OPTIONAL OUTBIN 6"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin7
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_7
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN7<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin7,OPTIONAL OUTBIN 7"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_OutputBin8
+	{
+		*rcNameID: =IDS_OUTPUT_BIN_8
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN8<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCOutputBin8,OPTIONAL OUTBIN 8"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_STACKER
+	{
+		*rcNameID: =IDS_STACKER_BINS
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN1<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCStackerBins,OPTIONAL OUTBIN 1"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_SEPERATOR
+	{
+		*rcNameID: =IDS_JOB_SEPARATOR_BINS
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN1<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCJobSeparatorBins,OPTIONAL OUTBIN 1"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+	*Option: PC_COLLATOR
+	{
+		*rcNameID: =IDS_COLLATOR_BINS
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "@PJL SET OUTBIN=OPTIONALOUTBIN1<0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.20
+					*Cmd: "*OutputBin PCCollatorBins,OPTIONAL OUTBIN 1"
+				}
+			}
+		}
+		*Constraints: LIST(CONFIG_OutputBinMode.NotInstalled)
+	}
+}
+
+
+*%==============================================================================
+*%                     InvalidCombination :  Output Bin
+*%==============================================================================
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_StandardBin.NotInstalled, OutputBin.PC_StandardBin)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_EngineOptionalBin1.NotInstalled, OutputBin.PC_EngineOptionalBin1)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_AlternateBinFaceUp.NotInstalled, OutputBin.PC_AlternateBinFaceUp)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin1.NotInstalled, OutputBin.PC_OutputBin1)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin2.NotInstalled, OutputBin.PC_OutputBin2)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin3.NotInstalled, OutputBin.PC_OutputBin3)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin4.NotInstalled, OutputBin.PC_OutputBin4)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin5.NotInstalled, OutputBin.PC_OutputBin5)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin6.NotInstalled, OutputBin.PC_OutputBin6)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin7.NotInstalled, OutputBin.PC_OutputBin7)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_OutputBin8.NotInstalled, OutputBin.PC_OutputBin8)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_STACKER.NotInstalled, OutputBin.PC_STACKER)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_SEPERATOR.NotInstalled, OutputBin.PC_SEPERATOR)
+*InvalidCombination: LIST(CONFIG_OutputBinMode.AutoConfig, UIConfig_COLLATOR.NotInstalled, OutputBin.PC_COLLATOR)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.HP8BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_StandardBin, CONFIG_OutputBinMode.OptionalAlternateBin)
+
+
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.HP8BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_EngineOptionalBin1, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_OutputBin1, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin1, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin1, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin1, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin1, CONFIG_OutputBinMode.StandardBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin2, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin2, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin2, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin2, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin2, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin2, CONFIG_OutputBinMode.StandardBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin3, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin3, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin3, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin3, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin3, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin3, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin3, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin4, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin5, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin6, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin7, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_OutputBin8, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.HP8BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_STACKER, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.HP8BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.HPCollatorBin)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_SEPERATOR, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.HP8BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_COLLATOR, CONFIG_OutputBinMode.StandardBin)
+
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.HP2BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.HP3BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.HP5BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.HP8BinMailBox)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.HPJobSeparator)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.HPStackerBin)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.OptionalAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.StandardAlternateBin)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.StandardBin)
+*InvalidCombination: LIST(OutputBin.PC_AlternateBinFaceUp, CONFIG_OutputBinMode.HPCollatorBin)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*Feature: UIConfig_StandardBin
+{
+	*rcNameID: =IDS_STANDARD_BIN
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_EngineOptionalBin1
+{
+	*%Name: "UIConfig_EngineOptionalBin1"
+	*rcNameID: =IDS_OPTIONAL_OUTPUT_BIN
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_AlternateBinFaceUp
+{
+	*%Name: "UIConfig_AlternateBinFaceUp"
+	*rcNameID: =IDS_ALTERNATE_BIN
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin1
+{
+	*%Name: "UIConfig_OutputBin1"
+	*rcNameID: =IDS_OUTPUT_BIN_1
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin2
+{
+	*%Name: "UIConfig_OutputBin2"
+	*rcNameID: =IDS_OUTPUT_BIN_2
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin3
+{
+	*%Name: "UIConfig_OutputBin3"
+	*rcNameID: =IDS_OUTPUT_BIN_3
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin4
+{
+	*%Name: "UIConfig_OutputBin4"
+	*rcNameID: =IDS_OUTPUT_BIN_4
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin5
+{
+	*%Name: "UIConfig_OutputBin5"
+	*rcNameID: =IDS_OUTPUT_BIN_5
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin6
+{
+	*%Name: "UIConfig_OutputBin6"
+	*rcNameID: =IDS_OUTPUT_BIN_6
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin7
+{
+	*%Name: "UIConfig_OutputBin7"
+	*rcNameID: =IDS_OUTPUT_BIN_7
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_OutputBin8
+{
+	*%Name: "UIConfig_OutputBin8"
+	*rcNameID: =IDS_OUTPUT_BIN_8
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_STACKER
+{
+	*%Name: "UIConfig_STACKER"
+	*rcNameID: =IDS_STACKER_BINS
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_SEPERATOR
+{
+	*%Name: "UIConfig_SEPERATOR"
+	*rcNameID: =IDS_JOB_SEPARATOR_BINS
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Feature: UIConfig_COLLATOR
+{
+	*%Name: "UIConfig_COLLATOR"
+	*rcNameID: =IDS_COLLATOR_BINS
+	*DefaultOption: NotInstalled
+	*ConcealFromUI?: TRUE
+	*Option: Installed
+	{
+		*rcNameID: =IDS_INSTALLED
+	}
+	*Option: NotInstalled
+	{
+		*rcNameID: =IDS_NOTINSTALLED
+	}
+}
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*Endif: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%

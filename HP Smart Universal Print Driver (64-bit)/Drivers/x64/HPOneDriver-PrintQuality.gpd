@@ -1,0 +1,5732 @@
+*%===============================================================================*%
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                              All rights reserved.							 *%
+*%===============================================================================*%
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-PrintQuality.gpd"
+
+*Include:  "StdNames.gpd"
+*%Include: "PJL.GPD"
+*Include:  "PCLXL.GPD"
+*Include:  "HPOneDriver-Properties.gpd"
+
+*%==========================================================================================*%
+*%                               Resolution                                     	    *%
+*% Resolution : Standard option for GPD. Mandotory. Conceal  				    *%
+*% UserResolution : Resolution options to display in UI					    *%
+*% PQxxxxSupport, PQxxxxDPI, PQxxxxHintTag : Resolution options for each resolution	    *%			
+*%  That is, Max, Best, Normal, Draft, Economode to have dpi/hint/supporting information    *%
+*%  These values will be set through bidi (GDL) 					    *%
+*%==========================================================================================*%
+
+*%==========================================================================================*%
+*%                               UserResolution                                    	    *%
+*% UserResolution : Resolution options to display in UI					    *%
+*%==========================================================================================*%
+
+*Feature: UserResolution
+{
+	*%Name: "Print Quality"
+	*rcNameID: =IDS_PRINT_QUALITY
+	*ConcealFromUI?: FALSE
+	*ConflictPriority: 2
+	*%DefaultOption: PQNormalLaser
+	*Switch: Product_CID
+	{
+		*Case: 1284_CID_HPIJVIPAV9
+		{
+			*%Old OPA - 3M
+			*DefaultOption: HPS_Normal
+		}
+*Ifdef: DRIVER_TYPE_SPD
+		*Case: 1284_CID_HPIJVIPAV7
+		{
+			*%Old CCA - Palermo
+			*DefaultOption: HPS_Normal
+		}
+		*Case: 1284_CID_HPIJVIPAV4
+		{
+			*%Old CCA - Vasari
+			*DefaultOption: HPS_Normal
+		}
+		*Case: 1284_CID_HPDESKJET_P976D
+		{
+			*%Old CCB - Taccola
+			*DefaultOption: HPS_Normal
+		}
+*Endif: DRIVER_TYPE_SPD
+		*Case: 1284_CID_HPIJCCBV1
+		{
+			*DefaultOption: HPS_Normal
+		}
+		*Case: 1284_CID_HPIJCCAV1
+		{
+			*DefaultOption: HPS_Normal
+		}		
+		*Case: 1284_CID_HPIJOPAV1
+		{
+			*DefaultOption: HPS_Normal
+		}			
+		*Case: 1284_CID_HPIJOPBV1
+		{
+			*DefaultOption: HPS_Normal
+		}	
+		*Case: 1284_CID_HPLJPCLMSMV1
+		{
+			*DefaultOption: HPS_Normal
+		}
+		*Case: 1284_CID_HPLJPCLMSCV2
+		{
+			*DefaultOption: HPS_Normal
+		}
+		*Case: 1284_CID_HPLJPCLMSMV2
+		{
+			*DefaultOption: HPS_Normal
+		}		
+		*default:
+		{
+			*DefaultOption: PQNormalLaser
+		}
+	}
+	*Option: PQDraftLaser
+	{
+		*rcNameID: =IDS_HP_PC_DRAFT
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		        
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+		        }
+		    }
+		}
+	}
+	
+	*Option: PQNormalLaser
+	{
+		*rcNameID: =IDS_NORMAL
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		        		    
+			} 
+            *case: PCL	
+            {
+			    
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQBestLaser
+	{
+		*rcNameID: =IDS_BEST
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		        
+			} 
+            *case: PCL	
+            {
+			    
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=BEST"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQMaxLaser
+	{
+		*rcNameID: =IDS_HP_PC_MAX
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		        
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=MAX"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQDraftPageWide
+	{
+		*rcNameID: =IDS_PQ_GENERAL_OFFICE_CAP
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+		        }
+		    }
+		}
+	}
+	
+	*Option: PQNormalPageWide
+	{
+		*rcNameID: =IDS_PQ_PROFESSIONAL
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQBestPageWide
+	{
+		*rcNameID: =IDS_PQ_PRESENTATION_CSL
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			 *case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=BEST"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQMaxPageWide
+	{
+		*rcNameID: =IDS_MAXIMUM_DPI
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=MAX"
+		        }
+		    }
+		}
+	}
+	*Option: PQEconomode
+	{
+		*rcNameID: =IDS_ECONOMODE_Q206
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET ECONOMODE=ON<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="0"
+		        }
+			} 
+            *case: PCL	
+            {
+			    *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "0"
+		        }  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET ECONOMODE=ON"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQDraft
+	{
+		*%Name : "General Draft"
+		*rcNameID: =IDS_PQ_GENERAL_DRAFT
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+		        }
+		    }
+		}
+		
+	}
+	
+	*Option: PQNormal
+	{
+		*%Name : "General Normal"
+		*rcNameID: =IDS_PQ_GENERAL_NORMAL
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQBest
+	{
+		*%Name : "General Best"
+		*rcNameID: =IDS_PQ_GENERAL_BEST
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			 *case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=BEST"
+		        }
+		    }
+		}
+	}
+
+	*Option: PQMax
+	{
+		*%Name : "General Max"
+		*rcNameID: =IDS_PQ_GENERAL_MAX
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+		        }
+		    }
+			*case: PCLmS
+			{
+		      
+			} 
+            *case: PCL	
+            {
+			  
+            }	
+			*case: PS
+			{			
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: "@PJL SET PRINTQUALITY=MAX"
+		        }
+		    }
+		}
+	}
+	*Option: HPS_Normal
+	{
+		*rcNameID: =IDS_NORMAL
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		    }
+			*case: PCLmS
+			{
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="1"
+		        }  				    
+			} 
+            *case: PCL	
+            {
+			    *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="0"
+		        }  
+            }	
+			*case: PS
+			{			
+		    }
+		}
+	}
+
+	*Option: HPS_Draft
+	{
+		*rcNameID: =IDS_WM_OPTION_DRAFT
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		    }
+			*case: PCLmS
+			{
+			} 
+            *case: PCL	
+            {
+				 *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="-2"
+		        } 
+            }
+			*case: PS
+			{			
+		    }
+		}
+	}
+	*Option: HPS_Best
+	{
+		*rcNameID: =IDS_BEST
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		    }
+			*case: PCLmS
+			{
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="2"
+		        }  				    
+			} 
+            *case: PCL	
+            {
+			    *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="1"
+		        }  
+            }	
+			*case: PS
+			{			
+		    }
+		}
+	}
+	*Option: HPS_Economode
+	{
+		*rcNameID: =IDS_ECONOMODE_Q206
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		    }
+			*case: PCLmS
+			{
+		        *Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="0"
+		        }  				    
+			} 
+            *case: PCL	
+            {
+            }	
+			*case: PS
+			{			
+		    }
+		}
+	}
+*Ifdef: DRIVER_TYPE_SPD
+	*Option: HPS_Max
+	{
+		*rcNameID: =IDS_MAXIMUM_DPI
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		    }
+			*case: PCLmS
+			{ 				    
+			} 
+            *case: PCL	
+            {
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.100
+					*Cmd: ="2"
+		        } 
+            }	
+			*case: PS
+			{			
+		    }
+		}
+	}
+*Endif: DRIVER_TYPE_SPD
+
+*%=== Consolidated Print Quality Mode based on Display string for legacy and new options as per PC0.72 ===*%
+	*Option: Normal
+	{
+		*%DisplayTag = 1000*%
+		*rcNameID: =IDS_NORMAL 		
+		*Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: FineLines_MaxDPI
+	{
+	   *%DisplayTag = 1002*%
+		*rcNameID: =IDS_HP_PC_MAX
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: QuickView_Draft 
+	{
+		*%DisplayTag = 1003*%
+		*rcNameID: =IDS_HP_PC_DRAFT
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: Enhanced
+	{
+		*%DisplayTag = 1004*%
+		*rcNameID: =IDS_PQ_ENHANCED
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: GeneralOffice_Draft
+	{
+		*% DisplayTag = 3000*%
+		*rcNameID: =IDS_PQ_GENERAL_OFFICE_CAP
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: Professional
+	{
+		*%DisplayTag = 3001*%
+		*rcNameID: =IDS_PQ_PROFESSIONAL
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: Presentation
+	{
+		*%DisplayTag = 3002*%
+		*rcNameID: =IDS_PQ_PRESENTATION_CSL
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: MaxDPI
+	{
+		*%DisplayTag = 3003*%
+		*rcNameID: =IDS_MAXIMUM_DPI
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: QuickDraft
+	{
+		*%DisplayTag = 3020*%
+		*rcNameID: =IDS_PQ_QUICK_DRAFT
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: HPStandard
+	{
+		*%DisplayTag = 3030*%
+		*rcNameID: =IDS_PQ_HP_STANDARD
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: Standard
+	{
+		*%DisplayTag = 3035*%
+		*rcNameID: =IDS_PQ_STANDARD 
+		*Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: Premium
+	{
+		*%DisplayTag = 3040*%
+		*rcNameID: =IDS_PQ_PREMIUM
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: Detailed
+	{
+		*%DisplayTag = 3050*%
+		*rcNameID: =IDS_PQ_DETAILED 
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: HPHighSpeed
+	{
+		*%DisplayTag = 3060*%
+		*rcNameID: =IDS_PQ_HP_HIGH_SPEED 
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+
+	*Option: HighSpeed
+	{
+		*%DisplayTag = 3065*%
+		*rcNameID: =IDS_PQ_HIGH_SPEED
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+
+	*Option: Draft   
+	{
+		*%DisplayTag = 1007*%
+		*rcNameID: =IDS_WM_OPTION_DRAFT 
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: Best   
+	{
+		*%DisplayTag = 1008*%
+		*rcNameID: =IDS_BEST 
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+        
+    *Option: EconoMode
+	{
+		*%DisplayTag = 1005*%
+		*rcNameID: =IDS_ECONOMODE_Q206
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: HPColorSave
+	{
+		*%DisplayTag = 3070*%
+		*rcNameID: =IDS_PQ_HP_COLORSAVE 
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: HPTonerSave
+	{
+		*%DisplayTag = 3080*%
+		*rcNameID: =IDS_PQ_HP_TONERSAVE
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: ColorSave 
+	{
+		*%DisplayTag = 3075*%
+		*rcNameID: =IDS_PQ_COLORSAVE
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+	*Option: TonerSave  
+	{
+		*%DisplayTag = 3085*%
+		*rcNameID: =IDS_PQ_TONERSAVE
+        *Switch: JobHPPrintQualitySupportedType
+        {
+            *case: Draft
+            {                              
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT<0A>"
+						}
+					}
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="-2"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=DRAFT"
+						}                                                                              
+					}
+				}                                              
+            }
+            *case: Normal
+            {
+				*Switch: JobDeviceLanguage
+				{
+					*case: PCL6
+					{                                              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL<0A>"
+						}
+					}
+					*case: PCLmS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="1"
+						}  
+					} 
+					*case: PCL           
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: ="0"
+						} 
+					}
+					*case: PS
+					{              
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.100
+							*Cmd: "@PJL SET PRINTQUALITY=NORMAL"
+						}                                                                              
+					}
+				}                                                                  
+            } 
+            *case: High         
+            {
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    } 
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="1"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=BEST"
+                        }                                                                              
+                    }
+                }              
+            }              
+            *case: Max
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX<0A>"
+                        }
+                    }
+                    *case: PCL           
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="2"
+                        } 
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=MAX"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Economode
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON<0A>"
+                        }
+                    }
+                    *case: PCLmS
+                    {
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: ="0"
+                        }              
+                    } 
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET ECONOMODE=ON"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: HighSpeed
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=HIGHSPEED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+            *case: Depleted
+            {              
+                *Switch: JobDeviceLanguage
+                {
+                    *case: PCL6
+                    {                                              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED<0A>"
+                        }
+                    }
+                    *case: PS
+                    {              
+                        *Command: CmdSelect
+                        {
+                            *Order: JOB_SETUP.100
+                            *Cmd: "@PJL SET PRINTQUALITY=DEPLETED"
+                        }                                                                              
+                    }
+                }                                                              
+            }
+        }
+	}
+
+*% Consolidated Print Quality Mode based on Display string for legacy and new options as per PC0.72
+	*%*Option: PQCustom1
+	*%{
+	*%	*%Name: "Custom 1"
+	*%	*rcNameID: =IDS_PQ_CUSTOM_1
+	*%   *Switch: JobDeviceLanguage
+	*%	{
+	*%	    *case: PCL6
+	*%		{			
+	*%	        *Command: CmdSelect
+	*%	        {
+	*%				*Order: JOB_SETUP.100
+	*%				*Cmd: "@PJL SET PRINTQUALITY=CUSTOM1<0A>"
+	*%	        }
+	*%	    }
+	*%		*case: PCLmS
+	*%		{
+	*%	      
+	*%		} 
+    *%        *case: PCL	
+    *%        {
+	*%		  
+    *%        }			
+	*%	}
+	*%}
+	*%*Option: PQCustom2
+	*%{
+	*%	*%Name: "Custom 2"
+	*%	*rcNameID: =IDS_PQ_CUSTOM_2
+	*%    *Switch: JobDeviceLanguage
+	*%	{
+	*%	    *case: PCL6
+	*%		{			
+	*%	        *Command: CmdSelect
+	*%	        {
+	*%				*Order: JOB_SETUP.100
+	*%				*Cmd: "@PJL SET PRINTQUALITY=CUSTOM2<0A>"
+	*%	        }
+	*%	    }
+	*%		*case: PCLmS
+	*%		{
+	*%	      
+	*%		} 
+    *%        *case: PCL	
+    *%        {
+	*%		  
+    *%        }			
+	*%	}
+	*%}
+
+}
+*%==========================================================================================*%
+*%                               Resolution                                     	    *%
+*% Resolution : Standard option for GPD. Mandotory. Conceal  			       	    *%
+*%==========================================================================================*%
+*Feature: Resolution
+{
+	*rcNameID: =RESOLUTION_DISPLAY
+	*ConcealFromUI?: FALSE
+	*DefaultOption: 600dpi
+	*ConflictPriority: 5
+	*Option: 600dpi
+	{
+		*rcNameID: =IDS_PQ_RES_600_DPI
+		*DPI: PAIR(600, 600)
+		*TextDPI: PAIR(600, 600)
+		*SpotDiameter: 100
+		*Switch: JobDeviceLanguage
+				{
+					*Case: PCL6
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =PJL_ENTER_PCLXL =XL_ProtocolLevel3 =XL_BeginSession600 =XL_OpenDataSource
+						}
+					}
+					*Case: PCLmS
+			        {
+					 *Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =""
+						}
+			        }
+			         *Case: PCL
+			        {
+					   *Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =""
+						}
+			        }
+					*Case: PS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: ="*Resolution 600dpi"
+						}
+					}
+				}
+	}
+	*Option: 1200dpi
+	{
+		*rcNameID: =IDS_PQ_RES_1200_DPI
+		*DPI: PAIR(1200, 1200)
+		*TextDPI: PAIR(1200, 1200)
+		*SpotDiameter: 100
+		*Switch: JobDeviceLanguage
+				{
+					*Case: PCL6
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =PJL_ENTER_PCLXL =XL_ProtocolLevel3 =XL_BeginSession1200 =XL_OpenDataSource
+						}
+					}
+					*Case: PCLmS
+			        {
+					 *Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =""
+						}
+			        }
+			         *Case: PCL
+			        {
+					   *Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =""
+						}
+			        }
+					*Case: PS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: ="*Resolution 1200dpi"
+						}
+					}
+				}
+	}
+	
+	*Option: 300dpi
+    {
+        *rcNameID: =IDS_PQ_RES_300_DPI
+        *DPI: PAIR(300, 300)
+        *TextDPI: PAIR(300, 300)
+        *SpotDiameter: 100
+		*Switch: JobDeviceLanguage
+				{
+					*Case: PCL6
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =PJL_ENTER_PCLXL =XL_ProtocolLevel3 =XL_BeginSession300 =XL_OpenDataSource
+						}
+					}
+					*Case: PCLmS
+			        {
+					 *Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =""
+						}
+			        }
+			         *Case: PCL
+			        {
+					   *Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: =""
+						}
+			        }
+					*Case: PS
+					{
+						*Command: CmdSelect
+						{
+							*Order: JOB_SETUP.190
+							*Cmd: ="*Resolution 300dpi"
+						}
+					}
+				}
+    }
+}
+
+*Feature: JobHPPrintQualitySupportedType
+{
+	*ConcealFromUI?: TRUE
+	*Name: "JobHPPrintQualitySupportedType"
+	*DefaultOption: None
+	*Option: None
+	{
+		*Name: "None"
+	}
+	*Option: Draft
+	{
+		*Name: "Draft"
+	}
+	*Option: Normal
+	{
+		*Name: "Normal"
+	}
+	*Option: High         
+	{
+		*Name: "High"
+	}
+	*Option: Max         
+	{
+		*Name: "Max"
+	}
+	*Option: Economode         
+	{
+		*Name: "Economode"
+	}
+    *Option: HighSpeed         
+	{
+		*Name: "HighSpeed"
+	}
+    *Option: Depleted         
+	{
+		*Name: "Depleted"
+	}
+}
+
+*%==============================================================================*%
+*%                                Print Quality                                 *%
+*% This is about quality of image for original XPS document                     *%
+*% MxdcGetPDEVAdjustment in V3
+*%==============================================================================*%
+*Feature: PrintQuality
+{
+	*%Name: "Print Quality"
+	*rcNameID: =IDS_PRINT_QUALITY
+	*ConcealFromUI?: FALSE
+	*ConflictPriority: 10
+	*PrintSchemaKeywordMap: "PageOutputQuality"
+	*DefaultOption: High
+	*Option: Normal
+	{
+		*rcNameID: =IDS_NORMAL
+		*PrintSchemaKeywordMap: "Normal"
+*Ifdef: DRIVER_ARCHITECTURE_V3
+		*Constraints: LIST(UserResolution.PQDraftLaser, UserResolution.PQMaxLaser)
+		*Constraints: LIST(UserResolution.PQDraftPageWide, UserResolution.PQMaxPageWide, UserResolution.PQEconomode)
+*Endif: DRIVER_ARCHITECTURE_V3
+	}
+	*Option: Draft
+	{
+		*rcNameID: =IDS_ECONOMODE_Q206
+		*PrintSchemaKeywordMap: "Draft"
+*Ifdef: DRIVER_ARCHITECTURE_V3
+		*Constraints: LIST(UserResolution.PQNormalLaser, UserResolution.PQBestLaser, UserResolution.PQMaxLaser) 
+		*Constraints: LIST(UserResolution.PQNormalPageWide, UserResolution.PQBestPageWide, UserResolution.PQMaxPageWide) 
+*Endif: DRIVER_ARCHITECTURE_V3
+	}	
+	*Option: High
+	{
+		*%Name: "Low compression JPEG (large files)"
+		*rcNameID: =IDS_LOW_COMPRESSION_JPEG
+		*PrintSchemaKeywordMap: "High"
+		*%Constraints: LIST(UserResolution.PQDraftLaser, UserResolution.PQNormalLaser, UserResolution.PQBestLaser)
+		*%Constraints: LIST(UserResolution.PQDraftPageWide, UserResolution.PQNormalPageWide, UserResolution.PQBestPageWide, UserResolution.PQEconomode) 
+	}
+	*%*Option: Photographic
+	*%{
+	*%	*Name: "PNG file type (largest files)"
+	*%	*PrintSchemaKeywordMap: "Photographic"
+	*%}
+}
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%

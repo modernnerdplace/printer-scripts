@@ -1,0 +1,2259 @@
+*%===============================================================================
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         
+*%                              All rights reserved.				 			 
+*%===============================================================================
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-Finisher.gpd"
+
+*Include:  "StdNames.gpd"
+*%Include: "PJL.GPD"
+*Include:  "PCLXL.GPD"
+*Include:  "HPOneDriver-Properties.gpd"
+*Include:  "HPOneDriver-StringResource.gpd"
+
+*Ifdef: DRIVER_TYPE_SUPD
+
+*%==============================================================================
+*%                                  Stapling                                    
+*%==============================================================================
+*Feature: Stapling
+{
+	*rcNameID: =IDS_STAPLE
+	*DefaultOption: None
+	*Option: None
+	{
+		*rcNameID: =IDS_NONE
+		*PrintSchemaKeywordMap: "None"
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>NONE<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd:   "*StapleLocation None,NONE"
+				}
+			}
+		}
+	}
+	*Option: Staple1
+	{
+		*rcNameID: =IDS_ONE_STAPLE
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>ONE_STAPLE<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 1Staple_PC,ONE_STAPLE"
+				}
+			}
+		}
+	}
+	*Option: StapleTopLeft
+	{
+		*rcNameID: =IDS_ONE_STAPLE_LEFT_NEW
+		*PrintSchemaKeywordMap: "StapleTopLeft"
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>LEFT_1PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 1StapleLeft_PC,LEFT_1PT"
+				}
+			}
+		}
+	}
+	*Option: StapleTopRight
+	{
+		*rcNameID: =IDS_ONE_STAPLE_RIGHT_NEW
+		*PrintSchemaKeywordMap: "StapleTopRight"
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>RIGHT_1PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 1StapleRight_PC,RIGHT_1PT"
+				}
+			}
+		}
+	}
+	*Option: StapleDualLeft
+	{
+		*rcNameID: =IDS_TWO_STAPLES_LEFT_NEW
+		*PrintSchemaKeywordMap: "StapleDualLeft"
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>LEFT_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 2StaplesLeft_PC,LEFT_2PT"
+				}
+			}
+		}
+	}
+	*Option: StapleDualRight
+	{
+		*rcNameID: =IDS_TWO_STAPLES_RIGHT_NEW
+		*PrintSchemaKeywordMap: "StapleDualRight"
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>RIGHT_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 2StaplesRight_PC,RIGHT_2PT"
+				}
+			}
+		}
+	}
+	*Option: StapleDualTop
+	{
+		*rcNameID: =IDS_TWO_STAPLES_TOP_NEW
+		*PrintSchemaKeywordMap: "StapleDualTop"
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>TOP_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 2StaplesTop_PC,TOP_2PT"
+				}
+			}
+		}
+	}
+	*Option: StapleDualBottom
+	{
+		*rcNameID: =IDS_TWO_STAPLES_BOTTOM_NEW
+		*PrintSchemaKeywordMap: "StapleDualBottom"
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>BT_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 2StaplesBottom_PC,BT_2PT"
+				}
+			}
+		}
+	}
+	*Option: StapleDualTopOrLeft
+	{
+		*rcNameID: =IDS_TWO_STAPLES_LEFT_OR_TOP_NEW
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>TWO_STAPLES<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 2StaplesLeftOrTop_PC,TWO_STAPLES"
+				}
+			}
+		}
+	}
+	*Option: StapleTripleLeft
+	{
+		*rcNameID: =IDS_THREE_STAPLES_LEFT
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>LEFT_3PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 3StaplesLeft_PC,LEFT_3PT"
+				}
+			}
+		}
+	}
+	*Option: StapleTripleRight
+	{
+		*rcNameID: =IDS_THREE_STAPLES_RIGHT
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>RIGHT_3PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 3StaplesRight_PC,RIGHT_3PT"
+				}
+			}
+		}
+	}
+	*Option: StapleTripleTop
+	{
+		*rcNameID: =IDS_THREE_STAPLES_TOP
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>TOP_3PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 3StaplesTop_PC,TOP_3PT"
+				}
+			}
+		}
+	}
+	*Option: StapleTripleBottom
+	{
+		*rcNameID: =IDS_THREE_STAPLES_Bottom_NEW
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>BT_3PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 3StaplesBottom_PC,BT_3PT"
+				}
+			}
+		}
+	}
+	*Option: StapleTripleTopOrLeft
+	{
+		*rcNameID: =IDS_THREE_STAPLES_LEFT_OR_TOP_NEW
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			    
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>STAPLING<22><0A>@PJL SET PROCESSINGOPTION=<22>THREE_STAPLES<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation 3StaplesLeftOrTop_PC,THREE_STAPLES"
+				}
+			}
+		}
+	}
+	*Option: SaddleStitch
+	{
+		*rcNameID: =IDS_FOLD_AND_STITCH
+		*PrintSchemaKeywordMap: "SaddleStitch"
+		*ForceReverseOrder?: TRUE
+		*Switch: JobDeviceLanguage
+		{
+		    *case: PCL6
+			{			
+		        *Command: CmdSelect
+				{
+					*Order: JOB_SETUP.21
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>BOOKLET_MAKER<22><0A>@PJL SET PROCESSINGOPTION=<22>BOOKLET_MAKER<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*case: PCLmS
+			{
+			}
+			*case: PCL	
+            {
+			}
+			*case: PS
+			{
+				*Command: CmdSelect
+		        {
+					*Order: JOB_SETUP.21
+					*Cmd: "*StapleLocation FoldAndStitch_PC,BOOKLET_MAKER"
+				}
+			}
+		}
+	}
+}
+
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleTopLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleTopRight)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.Staple1)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleDualLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleDualRight)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleDualTop)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleDualBottom)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleDualTopOrLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleTripleLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleTripleRight)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleTripleTop)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleTripleBottom)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.StapleTripleTopOrLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.NotInstalled, Stapling.SaddleStitch)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTopLeft.NotInstalled, Stapling.StapleTopLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTopRight.NotInstalled, Stapling.StapleTopRight)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTopLeft.NotInstalled, PC_StapleTopRight.NotInstalled, Stapling.Staple1)
+						  
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleDualLeft.NotInstalled, Stapling.StapleDualLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleDualRight.NotInstalled, Stapling.StapleDualRight)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleDualTop.NotInstalled, Stapling.StapleDualTop)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleDualBottom.NotInstalled, Stapling.StapleDualBottom)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleDualLeft.NotInstalled, PC_StapleDualTop.NotInstalled, Stapling.StapleDualTopOrLeft)
+						  
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTripleLeft.NotInstalled, Stapling.StapleTripleLeft)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTripleRight.NotInstalled, Stapling.StapleTripleRight)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTripleTop.NotInstalled, Stapling.StapleTripleTop)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTripleBottom.NotInstalled, Stapling.StapleTripleBottom)
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleTripleLeft.NotInstalled, PC_StapleTripleTop.NotInstalled, Stapling.StapleTripleTopOrLeft)
+
+*InvalidCombination: LIST(CONFIG_StapleMode.AutoConfig,  PC_StapleFoldAndStitch.NotInstalled, Stapling.SaddleStitch)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%==============================================================================
+*%                                UI Fold&Stitch                                
+*%==============================================================================
+*%*Feature: FoldAndStitch
+*%{
+*%	*rcNameID: =IDS_EMPTY
+*%	*DefaultOption: false
+*%	*ConcealFromUI?: TRUE
+*%	*Option: false
+*%	{
+*%		*rcNameID: =IDS_OFF
+*%	}
+*%	*Option: true
+*%	{
+*%		*rcNameID: =IDS_ON
+*%	}
+*%}
+
+*%==============================================================================
+*%                                  Folding                                    
+*%==============================================================================
+*Feature: BookOrderingDirection
+{
+	*%rcNameID: =IDS_BOOKLET_ORDERING
+	*Name: "Booklet Ordering"
+	*ConcealFromUI?: TRUE
+	*DefaultOption: NoFoldAndStitch
+
+	*Option: NoFoldAndStitch
+	{
+		*%rcNameID: =IDS_BOOKLET_NO_ORDERING
+		*Name: "No Ordering"
+		*%Constraints: LIST(PC_StapleFoldAndStitch.Installed)
+	}
+	*Option: FoldAndStitch
+	{
+		*%rcNameID: =IDS_FOLD_N_STITCH_MAX15
+		*Name: "Fold and Stitch (Max 15 sheets)"
+		*Constraints: LIST(PC_StapleFoldAndStitch.NotInstalled, PC_FoldAndStitchForceReverseOrderSupport.Supported)
+	}
+	*Option: FoldAndStitchForceReverseOrder
+	{
+		*%rcNameID: =IDS_FOLD_N_STITCH_REVERSE_MAX15
+		*Name: "Fold and Stitch With Reverse Order (Max 15 sheets)"
+		*ForceReverseOrder?: TRUE
+		*Constraints: LIST(PC_StapleFoldAndStitch.NotInstalled, PC_FoldAndStitchForceReverseOrderSupport.NotSupported)
+	}
+}
+
+*InvalidCombination: LIST(CONFIG_FoldAndStitchMode.NotInstalled, Stapling.SaddleStitch)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*InvalidCombination: LIST(CONFIG_FoldAndStitchMode.AutoConfig, PC_StapleFoldAndStitch.NotInstalled, Stapling.SaddleStitch)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+ 
+*%*InvalidCombination: LIST(CONFIG_FoldAndStitchMode.NotInstalled, FoldAndStitch.true)
+*%*InvalidCombination: LIST(CONFIG_FoldAndStitchMode.AutoConfig, PC_StapleFoldAndStitch.NotInstalled, FoldAndStitch.true)
+
+
+
+
+*%==============================================================================
+*%                                  Punching                                    
+*%==============================================================================
+*%==============================================================================
+*%                              DocumentHolePunch                               
+*%==============================================================================
+*Feature: FinishingPunching
+{
+	*rcNameID: =IDS_PUNCH
+	*PrintSchemaKeywordMap: "DocumentHolePunch"
+	*DefaultOption: PunchOff
+	*Option: PunchOff
+	{
+		*rcNameID: =IDS_NONE
+		*PrintSchemaKeywordMap: "None"
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{	
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>NONE<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+			} 
+            *Case: PCL	
+            {
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching None,NONE"
+				}
+			}
+		}
+	}
+	*Option: Punch2LeftUS
+	{
+		*rcNameID: =IDS_2_HOLE_PUNCH_LEFT
+		*PrintSchemaKeywordMap: "LeftEdge"
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>LEFT_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching TwoHolesLeft_PC,LEFT_2PT"
+				}
+			}
+		}
+	}
+	*Option: Punch2RightUS
+	{
+		*rcNameID: =IDS_2_HOLE_PUNCH_RIGHT
+		*PrintSchemaKeywordMap: "RightEdge"
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>RIGHT_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching TwoHolesRight_PC,RIGHT_2PT"
+				}
+			}
+		}
+	}
+	*Option: Punch2TopUS
+	{
+		*rcNameID: =IDS_2_HOLE_PUNCH_TOP
+		*PrintSchemaKeywordMap: "TopEdge"
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>TOP_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching TwoHolesTop_PC,TOP_2PT"
+				}
+			}
+		}
+	}
+	*Option: Punch2BottomUS
+	{
+		*rcNameID: =IDS_2_HOLE_PUNCH_BOTTOM
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>BT_2PT<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching TwoHolesBottom_PC,BT_2PT"
+				}
+			}
+		}
+	}
+	*Option: Punch2LeftOrTopUS
+	{
+		*rcNameID: =IDS_2_HOLE_PUNCH_LEFT_OR_TOP
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>2HOLE<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching TwoHolesLeftOrTop_PC,2HOLE"
+				}
+			}
+		}
+	}
+	*Option: Punch3LeftUS
+	{
+		*rcNameID: =IDS_3_HOLE_PUNCH_LEFT
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>LEFT_3PT_US<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching ThreeHolesLeft_PC,LEFT_3PT_US"
+				}
+			}
+		}
+	}
+	*Option: Punch3RightUS
+	{
+		*rcNameID: =IDS_3_HOLE_PUNCH_RIGHT
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>RIGHT_3PT_US<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching ThreeHolesRight_PC,RIGHT_3PT_US"
+				}
+			}
+		}
+	}
+	*Option: Punch3TopUS
+	{
+		*rcNameID: =IDS_3_HOLE_PUNCH_TOP
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>TOP_3PT_US<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching ThreeHolesTop_PC,TOP_3PT_US"
+				}
+			}
+		}
+	}
+	*Option: Punch3BottomUS
+	{
+		*rcNameID: =IDS_3_HOLE_PUNCH_BOTTOM
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>BT_3PT_US<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching ThreeHolesBottom_PC,BT_3PT_US"
+				}
+			}
+		}
+	}
+	*Option: Punch3LeftOrTopUS
+	{
+		*rcNameID: =IDS_3_HOLE_PUNCH_LEFT_OR_TOP
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>3PT_US<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching ThreeHolesLeftOrTop_PC,3PT_US"
+				}
+			}
+		}
+	}
+	*Option: Punch4LeftDIN
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_LEFT
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>LEFT_4PT_DIN<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesLeft_PC,LEFT_4PT_DIN"
+				}
+			}
+		}
+	}
+	*Option: Punch4RightDIN
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_RIGHT
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>RIGHT_4PT_DIN<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesRight_PC,RIGHT_4PT_DIN"
+				}
+			}
+		}
+	}
+	*Option: Punch4TopDIN
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_TOP
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>TOP_4PT_DIN<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesTop_PC,TOP_4PT_DIN"
+				}
+			}
+		}
+	}
+	*Option: Punch4BottomDIN
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_BOTTOM
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>BT_4PT_DIN<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesBottom_PC,BT_4PT_DIN"
+				}
+			}
+		}
+	}
+	*Option: Punch4LeftOrTopDIN
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_LEFT_OR_TOP
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>4PT_DIN<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesLeftOrTop_PC,4PT_DIN"
+				}
+			}
+		}
+	}
+	*Option: Punch4LeftSWD
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_LEFT_SWD
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>LEFT_4PT_SWD<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesLeftSwd_PC,LEFT_4PT_SWD"
+				}
+			}
+		}
+	}
+	*Option: Punch4RightSWD
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_RIGHT_SWD
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>RIGHT_4PT_SWD<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesRightSwd_PC,RIGHT_4PT_SWD"
+				}
+			}
+		}
+	}
+	*Option: Punch4TopSWD
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_TOP_SWD
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>TOP_4PT_SWD<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesTopSwd_PC,TOP_4PT_SWD"
+				}
+			}
+		}
+	}
+	*Option: Punch4BottomSWD
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_BOTTOM_SWD
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>BT_4PT_SWD<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesBottomSwd_PC,BT_4PT_SWD"
+				}
+			}
+		}
+	}
+	*Option: Punch4LeftOrTopSWD
+	{
+		*rcNameID: =IDS_4_HOLE_PUNCH_LEFT_OR_TOP_SWD
+		*Switch: JobDeviceLanguage
+		{
+		    *Case: PCL6
+			{
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>PUNCH<22><0A>@PJL SET PROCESSINGOPTION=<22>4PT_SWD<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdStartJob
+				{
+					*Order: JOB_SETUP.22
+					*Cmd: "*Punching FourHolesLeftOrTopSwd_PC,4PT_SWD"
+				}
+			}
+		}
+	}
+}
+
+
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch2LeftUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch2RightUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch2TopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch2BottomUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch2LeftOrTopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch3LeftUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch3RightUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch3TopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch3BottomUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch3LeftOrTopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4LeftDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4RightDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4TopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4BottomDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4LeftOrTopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4LeftSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4RightSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4TopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4BottomSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.NotInstalled, FinishingPunching.Punch4LeftOrTopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4LeftDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4RightDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4TopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4BottomDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4LeftOrTopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4LeftSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4RightSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4TopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4BottomSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit23, FinishingPunching.Punch4LeftOrTopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch3LeftUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch3RightUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch3TopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch3BottomUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch3LeftOrTopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch4LeftSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch4RightSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch4TopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch4BottomSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.PunchUnit42, FinishingPunching.Punch4LeftOrTopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch2LeftUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch2RightUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch2TopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch2BottomUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch2LeftOrTopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch3LeftUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch3RightUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch3TopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch3BottomUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch3LeftOrTopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch4LeftDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch4RightDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch4TopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch4BottomDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.Swedish4PunchUnit, FinishingPunching.Punch4LeftOrTopDIN)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_TwoHolePunchLeft.NotInstalled, FinishingPunching.Punch2LeftUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_TwoHolePunchRight.NotInstalled, FinishingPunching.Punch2RightUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_TwoHolePunchTop.NotInstalled, FinishingPunching.Punch2TopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_TwoHolePunchBottom.NotInstalled, FinishingPunching.Punch2BottomUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_TwoHolePunchLeft.NotInstalled, PC_TwoHolePunchTop.NotInstalled, FinishingPunching.Punch2LeftOrTopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_ThreeHolePunchLeft.NotInstalled, FinishingPunching.Punch3LeftUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_ThreeHolePunchRight.NotInstalled, FinishingPunching.Punch3RightUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_ThreeHolePunchTop.NotInstalled, FinishingPunching.Punch3TopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_ThreeHolePunchBottom.NotInstalled, FinishingPunching.Punch3BottomUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_ThreeHolePunchLeft.NotInstalled, PC_ThreeHolePunchTop.NotInstalled, FinishingPunching.Punch3LeftOrTopUS)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchLeft.NotInstalled, FinishingPunching.Punch4LeftDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchRight.NotInstalled, FinishingPunching.Punch4RightDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchTop.NotInstalled, FinishingPunching.Punch4TopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchBottom.NotInstalled, FinishingPunching.Punch4BottomDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchLeft.NotInstalled, PC_FourHolePunchTop.NotInstalled, FinishingPunching.Punch4LeftOrTopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchLeft.NotInstalled, FinishingPunching.Punch4LeftSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchRight.NotInstalled, FinishingPunching.Punch4RightSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchTop.NotInstalled, FinishingPunching.Punch4TopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchBottom.NotInstalled, FinishingPunching.Punch4BottomSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_FourHolePunchLeft.NotInstalled, PC_FourHolePunchTop.NotInstalled, FinishingPunching.Punch4LeftOrTopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.SWD, FinishingPunching.Punch4LeftDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.SWD, FinishingPunching.Punch4RightDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.SWD, FinishingPunching.Punch4TopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.SWD, FinishingPunching.Punch4BottomDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.SWD, FinishingPunching.Punch4LeftOrTopDIN)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.DIN, FinishingPunching.Punch4LeftSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.DIN, FinishingPunching.Punch4RightSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.DIN, FinishingPunching.Punch4TopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.DIN, FinishingPunching.Punch4BottomSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.DIN, FinishingPunching.Punch4LeftOrTopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.US, FinishingPunching.Punch4LeftSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.US, FinishingPunching.Punch4RightSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.US, FinishingPunching.Punch4TopSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.US, FinishingPunching.Punch4BottomSWD)
+*InvalidCombination: LIST(CONFIG_PunchMode.AutoConfig, PC_PunchRegion.US, FinishingPunching.Punch4LeftOrTopSWD)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%==============================================================================*%
+*%                              FinishingFolding                                *%
+*%==============================================================================*%
+*Feature: FinishingFolding
+{
+	*rcNameID: =IDS_FOLD
+	*DefaultOption: FoldOff
+	*Option: FoldOff
+	{
+		*rcNameID: =IDS_NONE
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>NONE<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,NONE"
+				}
+			}
+			
+		}
+	}
+	*Option: InwardCFoldLeftOrUpSet
+	{
+		*rcNameID: =IDS_INWARD_CFOLD_LEFT_OR_TOP
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_IN_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>SET<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_IN_TOP"
+				}
+			}
+		}
+	}
+	*Option: InwardCFoldLeftOrUpMopy
+	{
+		*rcNameID: =IDS_INWARD_CFOLD_LEFT_OR_TOP
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_IN_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_IN_TOP"
+				}
+			}
+		}
+	}
+	*Option: InwardCFoldRightOrDownSet
+	{
+		*rcNameID: =IDS_INWARD_CFOLD_RIGHT_OR_DOWN
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_IN_BOTTOM<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>SET<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_IN_BOTTOM"
+				}
+			}		
+		}
+	}
+	*Option: InwardCFoldRightOrDownMopy
+	{
+		*rcNameID: =IDS_INWARD_CFOLD_RIGHT_OR_DOWN
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_IN_BOTTOM<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_IN_BOTTOM"
+				}
+			}		
+		}
+	}
+	*Option: OutwardCFoldLeftOrUpSet
+	{
+		*rcNameID: =IDS_OUTWARD_CFOLD_LEFT_OR_TOP
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_OUT_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>SET<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_OUT_TOP"
+				}
+			}	
+		}
+	}
+	*Option: OutwardCFoldLeftOrUpMopy
+	{
+		*rcNameID: =IDS_OUTWARD_CFOLD_LEFT_OR_TOP
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_OUT_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_OUT_TOP"
+				}
+			}	
+		}
+	}
+	*Option: OutwardCFoldRightOrDownSet
+	{
+		*rcNameID: =IDS_OUTWARD_CFOLD_RIGHT_OR_DOWN
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_OUT_BOTTOM<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>SET<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_OUT_BOTTOM"
+				}
+			}				
+		}
+	}
+	*Option: OutwardCFoldRightOrDownMopy
+	{
+		*rcNameID: =IDS_OUTWARD_CFOLD_RIGHT_OR_DOWN
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>C_OUT_BOTTOM<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,C_OUT_BOTTOM"
+				}
+			}				
+		}
+	}
+	*Option: InwardVFoldSet
+	{
+		*rcNameID: =IDS_INWARD_VFOLD
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>V_IN_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>SET<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,V_IN_TOP"
+				}
+			}			
+		}
+	}
+	*Option: InwardVFoldMopy
+	{
+		*rcNameID: =IDS_INWARD_VFOLD
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>V_IN_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,V_IN_TOP"
+				}
+			}			
+		}
+	}
+	*Option: OutwardVFoldSet
+	{
+		*rcNameID: =IDS_OUTWARD_VFOLD
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>V_OUT_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>SET<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,V_OUT_TOP"
+				}
+			}	
+		}
+	}
+	*Option: OutwardVFoldMopy
+	{
+		*rcNameID: =IDS_OUTWARD_VFOLD
+		*Switch: JobDeviceLanguage
+	    {
+		    *Case: PCL6
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "@PJL SET PROCESSINGACTION=<22>APPEND<22><0A>@PJL SET PROCESSINGTYPE=<22>FOLDING<22><0A>@PJL SET PROCESSINGOPTION=<22>V_OUT_TOP<22><0A>@PJL SET PROCESSINGBOUNDARY=<22>MOPY<22><0A>"
+				}
+			}
+			*Case: PCLmS
+			{
+		      
+			} 
+            *Case: PCL	
+            {
+			  
+            }
+			*Case: PS
+		    {
+				*Command: CmdSelect
+				{
+					*Order: JOB_SETUP.23
+					*Cmd: "*Folding,V_OUT_TOP"
+				}
+			}	
+		}
+	}
+}
+
+*%c-fold + v-fold
+*%*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, CONFIG_VFoldMode.NotInstalled, FinishingFolding.FoldOff)
+*%*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, CONFIG_VFoldMode.AutoConfig, PC_VFoldType.NotInstalled, FinishingFolding.FoldOff)
+
+
+*%v-fold
+*InvalidCombination: LIST(CONFIG_VFoldMode.NotInstalled, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(CONFIG_VFoldMode.NotInstalled, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(CONFIG_VFoldMode.NotInstalled, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(CONFIG_VFoldMode.NotInstalled, FinishingFolding.OutwardVFoldSet)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*InvalidCombination: LIST(CONFIG_VFoldMode.AutoConfig, PC_VFoldType.NotInstalled, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(CONFIG_VFoldMode.AutoConfig, PC_VFoldType.NotInstalled, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(CONFIG_VFoldMode.AutoConfig, PC_VFoldType.NotInstalled, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(CONFIG_VFoldMode.AutoConfig, PC_VFoldType.NotInstalled, FinishingFolding.OutwardVFoldSet)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+
+*%c-fold
+*%The below constraints are to handle cases when Pre-Config sets FoldMode to NotInstalled
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.NotInstalled, FinishingFolding.OutwardCFoldRightOrDownSet)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*%The below constraints are to handle cases when FoldMode is Auto (default) but Bidi gives FoldType to NotInstalled
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(CONFIG_CFoldMode.AutoConfig, PC_CFoldType.NotInstalled, FinishingFolding.OutwardCFoldRightOrDownSet)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+
+*%Mopier Mode
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.disable, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.disable, FinishingFolding.InwardCFoldRightOrDownMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.disable, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.disable, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.disable, FinishingFolding.InwardVFoldMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.disable, FinishingFolding.OutwardVFoldMopy)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.NotInstalled, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.NotInstalled, FinishingFolding.InwardCFoldRightOrDownMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.NotInstalled, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.NotInstalled, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.NotInstalled, FinishingFolding.InwardVFoldMopy)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.NotInstalled, FinishingFolding.OutwardVFoldMopy)
+
+*Ifdef: DRIVER_ARCHITECTURE_V4
+
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.auto, FinishingFolding.InwardCFoldLeftOrUpSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.auto, FinishingFolding.InwardCFoldRightOrDownSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.auto, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.auto, FinishingFolding.OutwardCFoldRightOrDownSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.auto, FinishingFolding.InwardVFoldSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.AutoConfig, DeviceCollationControl.auto, FinishingFolding.OutwardVFoldSet)
+
+*Endif: DRIVER_ARCHITECTURE_V4
+
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.Installed, FinishingFolding.InwardCFoldLeftOrUpSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.Installed, FinishingFolding.InwardCFoldRightOrDownSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.Installed, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.Installed, FinishingFolding.OutwardCFoldRightOrDownSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.Installed, FinishingFolding.InwardVFoldSet)
+*%*InvalidCombination: LIST(CONFIG_DeviceCollationControl.Installed, FinishingFolding.OutwardVFoldSet)
+
+
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.InwardCFoldLeftOrUpMopy)
+
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.InwardCFoldRightOrDownMopy)
+
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.OutwardCFoldRightOrDownMopy)
+
+
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.InwardVFoldMopy)
+
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(Stapling.Staple1, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTopLeft, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTopRight, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualLeft, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualRight, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTop, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualBottom, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleDualTopOrLeft, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleLeft, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleRight, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTop, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleBottom, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.StapleTripleTopOrLeft, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(Stapling.SaddleStitch, FinishingFolding.OutwardVFoldMopy)
+
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.InwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.InwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.InwardCFoldLeftOrUpMopy)
+
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.InwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.InwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.InwardCFoldRightOrDownMopy)
+
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.OutwardCFoldLeftOrUpSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.OutwardCFoldLeftOrUpMopy)
+
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.OutwardCFoldRightOrDownSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.OutwardCFoldRightOrDownMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.OutwardCFoldRightOrDownMopy)
+
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.InwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.InwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.InwardVFoldMopy)
+
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.OutwardVFoldSet)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2RightUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2TopUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2BottomUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch2LeftOrTopUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3RightUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3TopUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3BottomUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch3LeftOrTopUS, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftDIN, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightDIN, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopDIN, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomDIN, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopDIN, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftSWD, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4RightSWD, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4TopSWD, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4BottomSWD, FinishingFolding.OutwardVFoldMopy)
+*InvalidCombination: LIST(FinishingPunching.Punch4LeftOrTopSWD, FinishingFolding.OutwardVFoldMopy)
+
+*Endif: DRIVER_TYPE_SUPD
+
+*%==============================================================================
+*%                                     END                                      
+*%==============================================================================

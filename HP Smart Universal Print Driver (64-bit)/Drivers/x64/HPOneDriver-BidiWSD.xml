@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bidi:Definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bidi="http://schemas.microsoft.com/windows/2005/03/printing/bidi" xsi:schemaLocation="http://schemas.microsoft.com/windows/2005/03/printing/bidi wsdbidi.xsd">
+  <!--Version 3.14-->
+  <Schema xmlns:nprt="http://schemas.microsoft.com/windows/2006/08/wdp/print" xmlns:hpprt="http://www.hp.com/schemas/imaging/con/hpprt/2014/08/22" xmlns:wprt="http://schemas.microsoft.com/windows/2006/08/wdp/print">
+    <Property name="Printer">
+      <!--Query for Status-->
+      <Property name="Status">
+        <Property name="Summary">
+          <Value name="StateReason" query="nprt:PrinterStatus" filter='nprt:PrinterStatus/nprt:PrinterPrimaryStateReason' type="BIDI_STRING" />
+        </Property>
+      </Property>
+      <Property name="DeviceInfo">
+        <Property name="PagesPerMinute">
+          <!-- PCv1.0 -->
+          <Value name="Value" query="wprt:PrinterDescription" filter='wprt:PrinterDescription/wprt:PagesPerMinute' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+        <Property name="SecureEncryptJobStorage">
+          <Value name="Supported" type="BIDI_STRING" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:Storage/wprt:StorageEntry/hpprt:Encryptions/hpprt:Encryption' drvPrinterEvent="true"/>
+        </Property>
+        <!-- PCv0.81 Feature Access Control queries Start-->
+        <Property name="FeatureAccessControl">
+          <List name="Supported" query="wprt:PrinterConfiguration" filter="//wprt:PrinterConfiguration/hpprt:PrintFeatureControlByUserPermission/hpprt:PrintFeatureControlOption" drvPrinterEvent="true" />
+        </Property>
+        <!-- PCv0.81 Feature Access Control queries End-->
+        <!-- PCv0.81 Feature Access Control by Local Quota queries Start-->
+        <Property name="FeatureAccessControlByLocalQuota">
+          <List name="Supported" query="wprt:PrinterConfiguration" filter="//wprt:PrinterConfiguration/hpprt:PrintFeatureControlByLocalQuota/hpprt:PrintFeatureControlOption" drvPrinterEvent="true" />
+        </Property>
+        <!-- PCv0.81 Feature Access Control by Local Quota queries End-->
+      </Property>
+	  <Property name="Consumables">
+        <Property name="Color003">
+          <Value name="Name" type="BIDI_STRING" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:Consumables/wprt:ConsumableEntry/wprt:Color[text() = "Cyan"]' drvPrinterEvent="true" />
+        </Property>
+      <Property name="Color001">
+        <Value name="Name" type="BIDI_STRING" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:Consumables/wprt:ConsumableEntry/wprt:Color[text() = "Black"]' drvPrinterEvent="true" />
+      </Property>     
+        <Property name="GrayscaleSupport">
+          <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/hpprt:PrintColorModes/hpprt:ColorMode[text() = "process-black"]' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+    </Property>
+    <Property name="Configuration">
+      <Property name="MediaType"><!-- PCv1.0 -->
+					<!-- 1-10 -->
+					<Property name="Type1">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type2">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.ecosmart-lite"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.ecosmart-lite"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.EcoSMARTLite"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type3">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte.intermediateweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte.intermediateweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-90gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type4">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte.midweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte.midweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-105gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type5">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte.heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte.heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-120gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type6">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-premium.heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-premium.heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.premium-presentation-matte"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type7">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-brochure.extraheavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-brochure.extraheavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-160gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type8">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-brochure.cardstock"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-brochure.cardstock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.brochure-matte"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type9">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure.extraheavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure.extraheavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-160gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type10">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure2.cardstock"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure2.cardstock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.brochure-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+
+					<!-- 11-20 -->
+					<Property name="Type11">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.advanced-photo"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.advanced-photo"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.advanced-photo"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+					</Property>
+					<Property name="Type12">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-cover.cardstock"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-cover.cardstock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-200gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type13">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.premium-plus-photo"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.premium-plus-photo"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.premium-plus-photo"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type14">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.soft-gloss.heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.soft-gloss.heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.soft-gloss-120gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type15">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.everyday-photo"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.everyday-photo"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.everyday-photo"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type16">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure.heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure.heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-130gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type17">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure.cardstock"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-brochure.cardstock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy-220gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type18">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-lightweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-lightweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-lightweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type19">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.intermediate"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.intermediate"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.intermediate"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type20">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.midweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.midweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.midweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+
+					<!-- 21-30 -->
+					<Property name="Type21">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type22">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.extra-heavy"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.extra-heavy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.extra-heavy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type23">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="cardstock" or text()="Cardstock"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="cardstock" or text()="Cardstock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="cardstock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type24">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-prepunched"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-prepunched"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-prepunched"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type25">
+            <!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.midweight" or text()="com.hp.midweight-glossy"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.midweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <!-- PC v0.71 End -->
+            <!-- PC v0.72 Start -->
+            <Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.midweight-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <!-- PC v0.72 Start -->
+          </Property>
+					<Property name="Type26">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.heavy-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type27">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.extraheavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.extraheavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.extra-heavy-gloss"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type28">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.cardstock"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.glossy.cardstock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.cardstock-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type29">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="Transparency"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="Transparency"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="transparency"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type30">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="transparency" or text()="Transparency"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="transparency" or text()="Transparency"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="transparency" or text()="Transparency"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+
+					<!-- 31-40 -->
+					<Property name="Type31">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[[text()="labels" or text()="Labels"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="Labels"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="labels"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type32">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-letterhead"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-letterhead"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-letterhead"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type33">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="envelope"  or text()="Envelope"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="Envelope"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="envelope"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type34">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="envelope-heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="envelope-heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="envelope-heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type35">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-preprinted"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-preprinted"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-preprinted"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type36">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-colored"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-colored"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-colored"]' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+					<Property name="Type37">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-bond"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-bond"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-bond"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type38">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.recycled"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.recycled"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.recycled"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type39">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.paperboard"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.paperboard"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.paperboard"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type40">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.heavypaperboard"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.heavypaperboard"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.heavypaperboard"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+
+					<!-- 41-51 -->
+					<Property name="Type41">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightpaperboard"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightpaperboard"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightpaperboard"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type42">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.rough"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.rough"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.rough"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type43">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightrough"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightrough"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightrough"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type44">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.heavyrough"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.heavyrough"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.heavy-rough"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type45">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-fine"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-fine"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-fine"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type46">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="tab-stock"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="tab-stock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="tab-stock"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type47">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.opaque-film"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.opaque-film"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.film-opaque"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type48">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightbond"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightbond"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.lightbond"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type49">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="photographic-glossy"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="photographic-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-photographic-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type50">
+						<!-- PC v0.71 Start -->
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.specialty-matte"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.specialty-matte"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.71 End -->
+						<!-- PC v0.72 Start -->
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp.matte-brochure"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<!-- PC v0.72 End -->
+					</Property>
+					<Property name="Type51">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					
+					<!-- 52-61 -->
+					<!-- PC v0.72 Start -->
+					<Property name="Type52">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-trifold-brochure-glossy-150gsm"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-trifold-brochure-glossy-150gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-trifold-brochure-glossy-150gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type53">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-photographic-inkjet"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-photographic-inkjet"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-photographic-inkjet"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type54">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-presentation"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-presentation"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-presentation"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type55">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-inkjet"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-inkjet"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-inkjet"]' drvPrinterEvent="true" type="BIDI_STRING" />					
+        </Property>
+					<Property name="Type56">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy-inkjet"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy-inkjet"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy-inkjet"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type57">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy-hagaki"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy-hagaki"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-specialty-glossy-hagaki"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type58">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-trifold-brochure-glossy-180gsm"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-trifold-brochure-glossy-180gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-trifold-brochure-glossy-180gsm"]' drvPrinterEvent="true" type="BIDI_STRING" />					
+        </Property>
+					<Property name="Type59">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-lightweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-lightweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-lightweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type60">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-heavyweight"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          	<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="stationery-heavyweight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<Property name="Type61">
+						<Installed name="Supported" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-photo-duplex"]' drvPrinterEvent="true"/>
+						<Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-photo-duplex"]' drvPrinterEvent="true" type="BIDI_STRING" />
+						<Value name="Name072" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaType/wprt:AllowedValue[text()="com.hp-matte-photo-duplex"]' drvPrinterEvent="true" type="BIDI_STRING" />
+					</Property>
+					<!-- PC v0.72 End -->
+				</Property>
+        <!--Queries for JobStorage-->    
+      <Property name="StorageMedia">
+        <Value name="Installed" type="BIDI_STRING" query="wprt:PrinterConfiguration" filter="wprt:PrinterConfiguration/wprt:Finishings/wprt:CollationSupported" optional="true" drvPrinterEvent="true">false</Value>
+      </Property>
+      <Property name="JobStorage">
+        <Value name="Installed" type="BIDI_STRING" query="wprt:PrinterConfiguration" filter="wprt:PrinterConfiguration/wprt:Storage/wprt:StorageEntry/hpprt:Available" optional="true" drvPrinterEvent="true">false</Value>
+      </Property>
+      <Property name="Resolution">
+        <Value name="150dpi" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="/wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:DocumentProcessing/wprt:Resolution/wprt:AllowedValue/wprt:Width[text()='150']" drvPrinterEvent="true" />
+        <Value name="300dpi" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="/wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:DocumentProcessing/wprt:Resolution/wprt:AllowedValue/wprt:Width[text()='300']" drvPrinterEvent="true" />
+        <Value name="600dpi" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="/wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:DocumentProcessing/wprt:Resolution/wprt:AllowedValue/wprt:Width[text()='600']" drvPrinterEvent="true" />
+        <Value name="1200dpi" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="/wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:DocumentProcessing/wprt:Resolution/wprt:AllowedValue/wprt:Width[text()='1200']" drvPrinterEvent="true" />
+      </Property>
+	<Property name="PaperSize">
+        <Value name="A3" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()="iso_a3_297x420mm"]' drvPrinterEvent="true"/>
+        <Value name="A4" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_a4_210x297mm']" drvPrinterEvent="true" />
+        <Value name="Letter" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_letter_8.5x11in']" drvPrinterEvent="true" />
+        <Value name="Legal" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_legal_8.5x14in']" drvPrinterEvent="true" />
+        <Value name="Executive" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_executive_7.25x10.5in']" drvPrinterEvent="true" />
+        <Value name="Statement" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_invoice_5.5x8.5in']" drvPrinterEvent="true" />
+        <Value name="Oficio8Dot5x13" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_foolscap_8.5x13in']" drvPrinterEvent="true" />
+        <Value name="11x17" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_ledger_11x17in']" drvPrinterEvent="true" />
+        <Value name="12x18" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_arch-b_12x18in']" drvPrinterEvent="true" />
+        <Value name="3x5" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_index-3x5_3x5in']" drvPrinterEvent="true" />
+        <Value name="4x6" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_index-4x6_4x6in']" drvPrinterEvent="true" />
+        <Value name="5x7" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_5x7_5x7in']" drvPrinterEvent="true" />
+        <Value name="5x8" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_index-5x8_5x8in']" drvPrinterEvent="true" />
+        <Value name="A5" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_a5_148x210mm']" drvPrinterEvent="true" />
+        <Value name="A6" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_a6_105x148mm']" drvPrinterEvent="true" />
+        <Value name="RA3" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_ra3_305x430mm']" drvPrinterEvent="true" />
+        <Value name="SRA3" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_sra3_320x450mm']" drvPrinterEvent="true" />
+        <Value name="RA4" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_ra4_215x305mm']" drvPrinterEvent="true" />
+        <Value name="SRA4" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_sra4_225x320mm']" drvPrinterEvent="true" />
+        <Value name="B4" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jis_b4_257x364mm']" drvPrinterEvent="true" />
+        <Value name="B5" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jis_b5_182x257mm']" drvPrinterEvent="true" />
+        <Value name="B6" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jis_b6_128x182mm']" drvPrinterEvent="true" />
+        <Value name="L9x13cm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='oe_photo-l_3.5x5in']" drvPrinterEvent="true" />
+        <Value name="10x15cm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='om_small-photo_100x150mm']" drvPrinterEvent="true" />
+        <Value name="Oficio216x340mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_oficio_8.5x13.4in']" drvPrinterEvent="true" />
+        <Value name="8K270x390mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='om_8k_270x390mm']" drvPrinterEvent="true" />
+        <Value name="16K195x270mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='om_16k_195x270mm']" drvPrinterEvent="true" />
+        <Value name="8K260x368mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='om_8k_260x368mm']" drvPrinterEvent="true" />
+        <Value name="16K184x260mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='om_16k_184x260mm']" drvPrinterEvent="true" />
+        <Value name="8K273x394mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='roc_8k_10.75x15.5in']" drvPrinterEvent="true" />
+        <Value name="16K197x273mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='roc_16k_7.75x10.75in']" drvPrinterEvent="true" />
+        <Value name="JapanesePostcard" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_hagaki_100x148mm']" drvPrinterEvent="true" />
+        <Value name="DoubleJapanPostcardRotated" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_oufuku_148x200mm']" drvPrinterEvent="true" />
+        <Value name="Envelope9" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_number-9_3.875x8.875in']" drvPrinterEvent="true" />
+        <Value name="Envelope10" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_number-10_4.125x9.5in']" drvPrinterEvent="true" />
+        <Value name="EnvelopeMonarch" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_monarch_3.875x7.5in']" drvPrinterEvent="true" />
+        <Value name="EnvelopeB5" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_b5_176x250mm']" drvPrinterEvent="true" />
+        <Value name="EnvelopeC5" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_c5_162x229mm']" drvPrinterEvent="true" />
+        <Value name="EnvelopeC6" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_c6_114x162mm']" drvPrinterEvent="true" />
+        <Value name="EnvelopeDL" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='iso_dl_110x220mm']" drvPrinterEvent="true" />
+        <Value name="EnvelopeChou3" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_chou3_120x235mm']" drvPrinterEvent="true" />
+        <Value name="EnvelopeChou4" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_chou4_90x205mm']" drvPrinterEvent="true" />
+        <Value name="2L127x178mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='jpn_photo-2l_127x177.8mm']" drvPrinterEvent="true" />
+				<Value name="4x5in" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='oe_photo_4x5in']" drvPrinterEvent="true" />
+				<Value name="4x12in" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='oe_photo_4x12in']" drvPrinterEvent="true" />
+				<Value name="6And3QuarterEnvelope" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_personal_3.625x6.5in']" drvPrinterEvent="true" />
+				<Value name="8x10in" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_govt-letter_8x10in']" drvPrinterEvent="true" />
+				<Value name="EnvelopeA2111x146mm" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_a2_4.375x5.75in']" drvPrinterEvent="true" />
+        <Value name="11x14in" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='na_edp_11x14in']" drvPrinterEvent="true" />
+        <Value name="5x5in" type="BIDI_STRING" query="wprt:PrinterCapabilities" filter="wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:MediaSizeName/wprt:AllowedValue[text()='oe_photo_5x5in']" drvPrinterEvent="true" />
+    </Property>
+        <!---Queries for EMBEDDED JOB ACCOUNTING (EJA)  -->
+        <Property name="EJA">
+          <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/hpprt:JobAccountingQuotaSupported[text()="0x00001101"]' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+        <Property name="SecureJobStorage">
+          <!--Value name="Supported" type="BIDI_STRING" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:Storage/wprt:StorageEntry/hpprt:Encryptions/hpprt:Encryption' drvPrinterEvent="true"/-->
+          <Value name="IsAlphaNumeric"  type="BIDI_STRING" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:Storage/wprt:StorageEntry/hpprt:Password/hpprt:Alphanumeric' drvPrinterEvent="true" />
+          <Value name="PasswordMaxLength"  type="BIDI_INT" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:Storage/wprt:StorageEntry/hpprt:Password/hpprt:MaxLength' drvPrinterEvent="true"/>
+          <Value name="PasswordMinLength"  type="BIDI_INT" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:Storage/wprt:StorageEntry/hpprt:Password/hpprt:MinLength' drvPrinterEvent="true"/>
+        </Property>
+        <!--Queries for Edge to Edge -->
+        <Property name="EdgetoEdge">
+          <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/ hpprt:OemDocumentProcessing/hpprt:EdgeToEdgeSupport' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+        <!--Queries for Tab Printing -->
+        <Property name="TabPrinting">
+          <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/hpprt:TabbedPrintingSupported' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+        <!--Queries for EPEAT (DuplexByDefault) -->
+        <Property name="DuplexByDefault">
+          <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/hpprt:OemPrinterConfiguration/hpprt:DefaultDuplexStandard' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+        <Property name="AdvanceImageControl">
+		      <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text() = "advance-image-control"]' drvPrinterEvent="true" type="BIDI_STRING" />
+		    </Property>
+        <Property name="RGBThemes">
+		      <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text() = "rgb-color-themes"]' drvPrinterEvent="true" type="BIDI_STRING" />
+		    </Property>
+        <Property name="CMYKThemes">
+		      <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text() = "cmyk-color-themes"]' drvPrinterEvent="true" type="BIDI_STRING" />
+		    </Property>
+        <Property name="AdvanceInkControl">
+		      <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/hpprt:OemDocumentProcessing/hpprt:ImageEnhancements/hpprt:ImageEnhancement[text() = "advance-ink-control"]' drvPrinterEvent="true" type="BIDI_STRING" />
+		    </Property>
+        <!--Queries for PrintQuality-->
+        <Property name="PrintQuality">
+          <Property name="Draft">
+            <Value name="DraftDPI" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="DraftDisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="DraftHintTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Normal">
+            <Value name="NormalDPI" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="NormalDisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="NormalHintTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Best">
+            <Value name="BestDPI" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="BestDisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="BestHintTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Max">
+            <Value name="MaxDPI" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="MaxDisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="MaxHintTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Economode">
+            <Value name="EcoDPI" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="EcoSupported" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="EcoHintTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <!-- PCv1.0 -->
+          <Property name="StandardType1">
+            <Installed name="Supported" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]' drvPrinterEvent="true" />
+            <Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OptimalResolution" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="ImageTechnology" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="DisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PQMode" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Draft"]/@hpprt:PQMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StandardType2">
+            <Installed name="Supported"  query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]' drvPrinterEvent="true" />
+            <Value name="Name"  query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OptimalResolution" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="ImageTechnology" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="DisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PQMode" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Normal"]/@hpprt:PQMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StandardType3">
+            <Installed name="Supported"  query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]' drvPrinterEvent="true" />
+            <Value name="Name"  query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OptimalResolution" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="ImageTechnology" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="DisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PQMode" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Best"]/@hpprt:PQMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StandardType4">
+            <Installed name="Supported" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]' drvPrinterEvent="true" />
+            <Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OptimalResolution" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="ImageTechnology" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="DisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PQMode" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Max"]/@hpprt:PQMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StandardType5">
+            <Installed name="Supported" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]' drvPrinterEvent="true" />
+            <Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OptimalResolution" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]/@hpprt:OptimalResolution' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="ImageTechnology" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]/@hpprt:ImageTechnology' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="DisplayTag" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]/@hpprt:DisplayTag' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PQMode" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/wprt:PrintQuality/wprt:AllowedValue[text()="Economode"]/@hpprt:PQMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+        </Property>
+        <Property name="PrintContract">
+          <Value name="VersionMajor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/hpprt:OemPrinterConfiguration/hpprt:PCVersion/hpprt:Major' drvPrinterEvent="true" type="BIDI_STRING" />
+          <Value name="VersionMinor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/hpprt:OemPrinterConfiguration/hpprt:PCVersion/hpprt:Minor' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+      <Property name="EasyColorDefaultSupport">
+        <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:DocumentProcessing/hpprt:OemDocumentProcessing/hpprt:EasycolorDefault' drvPrinterEvent="true" type="BIDI_STRING" />
+      </Property>
+      </Property>        
+      <Property name="Layout">
+        <Property name="InputBins">
+          <!--Property name="PhotoTrayUnit002">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter="wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="PhotoTray"]" drvPrinterEvent="true" />
+          </Property-->
+          <Property name="PhotoTrayUnit002">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="PhotoTray"]' drvPrinterEvent="true"/>
+          </Property>
+          <Property name="Tray001">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 1" or @wprt:Name="Tray1"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 1" or @wprt:Name="Tray1"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 1" or @wprt:Name="Tray1"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 1" or @wprt:Name="Tray1"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 1" or @wprt:Name="Tray1"]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 1" or @wprt:Name="Tray1"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 1" or @wprt:Name="Tray1"]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray002">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 2" or @wprt:Name="Tray2"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 2" or @wprt:Name="Tray2"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 2" or @wprt:Name="Tray2"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 2" or @wprt:Name="Tray2"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 2" or @wprt:Name="Tray2"]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 2" or @wprt:Name="Tray2"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 2" or @wprt:Name="Tray2"]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray003">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 3" or @wprt:Name="Tray3"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 3" or @wprt:Name="Tray3"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 3" or @wprt:Name="Tray3"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 3" or @wprt:Name="Tray3"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 3" or @wprt:Name="Tray3"]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 3" or @wprt:Name="Tray3"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 3" or @wprt:Name="Tray3"]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray005">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 4" or @wprt:Name="Tray4"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 4" or @wprt:Name="Tray4"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 4" or @wprt:Name="Tray4"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 4" or @wprt:Name="Tray4"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 4" or @wprt:Name="Tray4"]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 4" or @wprt:Name="Tray4"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 4" or @wprt:Name="Tray4"]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray006">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 5" or @wprt:Name="Tray5"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 5" or @wprt:Name="Tray5"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 5" or @wprt:Name="Tray5"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 5" or @wprt:Name="Tray5"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 5" or @wprt:Name="Tray5"]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 5" or @wprt:Name="Tray5"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 5" or @wprt:Name="Tray5"]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray007">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 6" or @wprt:Name="Tray6"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 6" or @wprt:Name="Tray6"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 6" or @wprt:Name="Tray6"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 6" or @wprt:Name="Tray6"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 6 or @wprt:Name="Tray6""]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 6" or @wprt:Name="Tray6"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 6 or @wprt:Name="Tray6""]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray008">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 7" or @wprt:Name="Tray7"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 7" or @wprt:Name="Tray7"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 7" or @wprt:Name="Tray7"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 7" or @wprt:Name="Tray7"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 7 or @wprt:Name="Tray7""]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 7" or @wprt:Name="Tray7"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 7 or @wprt:Name="Tray7""]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray009">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 8" or @wprt:Name="Tray8"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 8" or @wprt:Name="Tray8"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 8" or @wprt:Name="Tray8"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 8" or @wprt:Name="Tray8"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 8 or @wprt:Name="Tray8""]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 8" or @wprt:Name="Tray8"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 8 or @wprt:Name="Tray8""]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray010">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 9" or @wprt:Name="Tray9"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 9" or @wprt:Name="Tray9"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 9" or @wprt:Name="Tray9"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 9" or @wprt:Name="Tray9"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 9 or @wprt:Name="Tray9""]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 9" or @wprt:Name="Tray9"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 9 or @wprt:Name="Tray9""]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray011">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 10" or @wprt:Name="Tray10"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 10" or @wprt:Name="Tray10"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 10" or @wprt:Name="Tray10"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 10" or @wprt:Name="Tray10"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 10 or @wprt:Name="Tray10""]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 10" or @wprt:Name="Tray10"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Tray 10 or @wprt:Name="Tray10""]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+          <Property name="Tray004">
+            <Installed name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Envelope Feeder" or @wprt:Name="EnvelopeFeeder"]' drvPrinterEvent="true" />
+            <Value name="MediaSize" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Envelope Feeder" or @wprt:Name="EnvelopeFeeder"]/wprt:MediaSize' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaType" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Envelope Feeder" or @wprt:Name="EnvelopeFeeder"]/wprt:MediaType' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="MediaColor" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Envelope Feeder" or @wprt:Name="EnvelopeFeeder"]/wprt:MediaColor' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="FeedDirection" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Envelope Feeder" or @wprt:Name="EnvelopeFeeder"]/wprt:FeedDirection' type="BIDI_STRING" drvPrinterEvent="true" />
+            <Value name="Capacity" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Envelope Feeder" or @wprt:Name="EnvelopeFeeder"]/wprt:Capacity' type="BIDI_INT" drvPrinterEvent="true" />
+            <Value name="Level" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:InputBins/wprt:InputBinEntry[@wprt:Name="Envelope Feeder" or @wprt:Name="EnvelopeFeeder"]/wprt:Level' type="BIDI_INT" drvPrinterEvent="true" />
+          </Property>
+		</Property>
+      </Property>
+      <Property name="Finishing">
+        <!--Queries for OutputBins-->
+        <Property name="OutputBins">
+          <Property name="Bin1">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[1]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[1]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[1]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[1]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin2">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[2]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[2]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[2]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[2]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin3">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[3]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[3]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[3]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[3]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin4">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[4]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[4]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[4]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[4]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin5">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[5]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[5]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[5]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[5]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin6">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[6]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[6]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[6]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[6]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin7">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[7]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[7]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[7]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[7]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin8">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[8]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[8]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[8]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[8]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin9">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[9]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[9]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[9]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[9]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin10">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[10]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[10]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[10]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[10]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin11">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[11]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[11]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[11]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[11]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="Bin12">
+            <Value name="Name" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[12]/@wprt:Name' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Booklet" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[12]/@hpprt:PhysicalFoldUnit' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="PageDelivery" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[12]/@hpprt:PageDelivery' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="OpMode" query="wprt:PrinterConfiguration" filter='wprt:PrinterConfiguration/wprt:OutputBins/wprt:OutputBinEntry[12]/@hpprt:OutputBinMode' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+        </Property>
+        <!--Queries for Stapling-->
+        <Property name="BookletMakerUnit">
+          <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="SaddleStitch"]' drvPrinterEvent="true" type="BIDI_STRING"/>
+          <Value name="FoldAndStitchSupport" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="SaddleStitch"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          <Value name="FoldAndStitchDirection" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="SaddleStitch"]/@hpprt:FoldDirection' drvPrinterEvent="true" type="BIDI_STRING" />
+        </Property>
+    	<Property name="Staplings">
+          <Property name="StapletypeLeft1pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleTopLeft"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeLeft2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleDualLeft"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeLeft3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleTripleLeft"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeRight1pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleTopRight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeRight2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleDualRight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeRight3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleTripleRight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeTop2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleDualTop"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeTop3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleTripleTop"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeBottom2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleDualBottom"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="StapletypeBottom3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:Staple/wprt:Location/wprt:AllowedValue[text()="StapleTripleBottom"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>  
+        </Property>
+        <!--Queries for Punching-->
+        <Property name="Punchings">
+          <Property name="Region">
+            <!--Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern[@hpprt:PunchUnitRegion="US"]/@hpprt:PunchUnitRegion' drvPrinterEvent="true" type="BIDI_STRING" /-->
+            <Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[1]/@hpprt:PunchUnitRegion' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[2]/@hpprt:PunchUnitRegion' drvPrinterEvent="true" type="BIDI_STRING" />
+            <Value name="Name" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[3]/@hpprt:PunchUnitRegion' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+		  <Property name="PunchLeft2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="TwoHolesLeft"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchRight2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="TwoHolesRight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchTop2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="TwoHolesTop"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchBottom2pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="TwoHolesBottom"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchLeft3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="ThreeHolesLeft"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchRight3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="ThreeHolesRight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchTop3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="ThreeHolesTop"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchBottom3pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="ThreeHolesBottom"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchLeft4pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="FourHolesLeft"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchRight4pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="FourHolesRight"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchTop4pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="FourHolesTop"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="PunchBottom4pt">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/wprt:HolePunch/wprt:Pattern/wprt:AllowedValue[text()="FourHolesBottom"]' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+        </Property>
+        <!--Queries for Folding-->
+        <Property name="Foldings">
+          <Property name="CFold">
+            <Value name="Installed" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/hpprt:OemFinishings/hpprt:OemFolds/hpprt:FoldPattern[@hpprt:FoldName="c-fold"]/@hpprt:FoldName' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="CFold">
+            <Value name="MaxSheetsPerSet" query="wprt:PrinterConfiguration" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/hpprt:OemFinishings/hpprt:OemFolds/hpprt:FoldPattern[@hpprt:FoldName="c-fold"]/@hpprt:MaxSheetsPerSet' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="VFold">
+            <Value name="Installed" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/hpprt:OemFinishings/hpprt:OemFolds/hpprt:FoldPattern[@hpprt:FoldName="v-fold"]/@hpprt:FoldName' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+          <Property name="VFold">
+            <Value name="MaxSheetsPerSet" query="wprt:PrinterCapabilities" filter='wprt:PrinterCapabilities/wprt:JobValues/wprt:JobProcessing/wprt:JobFinishings/hpprt:OemFinishings/hpprt:OemFolds/hpprt:FoldPattern[@hpprt:FoldName="v-fold"]/@hpprt:MaxSheetsPerSet' drvPrinterEvent="true" type="BIDI_STRING" />
+          </Property>
+        </Property>
+	  </Property>
+	</Property>
+  </Schema>
+  <PortStatus>
+    <Status>
+      <Keyword>None</Keyword>
+      <Code>0</Code>
+      <Severity>0</Severity>
+    </Status>
+    <Status>
+      <Keyword>AttentionRequired</Keyword>
+      <Code>8</Code>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>DoorOpen</Keyword>
+      <Code>7</Code>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>MarkerFailure</Keyword>
+      <ResourceIdOffset>0</ResourceIdOffset>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>MarkerSupplyLow</Keyword>
+      <Code>10</Code>
+      <Severity>2</Severity>
+    </Status>
+    <Status>
+      <Keyword>MarkerSupplyEmpty</Keyword>
+      <Code>6</Code>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>MediaEmpty</Keyword>
+      <Code>3</Code>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>MediaJam</Keyword>
+      <Code>2</Code>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>MediaLow</Keyword>
+      <ResourceIdOffset>1</ResourceIdOffset>
+      <Severity>2</Severity>
+    </Status>
+    <Status>
+      <Keyword>MediaNeeded</Keyword>
+      <Code>5</Code>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>OutputAreaAlmostFull</Keyword>
+      <ResourceIdOffset>2</ResourceIdOffset>
+      <Severity>2</Severity>
+    </Status>
+    <Status>
+      <Keyword>OutputAreaFull</Keyword>
+      <Code>4</Code>
+      <Severity>1</Severity>
+    </Status>
+    <Status>
+      <Keyword>Paused</Keyword>
+      <ResourceIdOffset>3</ResourceIdOffset>
+      <Severity>3</Severity>
+    </Status>
+  </PortStatus>
+</bidi:Definition>

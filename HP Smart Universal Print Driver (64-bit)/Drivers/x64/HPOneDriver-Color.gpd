@@ -1,0 +1,1242 @@
+*%===============================================================================*%
+*%              Copyright (c) Hewlett-Packard Development Company L.P.	         *%
+*%                              All rights reserved.				             *%
+*%===============================================================================*%
+
+*GPDFileVersion: "0.99.6"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "HPOneDriver-Color.gpd"
+
+*Include:  "StdNames.gpd"
+*%Include: "PJL.GPD"
+*Include:  "PCLXL.GPD"
+*Include:  "HPOneDriver-Properties.gpd"
+*Include:  "HPOneDriver-StringResource.gpd"
+
+*Ifdef: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                                 HPEasyColor                                  *%
+*%==============================================================================*%
+*Feature: DocumentHPEasyColor
+{
+	*rcNameID: =IDS_HP_EASY_COLOR_CSL
+	*switch: EasyColorDefault
+		{
+			*Case: ECConservative
+			{
+				*DefaultOption: HPEasyColorConservative
+			}	
+			*Case: ECOn
+			{
+				*DefaultOption: HPEasyColorOn
+			}	
+		    *Case: ECOff
+			{
+				*DefaultOption: HPEasyColorOff
+			}	
+			*default:
+			{
+				*DefaultOption: HPEasyColorOff
+			}                    			
+		}		
+	*Option: HPEasyColorOff
+	{
+		*rcNameID: =IDS_OFF
+	}
+	*Option: HPEasyColorConservative
+	{
+		*rcNameID: =IDS_CONSERVATIVE
+		*%Name: "Conservative"
+	}
+	*Option: HPEasyColorOn
+	{
+		*rcNameID: =IDS_EASYCOLOR_ON
+		*%Name: "On With Image Healing"
+	}
+
+}
+
+*%==============================================================================*%
+*%         ColorCorrection - Text + graphic + image grays                       *%
+*%==============================================================================*%
+*Feature: PageColorCorrectionGrays
+{
+	*rcNameID: =IDS_NEUTRAL_GRAYS
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+	}
+	*Option: Black
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_BLACK
+	}
+	*Option: Composite
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_CMYK_GRAY
+	}
+}
+
+*%==============================================================================*%
+*%            ColorCorrection - Text + graphic + image Halftone 					*%
+*%==============================================================================*%
+*Feature: ColorCorrectionHalftone
+{
+	*rcNameID: =IDS_HALFTONE
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+			
+	}
+	*Option: Smooth
+	{
+		*rcNameID: =IDS_HALFTONE2
+	
+	}
+	*Option: Detail
+	{
+		*rcNameID: =IDS_HALFTONE1
+	}
+}
+
+
+*%==============================================================================*%
+*%                             DocumentTintTesting                              *%
+*%==============================================================================*%
+*Feature: DocumentTintTesting
+{
+	*Name: "Tint Testing"
+	*DefaultOption: Disabled
+	*ConcealFromUI?: TRUE
+	*Option: Disabled
+	{
+		*Name: "Tint Testing disable"
+	}
+	*Option: JPEGARPassthrough
+	{
+		*Name: "JPEG AR Passthrough"
+	}
+	*Option: RLTCSCPassthrough
+	{
+		*Name: "RTL CSC Passthrough"
+	}
+	*Option: ImageResamplingPassthrough
+	{
+		*Name: "RImage Resampling Passthrough"
+	}
+	*Option: ImageHealingPassthrough
+	{
+		*Name: "Image Healing Passthrough"
+	}
+}
+
+
+*%==============================================================================*%
+*%                              RasterCompression                               *%
+*%==============================================================================*%
+*Feature: DocumentRasterCompression
+{
+	*rcNameID: =IDS_RASTER_COMPRESSION
+	*DefaultOption: Automatic
+	*Option: Automatic
+	{
+		*rcNameID: =IDS_AUTOMATIC_CE
+	}
+	*Option: BestQuality
+	{
+		*rcNameID: =IDS_PQ_BEST_QUALITY
+	}
+	*Option: MaxCompression
+	{
+		*rcNameID: =IDS_MAXIMUM_COMPRESSION
+	}
+}
+
+*%==============================================================================*%
+*%                                PageBlackText                                 *%
+*%==============================================================================*%
+*Feature: PageBlackText
+{
+	*rcNameID: =IDS_PRINT_TEXT_AS_BLACK
+	*DefaultOption: None
+	*Option: None
+	{
+		*rcNameID: =IDS_OFF
+		*PrintSchemaKeywordMap: "None"
+	}
+	*Option: BlackText
+	{
+		*rcNameID: =IDS_ON
+	}
+}
+
+*Endif: DRIVER_TYPE_SUPD
+
+*%==============================================================================*%
+*%                               PageOutputColor                                *%
+*%==============================================================================*%
+*Feature: ColorMode
+{
+	*rcNameID: =IDS_PRINT_IN_GRAYSCALE_COL_HK
+	*DefaultOption: ColorOutput
+	*PrintSchemaKeywordMap: "PageOutputColor"
+	*Option: ColorOutput
+	{
+		*rcNameID: =IDS_DEVICE_TYPE_COLOR
+		*PrintSchemaKeywordMap: "Color"
+		*DevBPP: 24
+		*Color?: TRUE
+		*Command: CmdSelect
+		{
+			*Order: JOB_SETUP.101
+			*Cmd: "@PJL SET RENDERMODE=COLOR<0A>@PJL SET GRAYSCALE=OFF<0A>@PJL SET PLANESINUSE=3<0A>"
+		}
+	}
+	*Option: MonoOutput
+	{
+		*rcNameID: =IDS_BLACK_INK_ONLY_WITHOUT_HK
+		*PrintSchemaKeywordMap: "Monochrome"
+		*DevBPP: 8
+		*Color?: FALSE
+		*Command: CmdSelect
+		{
+			*Order: JOB_SETUP.101
+			*Cmd: "@PJL SET GRAYSCALE=BLACKONLY<0A>@PJL SET PLANESINUSE=1<0A>"
+		}
+
+			*Constraints: LIST(PageColorCorrectionGrays.Black,PageColorCorrectionGrays.Composite)
+			*Constraints: LIST(TextGrays.Black,TextGrays.Composite)
+			*Constraints: LIST(GraphicsGrays.Black,GraphicsGrays.Composite)
+			*Constraints: LIST(ImageGrays.Black,ImageGrays.Composite)
+	}
+	*Option: CompositeOutput
+	{
+		*rcNameID: =IDS_HIGH_QUALITY_NO_HK
+		*PrintSchemaKeywordMap: "Grayscale"
+		*DevBPP: 8
+		*Color?: FALSE
+		*Command: CmdSelect
+		{
+			*Order: JOB_SETUP.101
+			*Cmd: "@PJL SET GRAYSCALE=COMPOSITE<0A>@PJL SET PLANESINUSE=1<0A>"
+		}
+	}
+}
+
+*switch: ColorMode
+{
+    *case: ColorOutput
+    {
+        *Command: CmdStartPage
+        {
+            *Order: PAGE_SETUP.90
+            *Cmd: =ubyte =eRGB =attr_ubyte =ColorSpace =SetColorSpace
+        }
+    }
+	*case: MonoOutput
+    {
+        *Command: CmdStartPage
+        {
+            *Order: PAGE_SETUP.90
+            *Cmd: =ubyte =eGray =attr_ubyte =ColorSpace =SetColorSpace
+        }
+    }
+	*case: CompositeOutput
+    {
+        *Command: CmdStartPage
+        {
+            *Order: PAGE_SETUP.90
+            *Cmd: =ubyte =eGray =attr_ubyte =ColorSpace =SetColorSpace
+        }
+    }
+}
+
+*%==============================================================================*%
+*%                    ColorCorrection - GeneralEdgeControl                      *%
+*%==============================================================================*%
+*Feature: GeneralEdgeControl
+{
+	*rcNameID: =IDS_EDGE_CONTROL
+	*DefaultOption: GeneralAuto
+	*Option: GeneralAuto
+	{
+		*rcNameID: =IDS_AUTO
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.8
+			*Cmd: ""
+		}	
+	}
+	*Option: GeneralOff
+	{
+		*rcNameID: =IDS_OFF_EDGE
+		*Switch: JobDeviceLanguage
+	    {
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: =ubyte =eDisable =attr_ubyte =AllObjectTypes =SetAdaptiveHalftoning =ubyte =eDisable =attr_ubyte =AllObjectTypes =SetColorTrapping
+				}
+			}
+			*Case: PCLmS
+			{
+			} 
+            *Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: "*HPColorSmart_ColorOptions_EdgeControl Off,false,Off HPColorTrapping"
+				}
+			}			
+		}
+	}
+	*Option: GeneralLight
+	{
+		*rcNameID: =IDS_EDGE_CONTROL_LIGHT
+		*Switch: JobDeviceLanguage
+	    {
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: =ubyte =eEnable =attr_ubyte =AllObjectTypes =SetAdaptiveHalftoning =ubyte =eLight =attr_ubyte =AllObjectTypes =SetColorTrapping
+				}
+			}
+			*Case: PCLmS
+			{
+			} 
+            *Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: "*HPColorSmart_ColorOptions_EdgeControl Light,true,Light HPColorTrapping"
+				}
+			}	
+		}
+	}
+	*Option: GeneralNormal
+	{
+		*rcNameID: =IDS_COLOR_NORMAL
+		*Switch: JobDeviceLanguage
+	    {
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: =ubyte =eEnable =attr_ubyte =AllObjectTypes =SetAdaptiveHalftoning =ubyte =eNormal =attr_ubyte =AllObjectTypes =SetColorTrapping
+				}
+			}
+			*Case: PCLmS
+			{
+			} 
+            *Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: "*HPColorSmart_ColorOptions_EdgeControl Normal,true,Normal HPColorTrapping"
+				}
+			}
+		}
+	}
+	*Option: GeneralMax
+	{
+		*rcNameID: =IDS_EC_MAXIMUM
+		*Switch: JobDeviceLanguage
+	    {
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: =ubyte =eEnable =attr_ubyte =AllObjectTypes =SetAdaptiveHalftoning =ubyte =eMax =attr_ubyte =AllObjectTypes =SetColorTrapping	
+				}
+			}
+			*Case: PCLmS
+			{
+			} 
+            *Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.8
+					*Cmd: "*HPColorSmart_ColorOptions_EdgeControl Maximum,true,Max HPColorTrapping"
+				}
+			}	
+		}
+	}
+}
+
+*%==============================================================================*%
+*%                         ColorCorrection - TextGrays                          *%
+*%==============================================================================*%
+*Feature: TextGrays
+{
+	*%rcNameID: =IDS_NEUTRAL_GRAYS
+	*Name: "TextGrays"
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+		*Command: CmdSelect
+		{
+		    *Order: PAGE_SETUP.9
+			*Cmd: ""
+		}	
+	}
+	*Option: Black
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_BLACK
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.9
+					*Cmd: "<C0><00><F8><1E><7E>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdStartJob
+				{
+					*Order: PAGE_SETUP.9
+					*Cmd: "*HPColorSmart_Text_NeutralGrays BlackOnly,TonerBlack"
+				}
+			}
+		}	
+	}
+	*Option: Composite
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_CMYK_GRAY
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.9
+					*Cmd: "<C0><01><F8><1E><7E>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdStartJob
+				{
+					*Order: PAGE_SETUP.9
+					*Cmd: "*HPColorSmart_Text_NeutralGrays 4-Color,ProcBlack"
+				}
+			}
+		}	
+	}
+}
+
+*%==============================================================================*%
+*%                       ColorCorrection - GraphicsGrays                        *%
+*%==============================================================================*%
+*Feature: GraphicsGrays
+{
+	*%rcNameID: =IDS_NEUTRAL_GRAYS
+	*Name: "Graphics Grays"
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.10
+			*Cmd: ""
+		}
+	}
+	*Option: Black
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_BLACK
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.10
+					*Cmd: "<C0><00><F8><1F><7E>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.10
+					*Cmd: "*HPColorSmart_Graphics_NeutralGrays BlackOnly,TonerBlack"
+				}
+			}
+		}
+	}
+	*Option: Composite
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_CMYK_GRAY
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.10
+					*Cmd: "<C0><01><F8><1F><7E>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.10
+					*Cmd: "*HPColorSmart_Graphics_NeutralGrays 4-Color,ProcBlack"
+				}
+			}
+		}
+	}
+}
+*%==============================================================================*%
+*%                        ColorCorrection - ImageGrays                          *%
+*%==============================================================================*%
+*Feature: ImageGrays
+{
+	*%rcNameID: =IDS_NEUTRAL_GRAYS
+	*Name:"Image Grays"
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.11
+			*Cmd: ""
+		}
+	}
+	*Option: Black
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_BLACK
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.11
+					*Cmd: "<C0><00><F8><20><7E>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.11
+					*Cmd: "*HPColorSmart_Photo_NeutralGrays BlackOnly,TonerBlack"
+				}
+			}
+		}
+	}
+	*Option: Composite
+	{
+		*rcNameID: =IDS_NEUTRAL_GRAYS_CMYK_GRAY
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.11
+					*Cmd: "<C0><01><F8><20><7E>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.11
+					*Cmd: "*HPColorSmart_Photo_NeutralGrays 4-Color,ProcBlack"
+				}
+			}
+			
+		}
+	}
+}
+
+*%==============================================================================*%
+*%                       ColorCorrection - TextHalftone                         *%
+*%==============================================================================*%
+*Feature: TextHalftone
+{
+	*%rcNameID: =IDS_HALFTONE
+	*Name: "Text Halftone"
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.12
+			*Cmd: ""
+		}		
+	}
+	*Option: Smooth
+	{
+		*rcNameID: =IDS_HALFTONE2
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.12
+					*Cmd: "<C0><02><F8><1E><6D>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdStartJob
+				{
+					*Order: PAGE_SETUP.12
+					*Cmd: "*HPColorSmart_Text_Halftone Smooth,Smooth"
+				}
+			}
+		}
+	}
+	*Option: Detail
+	{
+		*rcNameID: =IDS_HALFTONE1
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.12
+					*Cmd: "<C0><00><F8><1E><6D>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdStartJob
+				{
+					*Order: PAGE_SETUP.12
+					*Cmd: "*HPColorSmart_Text_Halftone Detail,Detail"
+				}
+			}
+		}
+	}
+}
+*%==============================================================================*%
+*%                     ColorCorrection - GraphicsHalftone                       *%
+*%==============================================================================*%
+*Feature: GraphicsHalftone
+{
+	*%rcNameID: =IDS_HALFTONE
+	*Name : "Graphics Halftone"
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.13
+			*Cmd: ""
+		}
+	}
+	*Option: Smooth
+	{
+		*rcNameID: =IDS_HALFTONE2
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.13
+					*Cmd: "<C0><02><F8><1F><6D>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.13
+					*Cmd: "*HPColorSmart_Graphics_Halftone Smooth,Smooth"
+				}
+			}
+		}
+	}
+	*Option: Detail
+	{
+		*rcNameID: =IDS_HALFTONE1
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.13
+					*Cmd: "<C0><00><F8><1F><6D>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.13
+					*Cmd: "*HPColorSmart_Graphics_Halftone Detail,Detail"
+				}
+			}
+		}
+	}
+}
+*%==============================================================================*%
+*%                       ColorCorrection - ImageHalftone                        *%
+*%==============================================================================*%
+*Feature: ImageHalftone
+{
+	*%rcNameID: =IDS_HALFTONE
+	*Name: "Image Halftone"
+	*DefaultOption: Auto
+	*Option: Auto
+	{
+		*rcNameID: =IDS_AUTO
+		*Command: CmdSelect
+		{
+			*Order: PAGE_SETUP.14
+			*Cmd: ""
+		}
+	}
+	*Option: Smooth
+	{
+		*rcNameID: =IDS_HALFTONE2
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.14
+					*Cmd: "<C0><02><F8><20><6D>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.14
+					*Cmd: "*HPColorSmart_Photo_Halftone Smooth,Smooth"
+				}
+			}
+			
+		}
+	}
+	*Option: Detail
+	{
+		*rcNameID: =IDS_HALFTONE1
+		*Switch: JobDeviceLanguage
+		{
+			*Case: PCL6
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.14
+					*Cmd: "<C0><00><F8><20><6D>"
+				}
+			}
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+			*Case: PS
+			{
+				*Command: CmdSelect
+				{
+					*Order: PAGE_SETUP.14
+					*Cmd: "*HPColorSmart_Photo_Halftone Detail,Detail"
+				}
+			}
+			
+		}
+	}
+}
+
+*%==============================================================================*%
+*%                                  RGBColor                                    *%
+*%==============================================================================*%
+*Feature: DocumentRGBColor
+{
+	*rcNameID: =IDS_RGB_COLOR_HK
+	*DefaultOption: GeneralPrinterDefault
+	*%ConcealFromUI?: TRUE
+	*ConcealFromUI?: FALSE
+	*Option: GeneralPrinterDefault
+	{
+		*rcNameID: =IDS_PRINTER_DEFAULT
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: ="<>"
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: ="*DocumentRGBColor PrinterDefault"
+		     }
+	       }
+	      }
+	}
+
+	*Option: RGBColorRGB
+	{
+		*rcNameID: =IDS_OFFICE_SRGB
+		*%Name: "Office (sRGB)"
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: =ubyte =E_SCREENMATCH_STANDARDIZED =attr_ubyte =ColorTreatment =SetColorTreatment
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: "*DocumentRGBColor RGBColorRGB,MatchScreen"
+		     }
+	       }
+	      }
+	}
+	*Option: RGBColorSRGB
+	{
+		*rcNameID: =IDS_PHOTO_SRGB
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: =ubyte =E_IMAGE_STANDARDIZED =attr_ubyte =ColorTreatment =SetColorTreatment
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: "*DocumentRGBColor RGBColorSRGB,ImageSRGB"
+		     }
+	       }
+	      }
+	}
+	*Option: RGBColorNone
+	{
+		*rcNameID: =IDS_DEVICE_RGB
+		*%Name: "Device RGB"
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: =ubyte =E_DEVICERGB_STANDARDIZED =attr_ubyte =ColorTreatment =SetColorTreatment
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: "*DocumentRGBColor RGBColorNone,DeviceRGB"
+		     }
+	       }
+	      }
+	}	
+	*Option: RGBColorAdobeRGB
+	{
+		*rcNameID: =IDS_PHOTO_ADOBE_RGB_1998
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: =ubyte =E_ADOBERGB_STANDARDIZED =attr_ubyte =ColorTreatment =SetColorTreatment
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: "*DocumentRGBColor RGBColorAdobeRGB,AdobeRGB"
+		     }
+	       }
+	      }
+	}
+	*Option: RGBColorVivid
+	{
+		*rcNameID: =IDS_VIVID_SRGB
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: =ubyte =E_VIVID_STANDARDIZED =attr_ubyte =ColorTreatment =SetColorTreatment
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: "*DocumentRGBColor RGBColorVivid,Vivid"
+		     }
+	       }
+	      }
+	}
+	*Option: RGBColorCustomProfile
+	{
+		*rcNameID: =IDS_CUSTOM_RGB
+		*%Name: "Custom RGB"
+		*Switch: JobDeviceLanguage
+	     {
+	      *Case: PCL6
+	       {
+		   *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: =ubyte =E_CUSTOMRGB_STANDARDIZED =attr_ubyte =ColorTreatment =SetColorTreatment
+		     }
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.7
+			   *Cmd: "*DocumentRGBColor RGBColorCustomProfile,CustomRGB"
+		     }
+	       }
+	      }
+	}
+
+}
+
+*%==============================================================================*%
+*%                                  CMYKColor                                    *%
+*%==============================================================================*%
+*Feature: DocumentCMYKInks
+{
+    *rcNameID: =IDS_CMYK_COLOR_HK
+ 	*%Name: "CMYK Color"
+	*DefaultOption: PrinterDefault
+	*ConcealFromUI?: FALSE
+	*Option: PrinterDefault
+	{
+		*rcNameID: =IDS_PRINTER_DEFAULT
+		*Switch: JobDeviceLanguage
+	     {
+	        *Case: PCL6
+	        {
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.8
+			   *Cmd: "*DocumentCMYKInks PrinterDefault"
+		     }
+	       }
+	     }
+	}
+
+	*Option: CMYKInkPlus
+	{
+	    *rcNameID: =IDS_CMYK_PLUS
+		*%Name: "CMYK+"
+		*Switch: JobDeviceLanguage
+	     {
+	        *Case: PCL6
+	        {
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.8
+			   *Cmd: "*DocumentCMYKInks CMYKInkPlus,CMYKPlus"
+		     }
+	       }
+	     }
+	}
+
+	*Option: CMYKSWOP
+	{
+		*rcNameID: =IDS_CMYK_SWOP
+		*%Name: "SWOP"
+		*Switch: JobDeviceLanguage
+	     {
+	        *Case: PCL6
+	        {
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.8
+			   *Cmd: "*DocumentCMYKInks CMYKSWOP,SWOP"
+		     }
+	       }
+	     }
+	}
+
+	*Option: CMYKEuro
+	{
+		*rcNameID: =IDS_CMYK_EUROSCALE
+		*%Name: "Euroscale"
+		*Switch: JobDeviceLanguage
+	     {
+	        *Case: PCL6
+	        {
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.8
+			   *Cmd: "*DocumentCMYKInks CMYKEuro,Euro"
+			 }
+	       }
+	     }
+	}
+
+	*Option: CMYKDIC
+	{
+		*rcNameID: =IDS_CMYK_DIC
+		*%Name: "DIC"
+		*Switch: JobDeviceLanguage
+	     {
+	        *Case: PCL6
+	        {
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.8
+			   *Cmd: "*DocumentCMYKInks CMYKDIC,DIC"
+		     }
+	       }
+	     }
+	}
+
+	*Option: CMYKCustom
+	{
+		*rcNameID: =IDS_CMYK_CUSTOM_CMYK
+		*%Name: "Custom CMYK"
+		*Switch: JobDeviceLanguage
+	     {
+	        *Case: PCL6
+	        {
+	        }
+			*Case: PCLmS
+			{
+			}
+			*Case: PCL	
+            {
+            }
+	       *Case: PS
+	       {
+		    *Command: CmdSelect
+		     {
+			   *Order: PAGE_SETUP.8
+			   *Cmd: "*DocumentCMYKInks CMYKCustom,CustomCMYK"
+		     }
+	       }
+	     }
+	}
+
+}
+
+*%==============================================================================*%
+*%                                     END                                      *%
+*%==============================================================================*%

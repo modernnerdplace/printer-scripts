@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\src\DataModel\DataMap.xsd">
+	<!--Version 3.53 -->
+	<IPPDataMap>
+		<StaticDataItem Name="Protocol">IPP</StaticDataItem>
+		<DataItem Prefix="cfg" Name="ModelName"  AttributeID="printer-make-and-model"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="STRING"/><!-- PCv1.0-->
+		<DataItem Prefix="cfg" Name="DeviceID"  AttributeID="printer-device-id"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="STRING"/><!-- PCv1.0-->
+		<DataItem Prefix="cfg" Name="PagesPerMinute"  AttributeID="pages-per-minute"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="INTEGER"/><!-- PCv1.0-->
+		<!-- 1-10 -->
+		<DataItem Prefix="cfg" Name="PC_MediaType"  AttributeID="media-type-supported"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="STRING"/><!-- PCv1.0-->
+		<DataItem Name="PC_MediaSize"  AttributeID="media-supported"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="STRING"/><!-- PCv1.0-->
+		<!-- PC v0.72 End -->
+		<DataItem Name="Tray1_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING">
+			<Conversion Contains="Tray 1" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray2_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 2" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray3_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING">
+			<Conversion Contains="Tray 3" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray4_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 4" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray5_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 5" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray6_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 6" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray7_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 7" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray8_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 8" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray9_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 9" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Tray10_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" >
+			<Conversion Contains="Tray 10" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Envelope_Feeder_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" > <!-- PC v0.8 Updated -->
+			<Conversion Contains="Envelope Feeder" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="PhotoTray_Installed" AttributeID="printer-input-tray" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_OCTET_STRING" > <!-- PC v0.72 -->
+			<Conversion Contains="photo" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>	
+		<DataItem Prefix="cfg" Name="DuplexUnit_Installed" AttributeID="sides-supported" Command="Get-Printer-Attributes" JobURI="NULL"    Transient="false" LifeSpan="300" DataType="SET_OF_KEYWORD" >
+			<Conversion Contains="two-sided-long-edge" Value="Installed"/>
+			<Conversion Contains="two-sided-short-edge" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="DeviceDefaultDuplexStandard" AttributeID="hp-default-duplex-standard" Command="Get-Printer-Attributes" JobURI="NULL"    Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="true" />
+			<Conversion Contains="0" Value="false" />
+			<Conversion Contains="default" Value="false" />
+		</DataItem>
+		<DataItem Name="Mopier" AttributeID="hp-save-job-storage-available" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN" >
+			<Conversion Contains="1" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Job_Storage_Installed" AttributeID="hp-save-job-storage-available" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN" >
+			<Conversion Contains="1" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Name="Job_Storage_Encryption" AttributeID="hp-save-job-encryption-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_KEYWORD" />
+		<DataItem Name="Job_Storage_Password_Type" AttributeID="hp-save-job-password-type" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="KEYWORD" />
+		<DataItem Name="Job_Storage_Encryption_Password_Max_Length" AttributeID="hp-save-job-password-max-length" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="INTEGER" />
+		<DataItem Name="Job_Storage_Encryption_Password_Min_Length" AttributeID="hp-save-job-password-min-length" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="INTEGER" />
+		<!-- PCv0.72 queries Start-->		
+		<DataItem Name="EasyColorDefaultSupport" AttributeID="hp-easycolor-default" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="KEYWORD">
+			<Conversion Contains="ec-off" Value="ECOff" />
+			<Conversion Contains="ec-conservative" Value="ECConservative" /> 
+			<Conversion Contains="ec-auto" Value="ECAuto" /> 
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<!-- PCv0.72 queries End-->
+		
+		<!-- JobAccountingQuotaSupported -->
+		<DataItem Prefix="cfg" Name="JobAccountingQuotaSupport"  AttributeID="hp-job-accounting-quota-supported"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="BOOLEAN"><!-- PCv1.0-->
+			<Conversion Contains="1" Value="true"/>
+			<Conversion Contains="default" Value="false"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="FeatureAccessControl"  AttributeID="hp-print-feature-control-by-user-permission"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="STRING"/><!-- PCv1.0-->
+		<DataItem Prefix="cfg" Name="FeatureAccessControlByLocalQuota"  AttributeID="hp-print-feature-control-by-local-quota"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="STRING"/><!-- PCv1.0-->
+		
+		<DataItem Prefix="cfg" Name="Print-Contract-Major-Version-No" AttributeID="hp-pc-version-major" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" DataType="INTEGER" />
+		<DataItem Prefix="cfg" Name="Print-Contract-Minor-Version-No" AttributeID="hp-pc-version-minor" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false"  DataType="INTEGER" />
+		<DataItem Prefix="cfg" Name="Resolution-150x150dpi" AttributeID="printer-resolution-supported" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" DataType="SET_OF_RESOLUTION">
+			<Conversion Contains="150" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Resolution-300x300dpi" AttributeID="printer-resolution-supported" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" DataType="SET_OF_RESOLUTION" >
+			<Conversion Contains="300" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Resolution-600x600dpi" AttributeID="printer-resolution-supported" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" DataType="SET_OF_RESOLUTION" >
+			<Conversion Contains="600" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Resolution-1200x1200dpi" AttributeID="printer-resolution-supported" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" DataType="SET_OF_RESOLUTION" >
+			<Conversion Contains="1200" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<!-- PC_PrintQuality All PCv1.0-->
+		<DataItem Prefix="cfg" Name="PC_PrintQuality-All"  AttributeID="hp-print-quality-supported"    Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" LifeSpan="300" DataType="SET_OF_COLLECTION"/>		
+		<!-- PC_PrintQuality PCv1.0-->
+		<!-- PQMode -->
+		<DataItem Prefix="cfg" Name="PrintQuality-Draft" AttributeID="hp-print-quality-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_COLLECTION">
+			<Conversion Contains="type,3" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>		
+		<DataItem Prefix="cfg" Name="PrintQuality-Draft-PQMode" AttributeID="hp-print-quality-supported.type,3.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PrintQuality-Normal" AttributeID="hp-print-quality-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_COLLECTION">
+			<Conversion Contains="type,4" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PrintQuality-Normal-PQMode" AttributeID="hp-print-quality-supported.type,4.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>	
+		<DataItem Prefix="cfg" Name="PrintQuality-Best" AttributeID="hp-print-quality-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_COLLECTION">
+			<Conversion Contains="type,5" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PrintQuality-Best-PQMode" AttributeID="hp-print-quality-supported.type,5.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PrintQuality-Max" AttributeID="hp-print-quality-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_COLLECTION">
+			<Conversion Contains="type,10" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PrintQuality-Max-PQMode" AttributeID="hp-print-quality-supported.type,10.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PrintQuality-Economode" AttributeID="hp-print-quality-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_COLLECTION">
+			<Conversion Contains="type,11" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PrintQuality-Economode-PQMode" AttributeID="hp-print-quality-supported.type,11.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="1"/>
+			<Conversion Contains="2" Value="2"/>
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="6" Value="6"/>
+			<Conversion Contains="7" Value="7"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<!-- stdType1 -->
+		<DataItem Prefix="cfg" Name="PC_PrintQuality-StandardType1-Name" AttributeID="hp-print-quality-supported.COL1.type" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="3" Value="Draft"/>
+			<Conversion Contains="4" Value="Normal"/>
+			<Conversion Contains="5" Value="Best"/>
+			<Conversion Contains="10" Value="Max"/>
+			<Conversion Contains="11" Value="Economode"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType1-OptimalResolution" AttributeID="hp-print-quality-supported.COL1.optimal-resolution" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="150" Value="150"/>
+			<Conversion Contains="300" Value="300"/>
+			<Conversion Contains="600" Value="600"/>
+			<Conversion Contains="1200" Value="1200"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType1-DisplayTag" AttributeID="hp-print-quality-supported.COL1.display-string" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3080" Value="3080"/>
+			<!-- PCv0.8 queries Start-->
+			<Conversion Contains="3035" Value="3035"/>
+			<Conversion Contains="3065" Value="3065"/>
+			<Conversion Contains="3075" Value="3075"/>
+			<Conversion Contains="3085" Value="3085"/>
+			<Conversion Contains="1007" Value="1007"/>
+			<Conversion Contains="1008" Value="1008"/>
+			<Conversion Contains="1009" Value="1009"/>
+			<Conversion Contains="1010" Value="1010"/>
+			<!-- PCv0.8 queries End-->
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="10" Value="10"/>
+			<Conversion Contains="11" Value="11"/>
+			<Conversion Contains="21" Value="21"/>
+			<Conversion Contains="22" Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType1-PQMode" AttributeID="hp-print-quality-supported.COL1.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="DRAFT"/>
+			<Conversion Contains="2" Value="NORMAL"/>
+			<Conversion Contains="3" Value="BEST"/>
+			<Conversion Contains="4" Value="MAX"/>
+			<Conversion Contains="5" Value="ECONOMODE"/>
+			<Conversion Contains="6" Value="HIGHSPEED"/>
+			<Conversion Contains="7" Value="DEPLETED"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!-- stdType2 -->
+		<DataItem Prefix="cfg" Name="PC_PrintQuality-StandardType2-Name" AttributeID="hp-print-quality-supported.COL2.type" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="3" Value="Draft"/>
+			<Conversion Contains="4" Value="Normal"/>
+			<Conversion Contains="5" Value="Best"/>
+			<Conversion Contains="10" Value="Max"/>
+			<Conversion Contains="11" Value="Economode"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType2-OptimalResolution" AttributeID="hp-print-quality-supported.COL2.optimal-resolution" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="150" Value="150"/>
+			<Conversion Contains="300" Value="300"/>
+			<Conversion Contains="600" Value="600"/>
+			<Conversion Contains="1200" Value="1200"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType2-DisplayTag" AttributeID="hp-print-quality-supported.COL2.display-string" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3080" Value="3080"/>
+			<!-- PCv0.8 queries Start-->
+			<Conversion Contains="3035" Value="3035"/>
+			<Conversion Contains="3065" Value="3065"/>
+			<Conversion Contains="3075" Value="3075"/>
+			<Conversion Contains="3085" Value="3085"/>
+			<Conversion Contains="1007" Value="1007"/>
+			<Conversion Contains="1008" Value="1008"/>
+			<Conversion Contains="1009" Value="1009"/>
+			<Conversion Contains="1010" Value="1010"/>
+			<!-- PCv0.8 queries End-->
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="10" Value="10"/>
+			<Conversion Contains="11" Value="11"/>
+			<Conversion Contains="21" Value="21"/>
+			<Conversion Contains="22" Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType2-PQMode" AttributeID="hp-print-quality-supported.COL2.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="DRAFT"/>
+			<Conversion Contains="2" Value="NORMAL"/>
+			<Conversion Contains="3" Value="BEST"/>
+			<Conversion Contains="4" Value="MAX"/>
+			<Conversion Contains="5" Value="ECONOMODE"/>
+			<Conversion Contains="6" Value="HIGHSPEED"/>
+			<Conversion Contains="7" Value="DEPLETED"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!--stdType3-->
+		<DataItem Prefix="cfg" Name="PC_PrintQuality-StandardType3-Name" AttributeID="hp-print-quality-supported.COL3.type" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="3" Value="Draft"/>
+			<Conversion Contains="4" Value="Normal"/>
+			<Conversion Contains="5" Value="Best"/>
+			<Conversion Contains="10" Value="Max"/>
+			<Conversion Contains="11" Value="Economode"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType3-OptimalResolution" AttributeID="hp-print-quality-supported.COL3.optimal-resolution" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="150" Value="150"/>
+			<Conversion Contains="300" Value="300"/>
+			<Conversion Contains="600" Value="600"/>
+			<Conversion Contains="1200" Value="1200"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType3-DisplayTag" AttributeID="hp-print-quality-supported.COL3.display-string" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3080" Value="3080"/>
+			<!-- PCv0.8 queries Start-->
+			<Conversion Contains="3035" Value="3035"/>
+			<Conversion Contains="3065" Value="3065"/>
+			<Conversion Contains="3075" Value="3075"/>
+			<Conversion Contains="3085" Value="3085"/>
+			<Conversion Contains="1007" Value="1007"/>
+			<Conversion Contains="1008" Value="1008"/>
+			<Conversion Contains="1009" Value="1009"/>
+			<Conversion Contains="1010" Value="1010"/>
+			<!-- PCv0.8 queries End-->
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="10" Value="10"/>
+			<Conversion Contains="11" Value="11"/>
+			<Conversion Contains="21" Value="21"/>
+			<Conversion Contains="22" Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType3-PQMode" AttributeID="hp-print-quality-supported.COL3.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="DRAFT"/>
+			<Conversion Contains="2" Value="NORMAL"/>
+			<Conversion Contains="3" Value="BEST"/>
+			<Conversion Contains="4" Value="MAX"/>
+			<Conversion Contains="5" Value="ECONOMODE"/>
+			<Conversion Contains="6" Value="HIGHSPEED"/>
+			<Conversion Contains="7" Value="DEPLETED"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!--stdType4-->
+		<DataItem Prefix="cfg" Name="PC_PrintQuality-StandardType4-Name" AttributeID="hp-print-quality-supported.COL4.type" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="3" Value="Draft"/>
+			<Conversion Contains="4" Value="Normal"/>
+			<Conversion Contains="5" Value="Best"/>
+			<Conversion Contains="10" Value="Max"/>
+			<Conversion Contains="11" Value="Economode"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType4-OptimalResolution" AttributeID="hp-print-quality-supported.COL4.optimal-resolution" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="150" Value="150"/>
+			<Conversion Contains="300" Value="300"/>
+			<Conversion Contains="600" Value="600"/>
+			<Conversion Contains="1200" Value="1200"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType4-DisplayTag" AttributeID="hp-print-quality-supported.COL4.display-string" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3080" Value="3080"/>
+			<!-- PCv0.8 queries Start-->
+			<Conversion Contains="3035" Value="3035"/>
+			<Conversion Contains="3065" Value="3065"/>
+			<Conversion Contains="3075" Value="3075"/>
+			<Conversion Contains="3085" Value="3085"/>
+			<Conversion Contains="1007" Value="1007"/>
+			<Conversion Contains="1008" Value="1008"/>
+			<Conversion Contains="1009" Value="1009"/>
+			<Conversion Contains="1010" Value="1010"/>
+			<!-- PCv0.8 queries End-->
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="10" Value="10"/>
+			<Conversion Contains="11" Value="11"/>
+			<Conversion Contains="21" Value="21"/>
+			<Conversion Contains="22" Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType4-PQMode" AttributeID="hp-print-quality-supported.COL4.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="DRAFT"/>
+			<Conversion Contains="2" Value="NORMAL"/>
+			<Conversion Contains="3" Value="BEST"/>
+			<Conversion Contains="4" Value="MAX"/>
+			<Conversion Contains="5" Value="ECONOMODE"/>
+			<Conversion Contains="6" Value="HIGHSPEED"/>
+			<Conversion Contains="7" Value="DEPLETED"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+
+		<!--StdType5-->
+		<DataItem Prefix="cfg" Name="PC_PrintQuality-StandardType5-Name" AttributeID="hp-print-quality-supported.COL5.type" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="3" Value="Draft"/>
+			<Conversion Contains="4" Value="Normal"/>
+			<Conversion Contains="5" Value="Best"/>
+			<Conversion Contains="10" Value="Max"/>
+			<Conversion Contains="11" Value="Economode"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType5-OptimalResolution" AttributeID="hp-print-quality-supported.COL5.optimal-resolution" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="150" Value="150"/>
+			<Conversion Contains="300" Value="300"/>
+			<Conversion Contains="600" Value="600"/>
+			<Conversion Contains="1200" Value="1200"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType5-DisplayTag" AttributeID="hp-print-quality-supported.COL5.display-string" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1000" Value="1000"/>
+			<Conversion Contains="1002" Value="1002"/>
+			<Conversion Contains="1003" Value="1003"/>
+			<Conversion Contains="1004" Value="1004"/>
+			<Conversion Contains="1005" Value="1005"/>
+			<Conversion Contains="3000" Value="3000"/>
+			<Conversion Contains="3001" Value="3001"/>
+			<Conversion Contains="3002" Value="3002"/>
+			<Conversion Contains="3003" Value="3003"/>
+			<Conversion Contains="3020" Value="3020"/>
+			<Conversion Contains="3030" Value="3030"/>
+			<Conversion Contains="3040" Value="3040"/>
+			<Conversion Contains="3050" Value="3050"/>
+			<Conversion Contains="3060" Value="3060"/>
+			<Conversion Contains="3070" Value="3070"/>
+			<Conversion Contains="3080" Value="3080"/>
+			<!-- PCv0.8 queries Start-->
+			<Conversion Contains="3035" Value="3035"/>
+			<Conversion Contains="3065" Value="3065"/>
+			<Conversion Contains="3075" Value="3075"/>
+			<Conversion Contains="3085" Value="3085"/>
+			<Conversion Contains="1007" Value="1007"/>
+			<Conversion Contains="1008" Value="1008"/>
+			<Conversion Contains="1009" Value="1009"/>
+			<Conversion Contains="1010" Value="1010"/>
+			<!-- PCv0.8 queries End-->
+			<Conversion Contains="3" Value="3"/>
+			<Conversion Contains="4" Value="4"/>
+			<Conversion Contains="5" Value="5"/>
+			<Conversion Contains="10" Value="10"/>
+			<Conversion Contains="11" Value="11"/>
+			<Conversion Contains="21" Value="21"/>
+			<Conversion Contains="22" Value="22"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="PC_PQStandardType5-PQMode" AttributeID="hp-print-quality-supported.COL5.pq-mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="DRAFT"/>
+			<Conversion Contains="2" Value="NORMAL"/>
+			<Conversion Contains="3" Value="BEST"/>
+			<Conversion Contains="4" Value="MAX"/>
+			<Conversion Contains="5" Value="ECONOMODE"/>
+			<Conversion Contains="6" Value="HIGHSPEED"/>
+			<Conversion Contains="7" Value="DEPLETED"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<!-- PC_PrintQuality End-->
+
+		<!-- PC-Way query of hp-outputbins-supported -->
+		<DataItem Prefix="cfg" Name="Outputbin1_Type" AttributeID="hp-outputbins-supported.COL1.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin2_Type" AttributeID="hp-outputbins-supported.COL2.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin3_Type" AttributeID="hp-outputbins-supported.COL3.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin4_Type" AttributeID="hp-outputbins-supported.COL4.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin5_Type" AttributeID="hp-outputbins-supported.COL5.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin6_Type" AttributeID="hp-outputbins-supported.COL6.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin7_Type" AttributeID="hp-outputbins-supported.COL7.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin8_Type" AttributeID="hp-outputbins-supported.COL8.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin9_Type" AttributeID="hp-outputbins-supported.COL9.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin10_Type" AttributeID="hp-outputbins-supported.COL10.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin11_Type" AttributeID="hp-outputbins-supported.COL11.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin12_Type" AttributeID="hp-outputbins-supported.COL12.name" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="15" Value="Bin2" />
+			<Conversion Contains="14" Value="Bin1" />
+			<Conversion Contains="13" Value="Stacker1" />
+			<Conversion Contains="12" Value="Mailbox8" />
+			<Conversion Contains="11" Value="Mailbox7" />
+			<Conversion Contains="10" Value="Mailbox6" />
+			<Conversion Contains="9" Value="Mailbox5" />
+			<Conversion Contains="8" Value="Mailbox4" />
+			<Conversion Contains="7" Value="Mailbox3" />
+			<Conversion Contains="6" Value="Mailbox2" />
+			<Conversion Contains="5" Value="Mailbox1" />
+			<Conversion Contains="4" Value="face-up" />
+			<Conversion Contains="3" Value="Engine-optional1" />
+			<Conversion Contains="2" Value="Bin0" />
+			<Conversion Contains="default" Value="NotInstalled" />
+		</DataItem>	
+		<DataItem Prefix="cfg" Name="Outputbin1_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL1.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin1_PageDelivery" AttributeID="hp-outputbins-supported.COL1.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin1_OpMode" AttributeID="hp-outputbins-supported.COL1.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin2_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL2.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin2_PageDelivery" AttributeID="hp-outputbins-supported.COL2.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin2_OpMode" AttributeID="hp-outputbins-supported.COL2.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin3_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL3.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin3_PageDelivery" AttributeID="hp-outputbins-supported.COL3.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin3_OpMode" AttributeID="hp-outputbins-supported.COL3.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin4_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL4.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin4_PageDelivery" AttributeID="hp-outputbins-supported.COL4.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin4_OpMode" AttributeID="hp-outputbins-supported.COL4.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin5_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL5.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin5_PageDelivery" AttributeID="hp-outputbins-supported.COL5.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin5_OpMode" AttributeID="hp-outputbins-supported.COL5.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin6_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL6.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin6_PageDelivery" AttributeID="hp-outputbins-supported.COL6.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin6_OpMode" AttributeID="hp-outputbins-supported.COL6.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin7_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL7.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin7_PageDelivery" AttributeID="hp-outputbins-supported.COL7.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin7_OpMode" AttributeID="hp-outputbins-supported.COL7.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin8_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL8.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin8_PageDelivery" AttributeID="hp-outputbins-supported.COL8.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin8_OpMode" AttributeID="hp-outputbins-supported.COL8.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin9_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL9.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin9_PageDelivery" AttributeID="hp-outputbins-supported.COL9.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin9_OpMode" AttributeID="hp-outputbins-supported.COL9.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin10_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL10.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin10_PageDelivery" AttributeID="hp-outputbins-supported.COL10.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin10_OpMode" AttributeID="hp-outputbins-supported.COL10.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin11_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL11.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin11_PageDelivery" AttributeID="hp-outputbins-supported.COL11.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin11_OpMode" AttributeID="hp-outputbins-supported.COL11.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin12_IsPhysicalFoldUnit_Installed" AttributeID="hp-outputbins-supported.COL12.physical-fold-unit" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed" />
+			<Conversion Contains="0" Value="Not-Installed" />
+			<Conversion Contains="default" Value="Not-Installed" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin12_PageDelivery" AttributeID="hp-outputbins-supported.COL12.page-delivery" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="FACEUP" />
+			<Conversion Contains="2" Value="FACEDOWN" />
+			<Conversion Contains="3" Value="BOTH" />
+			<Conversion Contains="default" Value="FACEDOWN" />
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Outputbin12_OpMode" AttributeID="hp-outputbins-supported.COL12.mode" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="ENUM">
+			<Conversion Contains="1" Value="eNone"/>
+			<Conversion Contains="2" Value="eMailbox"/>
+			<Conversion Contains="3" Value="eStacker"/>
+			<Conversion Contains="4" Value="eFunctionSeparator"/>
+			<Conversion Contains="5" Value="eCollator"/>
+			<Conversion Contains="6" Value="eJobSeparator"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		
+		<DataItem Prefix="cfg" Name="Staplefoldandstich_FoldDirection" AttributeID="hp-booklet-fold-direction" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="KEYWORD"/>				
+		<DataItem Prefix="cfg" Name="Staple_Mode" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="4" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapletopleft_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="20" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapletopright_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="22" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapledualleft_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="28" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapledualright_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="30" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapledualtop_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="29" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapledualbottom_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="31" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapletripleleft_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="32" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapletripleright_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="34" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapletripletop_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="33" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Stapletriplebottom_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="35" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Staplefoldandstich_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="13" Value="Installed"/>
+			<Conversion Contains="default" Value="NotInstalled"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Punch_Region" AttributeID="hp-punch-unit-region" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="INTEGER" >
+			<Conversion Contains="1" Value="eUS"/>
+			<Conversion Contains="2" Value="eEU"/>
+			<Conversion Contains="3" Value="eSW"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Twoholepunchleft_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="74" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Twoholepunchright_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="76" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Twoholepunchtop_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="75" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Twoholepunchbottom_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="77" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Threeholepunchleft_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="78" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Threeholepunchright_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="80" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Threeholepunchtop_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="79" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Threeholepunchbottom_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="81" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Fourholepunchleft_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="82" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Fourholepunchright_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="84" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Fourholepunchtop_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="83" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Fourholepunchbottom_Installed" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="85" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="VFold_Mode" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="93" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="CFold_Mode" AttributeID="finishings-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_ENUM" >
+			<Conversion Contains="96" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="VFold_MaxSheets" AttributeID="finishings-col-database[finishing-template=fold-half &amp;&amp; media-size-name=iso_a4_210x297mm].media-sheets-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="STRING" >
+			<Conversion Contains="1-3" Value="3"/>
+			<Conversion Contains="1-5" Value="5"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="CFold_MaxSheets" AttributeID="finishings-col-database[finishing-template=fold-letter &amp;&amp; media-size-name=iso_a4_210x297mm].media-sheets-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="STRING" >
+			<Conversion Contains="1-3" Value="3"/>
+			<Conversion Contains="1-5" Value="5"/>
+		</DataItem>		
+		<!-- PC 0.5 support for Hallasan Start  -->
+		<DataItem Name="ColorType" AttributeID="print-color-mode-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_KEYWORD" >
+			<Conversion Contains="color" Value="Color"/>
+			<Conversion Contains="default" Value="Mono"/>
+		</DataItem>
+		<DataItem Prefix="cfg" Name="Grayscale-BlackOnly" AttributeID="print-color-mode-supported" Command="Get-Printer-Attributes" JobURI="NULL"   Transient="false" DataType="SET_OF_KEYWORD">
+			<Conversion Contains="monochrome" Value="supported"/>
+			<Conversion Contains="default" Value="not-supported"/>
+		</DataItem>
+		<!-- PCv0.72 queries End-->
+		<DataItem Name="EdgetoEdge_Installed" AttributeID="hp-edge-to-edge-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+			<Conversion Contains="1" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Name="TabPrinting_Installed" AttributeID="hp-tabbed-printing-supported" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="BOOLEAN">
+				<Conversion Contains="1" Value="Installed" />
+				<Conversion Contains="default" Value="Not-Installed" /> 
+		</DataItem>
+		<DataItem Name="RGBThemes" AttributeID="hp-image-enhancement-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_KEYWORD">
+			<Conversion Contains="rgb-color-themes" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Name="CMYKThemes" AttributeID="hp-image-enhancement-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_KEYWORD">
+			<Conversion Contains="cmyk-color-themes" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Name="AdvanceImageControl" AttributeID="hp-image-enhancement-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_KEYWORD">
+			<Conversion Contains="advance-image-control" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>
+		<DataItem Name="AdvanceInkControl" AttributeID="hp-image-enhancement-support" Command="Get-Printer-Attributes" JobURI="NULL" Transient="false" LifeSpan="300" DataType="SET_OF_KEYWORD">
+			<Conversion Contains=" advance-ink-control" Value="Installed"/>
+			<Conversion Contains="default" Value="Not-Installed"/>
+		</DataItem>				
+	</IPPDataMap>
+</DataMaps>

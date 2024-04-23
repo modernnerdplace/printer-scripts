@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright(c) Hewlett-Packard Development Company, L.P
+All rights reserved.
+-->
+<ComponentGroups xmlns:psf="http://schemas.microsoft.com/windows/2003/08/printing/printschemaframework"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 version="1"
+                 xmlns:ns0000="http://schemas.hp.com/ptpc/2006/1"
+                 xmlns:psk="http://schemas.microsoft.com/windows/2003/08/printing/printschemakeywords">
+  <!-- Basic : PrintMode / ColorMode / Two-sidedPrinting / Nup / PrintQuality -->
+  <Group Name="Basic"
+         DisplayName="IDS_TAB_NAME_BASIC">
+    <Component Name="PrivatePickup"
+               Type ="PrivatePickupComponent"
+               Part="ns0000:PageBlackText" />
+    <Component Name="DeliveryMode"
+               Type ="SimpleComboComponent"
+               Part="ns0000:JobDeliveryMode" />
+    <Component Name="SecurityMode"
+               Type ="SecurityFeatureComponent"/>
+    <Component Name="ColorMode"
+               Type="ImageRadioComponent"
+               Part="psk:PageOutputColor">
+      <MoreOptions>
+        <Component Name="EdgeControl"
+                   Type="SimpleComboComponent"
+                   Part="ns0000:PageGeneralEdgeControl" />
+        <Component Name="ColorCorrectionGrays"
+                   Type="ColorCorrectionGraysComponent"
+                   Part="ns0000:PageColorCorrectionGrays" />
+        <Component Name="ColorCorrectionHalftone"
+                   Type="ColorHalftoneComponent"
+                   Part="ns0000:JobColorCorrectionHalftone" />
+        <Component Name="RGBColorThemes"
+                   Type="SimpleComboComponent"
+                   Part="ns0000:DocumentRGBColor" />
+        <Component Name="CMYKColorThemes"
+                   Type="CMYKColorComponent"
+                   Part="ns0000:DocumentCMYKInks" />
+      </MoreOptions>
+    </Component>
+    <Component Name="Duplex"
+               Type="DuplexComponent"/>
+    <Component Name="NUP"
+               Type="NUPComponent"
+               Part="psk:DocumentNUp" />
+    <Component Name="PrintQuality"
+               Type="PrintQualityComponent"
+               Part="ns0000:JobUserResolution">
+      <MoreOptions>
+        <!--TODO Postponed Features-->
+        <!--<Component Name="PhotoEnhancement" />-->
+        <!--<Component Name="AutoSharpen" />-->
+        <!--<Component Name="AutoTone" />-->
+        <Component Name="RasterCompression"
+                   Type="SimpleComboComponent"
+                   Part="ns0000:DocumentRasterCompression" />
+      </MoreOptions>
+    </Component>
+  </Group>
+
+  <!-- Document : CopyCount / Collated / Orientation / Rotate180 / PaperSize / PaperSource / MediaType / Booklet / Scaling-Resize / WaterMark / SpecialPages / TabPrinting -->
+  <Group Name="Document"
+         DisplayName="IDS_TAB_NAME_DOCUMENT">
+    <Component Name="Copies"
+             Type="SimpleNumericComponent"
+             Part="psk:JobCopiesAllDocuments"/>
+    <Component Name="Collated"
+               Type="SimpleSwitchComponent"
+               Part="psk:DocumentCollate" />
+    <Component Name="Orientation"
+               Type="ImageRadioComponent"
+               Part="psk:PageOrientation" />
+    <Component Name="PageRotate"
+           Type="SimpleSwitchComponent"
+           Part="ns0000:PageRotate180" />
+    <Component Name="PageMirrorImage"
+           Type="PageMirrorImageComponent"
+           Part="psk:PageMirrorImage" />
+    <Component Name="PaperSizes"
+               Type="PaperSizeComponent"
+               Part="psk:PageMediaSize">
+      <MoreOptions>
+        <Component Name="EdgeToEdgePrinting"
+                   Type="SimpleSwitchComponent"
+                   Part="ns0000:DocumentMargins" />
+      </MoreOptions>
+    </Component>
+    <Component Name="PaperSource"
+           Type="InputBinComponent"
+           Part="psk:PageInputBin" />
+    <Component Name="PaperType"
+               Type="PaperTypeComponent"
+               Part="psk:PageMediaType" />    
+    <Component Name="Booklet"
+               Type="SimpleComboComponent"
+               Part="psk:DocumentBinding" />
+    <Component Name="ScalingAndResize"
+               Type="ScalingComponent" />
+    <Component Name="Watermark"
+               Type="WatermarkComponent" />
+    <Component Name="SpecialPages"
+               Type="SpecialPageComponent"/>
+	  
+    <Component Name="TabPrinting"
+               Type="TabPrintingComponent"/>
+    
+    <Component Name="ManualMargin"
+               Type="ManualMarginComponent"/>
+    <!--<Component Name="TabPrinting" />-->
+	<Component Name="JobSeparator"
+			   Type="JobSeparatorComponent"/>
+  </Group>
+
+  <!--Finishing : OutputBin / Staple / Punch / Fold -->
+  <Group Name="Finishing"
+         DisplayName="IDS_TAB_NAME_FINISHING">
+    <Component Name="OutputBin"
+               Type="SimpleComboComponent"
+               Part="psk:JobOutputBin" />
+    <Component Name="Stapling"
+               Type="SimpleComboComponent"
+               Part="psk:JobStapleAllDocuments" />
+    <Component Name="Punching"
+               Type="SimpleComboComponent"
+               Part="psk:DocumentHolePunch" />
+    <Component Name="Folding"
+               Type="FoldingComponent" />
+  </Group>
+
+  <Group Name="Advanced"
+         DisplayName="IDS_TAB_NAME_ADVACED">
+    <Component Name="PageOrder"
+               Type="SimpleComboComponent"
+               Part="psk:JobPageOrder" />
+    <Component Name="PrintAllTextBlack"
+          Type="SimpleSwitchComponent"
+          Part="ns0000:PageBlackText" />
+    <Component Name="InkSettings" />
+    <Component Name="InkDryTime"
+             Type="SimpleComboComponent"
+             Part="ns0000:DocumentInkDryTime" />
+    <Component Name="InkSaturation"
+               Type="SimpleComboComponent"
+               Part="ns0000:DocumentInkSaturation" />
+    <Component Name="BlackInkSpread"
+               Type="SimpleComboComponent"
+               Part="ns0000:DocumentBlackInkSpread" />
+    <!--TODO Postponed Features-->
+    <!--<Component Name="PhotoEnhancement" />-->
+    <!--<Component Name="AutoSharpen" />-->
+    <!--<Component Name="AutoTone" />-->
+    <Component Name="HPEasyColor"
+           Type="SimpleComboComponent"
+           Part="ns0000:DocumentHPEasyColor" />
+    <Component Name="BorderlessPrinting"
+          Type="BorderlessComponent"
+          Part="psk:PageBorderless" />
+    <Component Name="JobAccount"
+               Type ="JobAccountComponent"/>
+  </Group>
+</ComponentGroups>

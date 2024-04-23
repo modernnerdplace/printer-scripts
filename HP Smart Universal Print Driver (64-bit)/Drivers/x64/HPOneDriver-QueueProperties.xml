@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Properties xmlns="http://schemas.microsoft.com/windows/2011/08/printing/queueproperties">
+  <Property Name="DriverName">
+    <String>HP Smart Universal Printing</String>
+  </Property>
+  <Property Name="DefaultPreset">
+    <String></String>
+  </Property>
+  <Property Name="EnablePointandPrintSEP">
+    <Bool>false</Bool>
+  </Property>
+  <Property Name="DCU_policy">
+    <String />
+  </Property>
+  <Property Name="CapabilityXML">
+    <String />
+  </Property>
+  <Property Name="Presets.xml">
+    <String>
+      &lt;Presets xmlns:psf=&quot;http://schemas.microsoft.com/windows/2003/08/printing/printschemaframework&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;1&quot; xmlns:ns0000=&quot;http://schemas.hp.com/ptpc/2006/1&quot; xmlns:psk=&quot;http://schemas.microsoft.com/windows/2003/08/printing/printschemakeywords&quot; xmlns:pskv11=&quot;http://schemas.microsoft.com/windows/2013/05/printing/printschemakeywordsv11&quot;&gt;
+      &lt;Preset name=&quot;_EcoSmart&quot; displayname=&quot;IDS_ECOSMART_PRESET&quot; Key=&quot;Preset00.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;true&quot; /&gt;
+      &lt;Preset name=&quot;_GeneralPrint&quot; displayname=&quot;IDS_GENERALPRINT_PRESET&quot; Key=&quot;Preset01.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_Envelope&quot; displayname=&quot;IDS_ENVELOPE_PRESET&quot; Key=&quot;Preset02.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_Labels&quot; displayname=&quot;IDS_LABELS_PRESET&quot; Key=&quot;Preset03.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_GeneralPrint_PCL3&quot; displayname=&quot;IDS_GENERALPRINT_PRESET&quot; Key=&quot;Preset04.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_TwoSidedDuplexPrint&quot; displayname=&quot;IDS_TWOSIDED_DUPLEX_PRINTING_PRESET&quot; Key=&quot;Preset05.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_PhotoPrintingWithBorders&quot; displayname=&quot;IDS_PHOTO_PRINTING_WITH_BORDERS_PRESET&quot; Key=&quot;Preset06.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_PhotoPrintingBorderless&quot; displayname=&quot;IDS_PHOTO_PRINTING_BORDERLESS_PRESET&quot; Key=&quot;Preset07.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_FastEconomicalPrinting&quot; displayname=&quot;IDS_FAST_ECONOMICAL_PRINTING_PRESET&quot; Key=&quot;Preset08.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_CardStockHeavy&quot; displayname=&quot;IDS_CARDSTOCK_HEAVY_PRESET&quot; Key=&quot;Preset09.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_Transparencies&quot; displayname=&quot;IDS_TRANSPARENCIES_PRESET&quot; Key=&quot;Preset10.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_BookletPrint&quot; displayname=&quot;IDS_BOOKLET_PRINTING_NOHK&quot; Key=&quot;Preset11.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_GeneralPrint_PCL6&quot; displayname=&quot;IDS_GENERALPRINT_PRESET&quot; Key=&quot;Preset12.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_SnapShotPhoto&quot; displayname=&quot;IDS_SNAPSHOT_PHOTOS_PRESET&quot; Key=&quot;Preset13.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_GlossyPresentation&quot; displayname=&quot;IDS_GLOSSY_PRESENTATION_PRESET&quot; Key=&quot;Preset14.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;Preset name=&quot;_Envelope_PCL6&quot; displayname=&quot;IDS_ENVELOPE_PRESET&quot; Key=&quot;Preset15.xml&quot; IsDefault=&quot;true&quot; IsUniversal=&quot;false&quot; /&gt;
+      &lt;/Presets&gt;
+    </String>
+  </Property>
+  <Property Name="Preset00.xml">
+    <String>
+      &lt;psf:PrintTicket xmlns:psf=&quot;http://schemas.microsoft.com/windows/2003/08/printing/printschemaframework&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;1&quot; xmlns:ns0000=&quot;http://schemas.hp.com/ptpc/2006/1&quot; xmlns:psk=&quot;http://schemas.microsoft.com/windows/2003/08/printing/printschemakeywords&quot;&gt;&lt;psf:Feature name=&quot;psk:JobDuplexAllDocumentsContiguously&quot;&gt;&lt;psf:Option name=&quot;psk:TwoSidedLongEdge&quot;&gt;&lt;psf:ScoredProperty name=&quot;psk:DuplexMode&quot;&gt;&lt;psf:Value xsi:type=&quot;xsd:QName&quot;&gt;psk:Auto&lt;/psf:Value&gt;&lt;/psf:ScoredProperty&gt;&lt;/psf:Option&gt;&lt;/psf:Feature&gt;&lt;psf:Feature name=&quot;ns0000:DocumentHPEasyColor&quot;&gt;&lt;psf:Option name=&quot;ns0000:HPEasyColorOff&quot;/&gt;&lt;/psf:Feature&gt;  &lt;/psf:PrintTicket&gt;
+    </String>
+  </Property>
+  <Property Name="Preset20.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset21.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset22.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset23.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset24.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset25.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset26.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset27.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset28.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset29.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset30.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset31.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset32.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset33.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset34.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset35.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset36.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset37.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset38.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset39.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset40.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset41.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset42.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset43.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset44.xml">
+    <String></String>
+  </Property>
+  <Property Name="Preset45.xml">
+    <String></String>
+  </Property>
+  <Property Name="CustomWatermarks">
+    <String>
+      &lt;Watermarks xmlns:psf=&quot;http://schemas.microsoft.com/windows/2003/08/printing/printschemaframework&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;1&quot; xmlns:ns0000=&quot;http://schemas.hp.com/ptpc/2006/1&quot; xmlns:psk=&quot;http://schemas.microsoft.com/windows/2003/08/printing/printschemakeywords&quot; xmlns:pskv11=&quot;http://schemas.microsoft.com/windows/2013/05/printing/printschemakeywordsv11&quot;&gt;&lt;psk:PageWatermark name=&quot;Confidential&quot; type=&quot;psk:Text&quot; displayname=&quot;IDS_WM_OPTION_CONFIDENTIAL&quot;&gt;&lt;psk:PageWatermarkTextText&gt;IDS_WM_OPTION_CONFIDENTIAL&lt;/psk:PageWatermarkTextText&gt;&lt;ns0000:PageWatermarkTextFont&gt;&lt;/ns0000:PageWatermarkTextFont&gt;&lt;ns0000:PageWatermarkTextOutline&gt;0&lt;/ns0000:PageWatermarkTextOutline&gt;&lt;ns0000:PageWatermarkTextBold&gt;0&lt;/ns0000:PageWatermarkTextBold&gt;&lt;ns0000:PageWatermarkTextItalic&gt;0&lt;/ns0000:PageWatermarkTextItalic&gt;&lt;psk:PageWatermarkTextFontSize&gt;120&lt;/psk:PageWatermarkTextFontSize&gt;&lt;psk:PageWatermarkTextAngle&gt;47&lt;/psk:PageWatermarkTextAngle&gt;&lt;psk:PageWatermarkTextColor&gt;#FF808080&lt;/psk:PageWatermarkTextColor&gt;&lt;psk:PageWatermarkTransparency&gt;50&lt;/psk:PageWatermarkTransparency&gt;&lt;ns0000:PageWatermarkTextRightToLeft&gt;0&lt;/ns0000:PageWatermarkTextRightToLeft&gt;&lt;ns0000:Placement&gt;ns0000:Center&lt;/ns0000:Placement&gt;&lt;ns0000:PageWatermarkPlacementOffsetHeight&gt;0&lt;/ns0000:PageWatermarkPlacementOffsetHeight&gt;&lt;ns0000:PageWatermarkPlacementOffsetWidth&gt;0&lt;/ns0000:PageWatermarkPlacementOffsetWidth&gt;&lt;psk:Layering&gt;psk:Overlay&lt;/psk:Layering&gt;&lt;ns0000:Usage&gt;ns0000:FirstPageOnly&lt;/ns0000:Usage&gt;&lt;/psk:PageWatermark&gt;&lt;psk:PageWatermark name=&quot;Draft&quot; type=&quot;psk:Text&quot; displayname=&quot;IDS_WM_OPTION_DRAFT&quot;&gt;&lt;psk:PageWatermarkTextText&gt;IDS_WM_OPTION_DRAFT&lt;/psk:PageWatermarkTextText&gt;&lt;ns0000:PageWatermarkTextFont&gt;&lt;/ns0000:PageWatermarkTextFont&gt;&lt;ns0000:PageWatermarkTextOutline&gt;0&lt;/ns0000:PageWatermarkTextOutline&gt;&lt;ns0000:PageWatermarkTextBold&gt;0&lt;/ns0000:PageWatermarkTextBold&gt;&lt;ns0000:PageWatermarkTextItalic&gt;0&lt;/ns0000:PageWatermarkTextItalic&gt;&lt;psk:PageWatermarkTextFontSize&gt;160&lt;/psk:PageWatermarkTextFontSize&gt;&lt;psk:PageWatermarkTextAngle&gt;47&lt;/psk:PageWatermarkTextAngle&gt;&lt;psk:PageWatermarkTextColor&gt;#FF808080&lt;/psk:PageWatermarkTextColor&gt;&lt;psk:PageWatermarkTransparency&gt;50&lt;/psk:PageWatermarkTransparency&gt;&lt;ns0000:PageWatermarkTextRightToLeft&gt;0&lt;/ns0000:PageWatermarkTextRightToLeft&gt;&lt;ns0000:Placement&gt;ns0000:Center&lt;/ns0000:Placement&gt;&lt;ns0000:PageWatermarkPlacementOffsetHeight&gt;0&lt;/ns0000:PageWatermarkPlacementOffsetHeight&gt;&lt;ns0000:PageWatermarkPlacementOffsetWidth&gt;0&lt;/ns0000:PageWatermarkPlacementOffsetWidth&gt;&lt;psk:Layering&gt;psk:Overlay&lt;/psk:Layering&gt;&lt;ns0000:Usage&gt;ns0000:AllPages&lt;/ns0000:Usage&gt;&lt;/psk:PageWatermark&gt;&lt;psk:PageWatermark name=&quot;SAMPLE&quot; type=&quot;psk:Text&quot; displayname=&quot;IDS_WM_OPTION_SAMPLE&quot;&gt;&lt;psk:PageWatermarkTextText&gt;IDS_WM_OPTION_SAMPLE&lt;/psk:PageWatermarkTextText&gt;&lt;ns0000:PageWatermarkTextFont&gt;&lt;/ns0000:PageWatermarkTextFont&gt;&lt;ns0000:PageWatermarkTextOutline&gt;0&lt;/ns0000:PageWatermarkTextOutline&gt;&lt;ns0000:PageWatermarkTextBold&gt;0&lt;/ns0000:PageWatermarkTextBold&gt;&lt;ns0000:PageWatermarkTextItalic&gt;0&lt;/ns0000:PageWatermarkTextItalic&gt;&lt;psk:PageWatermarkTextFontSize&gt;160&lt;/psk:PageWatermarkTextFontSize&gt;&lt;psk:PageWatermarkTextAngle&gt;47&lt;/psk:PageWatermarkTextAngle&gt;&lt;psk:PageWatermarkTextColor&gt;#FF808080&lt;/psk:PageWatermarkTextColor&gt;&lt;psk:PageWatermarkTransparency&gt;50&lt;/psk:PageWatermarkTransparency&gt;&lt;ns0000:PageWatermarkTextRightToLeft&gt;0&lt;/ns0000:PageWatermarkTextRightToLeft&gt;&lt;ns0000:Placement&gt;ns0000:Center&lt;/ns0000:Placement&gt;&lt;ns0000:PageWatermarkPlacementOffsetHeight&gt;0&lt;/ns0000:PageWatermarkPlacementOffsetHeight&gt;&lt;ns0000:PageWatermarkPlacementOffsetWidth&gt;0&lt;/ns0000:PageWatermarkPlacementOffsetWidth&gt;&lt;psk:Layering&gt;psk:Overlay&lt;/psk:Layering&gt;&lt;ns0000:Usage&gt;ns0000:AllPages&lt;/ns0000:Usage&gt;&lt;/psk:PageWatermark&gt;&lt;/Watermarks&gt;
+    </String>
+  </Property>
+  <Property Name="ManualDuplex">
+    <String>
+	    &lt;ManualDuplexAttributes&gt;
+      &lt;prn_grp name=&quot;FDNRPCLStraight&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000001&lt;/Property&gt;
+      &lt;Property name=&quot;JobHPFeedType&quot;&gt;HPStraightFeed&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_MANUAL_INSTRUCT_PART1,IDS_MANUAL_INSTRUCT_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MAN_DUP_DIALOG_FIRST_PART_PART1,IDS_MAN_DUP_DIALOG_FIRST_PART_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;pyramid.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MAN_DUP_DIALOG_SEC_PART_PART1,IDS_MAN_DUP_DIALOG_SEC_PART_PART2,
+                      IDS_MAN_DUP_DIALOG_SEC_PART_PART3&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNRPCLCFeed&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000001&lt;/Property&gt;
+      &lt;Property name=&quot;JobHPFeedType&quot;&gt;HPCFeed&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_MANUAL_INSTRUCT_PART1,IDS_MANUAL_INSTRUCT_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MAN_DUP_DIALOG_FIRST_PART_PART1,IDS_MAN_DUP_DIALOG_FIRST_PART_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;non-pyramid.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MAN_DUP_DIALOG_SEC_PART_PART1,IDS_MAN_DUP_DIALOG_SEC_PART_PART2,
+                      IDS_MAN_DUP_DIALOG_SEC_PART_PART3&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNRStarstelle&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000001&lt;/Property&gt;
+      &lt;Property name=&quot;JobHPFeedType&quot;&gt;StarsStella&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_MANUAL_INSTRUCT_PART1,IDS_MANUAL_INSTRUCT_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MANUAL_INSTRUCT_PART1,IDS_MANUAL_INSTRUCT_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;CanaryLark1.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image2&quot;&gt;CanaryLark2.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image3&quot;&gt;CanaryLark3.bmp&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNRCanarylark&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000001&lt;/Property&gt;
+      &lt;Property name=&quot;JobHPFeedType&quot;&gt;StarsStella&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_MANUAL_INSTRUCT_PART1,IDS_MANUAL_INSTRUCT_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MANUAL_INSTRUCT_PART1,IDS_MANUAL_INSTRUCT_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;CanaryLark1.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image2&quot;&gt;CanaryLark2.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image3&quot;&gt;CanaryLark3-Legacy.bmp&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNRHorizon&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000001&lt;/Property&gt;
+      &lt;Property name=&quot;JobHPFeedType&quot;&gt;StarsStella&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MANUAL_INSTRUCT_PART1,IDS_MANUAL_INSTRUCT_PART2&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;CanaryLark1.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image2&quot;&gt;CanaryLark2.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image3&quot;&gt;CanaryLark3.bmp&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNR6&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000111&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_ICD_MANUAL_DUPLEX_INSTRUCTION_A,IDS_ICD_MANUAL_DUPLEX_INSTRUCTION_B&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_ICD_MANUAL_DUPLEX_STEP_1&lt;/Property&gt;
+      &lt;Property name=&quot;Text2&quot;&gt;IDS_MD_CRYSTAL_STEP2&lt;/Property&gt;
+      &lt;Property name=&quot;Text3&quot;&gt;IDS_MANUAL_DUPLEX_STEP2B_PRINT_UP,IDS_MANUAL_DUPLEX_STEP3_CPATH_B&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;TOP_OUTPUT_FACE_DOWN.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image2&quot;&gt;FLIP_SHORT_EDGE_FACEUP.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image3&quot;&gt;FRONT_INPUT_FACE_UP_TOWARD.bmp&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNR1&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0100111&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_ICD_MANUAL_DUPLEX_INSTRUCTION_A,IDS_ICD_MANUAL_DUPLEX_INSTRUCTION_B&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_ICD_MANUAL_DUPLEX_STEP_1&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;TOP_OUTPUT_FACE_DOWN.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Text2&quot;&gt;IDS_MANUAL_DUPLEX_MESSAGE2_STR1&lt;/Property&gt;
+      &lt;Property name=&quot;Image2&quot;&gt;FRONT_INPUT_FACE_DOWN.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Text3&quot;&gt;IDS_ICD_MANUAL_DUPLEX_STEP_3&lt;/Property&gt;
+      &lt;Property name=&quot;Image3&quot;&gt;PRESS_START.bmp&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNRGeneric&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000111&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_GENERIC_MANUAL_DUPLEX_INSTRUCTION&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+      &lt;prn_grp name=&quot;FDNR12&quot;&gt;
+      &lt;Property name=&quot;EnhancedManDupAttribute&quot;&gt;psk:Manual-0000111&lt;/Property&gt;
+      &lt;Property name=&quot;TextHeader&quot;&gt;IDS_ICD_MANUAL_DUPLEX_INSTRUCTION_A,IDS_ICD_MANUAL_DUPLEX_INSTRUCTION_B&lt;/Property&gt;
+      &lt;Property name=&quot;Text1&quot;&gt;IDS_MANUAL_DUPLEX_STEP1_CPATH_A,IDS_MANUAL_DUPLEX_STEP1_CPATH_B&lt;/Property&gt;
+      &lt;Property name=&quot;Text2&quot;&gt;IDS_MANUAL_DUPLEX_STEP2_CPATH&lt;/Property&gt;
+      &lt;Property name=&quot;Text3&quot;&gt;IDS_MANUAL_DUPLEX_STEP3_CPATH_A,IDS_MANUAL_DUPLEX_STEP3_CPATH_B&lt;/Property&gt;
+      &lt;Property name=&quot;Image1&quot;&gt;Seabiscuit01.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image2&quot;&gt;LJ_rotate_facedown_Step2.bmp&lt;/Property&gt;
+      &lt;Property name=&quot;Image3&quot;&gt;LJ_rotate_facedown_Step3.bmp&lt;/Property&gt;
+      &lt;/prn_grp&gt;
+	  &lt;/ManualDuplexAttributes&gt;
+    </String>
+  </Property>
+  
+
+  <!--Property Name="CustomMediaSizes">
+    <String>
+      ns0000:UserFormPaperSize1=Custom1,98100,140000;ns0000:UserFormPaperSize2=Custom2,300000,240000;
+    </String>
+  </Property-->
+  <Property Name="HasQPBWritingAuthority">
+    <Bool>false</Bool>
+  </Property>  
+  <!-- Key List for UCDE Rqueue-->
+  <Property Name="IsRQueue">
+    <String>false</String>
+  </Property>
+  <Property Name="RQueuePortName">
+    <String>HP Roam</String>
+  </Property>
+  <Property Name="UserDefinedPDL">
+    <String></String>
+  </Property>
+  <Property Name="UserConsent">
+    <String></String>
+  </Property>
+  <Property Name="JobJsonDeviceCaps">
+    <String></String>
+  </Property>
+  <Property Name="EventJsonRepoPath">
+    <String></String>
+  </Property>
+  <Property Name="appDeployedUUID">
+    <String></String>
+  </Property>
+  <Property Name="appDeployedID">
+    <String></String>
+  </Property>
+  <Property Name="appStackType">
+    <String></String>
+  </Property>
+  <Property Name="UserConsentThroughDriver">
+    <Bool>false</Bool>
+  </Property>
+  <!-- Key List for Queue property bag-->
+  <Property Name="Keys">
+    <String>
+      DriverName;DefaultPreset;EnablePointandPrintSEP;Policy;LockedFeatures;LockedValueOverrides;Constraints;CustomPresets;CustomWatermarks;Presets.xml;Preset20.xml;Preset21.xml;Preset22.xml;Preset23.xml;Preset24.xml;Preset25.xml;Preset26.xml;Preset27.xml;Preset28.xml;Preset29.xml;Preset30.xml;Preset31.xml;Preset32.xml;Preset33.xml;Preset34.xml;Preset35.xml;Preset36.xml;Preset37.xml;Preset38.xml;Preset39.xml;Preset40.xml;Preset41.xml;Preset42.xml;Preset43.xml;Preset44.xml;Preset45.xml;HasQPBWritingAuthority;ManualDuplex;ProductXML;IsRQueue;RQueuePortName;Preset05.xml;Preset06.xml;Preset07.xml;Preset08.xml
+    </String>
+  </Property>
+</Properties>

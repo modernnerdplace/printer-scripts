@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<IOCONFIG>
+  <!-- 
+		File Information which is used by Custom Config Exe 
+	
+		uio_dll : UIO DLL file from RCB
+		udm_dll : UDM DLL file from RCB
+		udm_xml : IPP Data Map file from RCB
+		powershell_clr_dll: For using powershell command. This DLL uses CLR so it should be a Dynamic Link Library.
+	-->
+  <FILE_INFO64 uio_dll="hpbuio64.dll" udm_dll="hpbuiodm64.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+  <FILE_INFO32 uio_dll="hpbuio32.dll" udm_dll="hpbuiodm32.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+  <FILE_INFOARM64 uio_dll="hpbuioARM64.dll" udm_dll="hpbuiodmARM64.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+  <FILE_INFO uio_dll="hpuio.dll" udm_dll="hpuiodm.dll" udm_xml="hpuiodatamap.xml" powershell_clr_dll="HP.OneDriver.PWSCLR.dll"/>
+</IOCONFIG>

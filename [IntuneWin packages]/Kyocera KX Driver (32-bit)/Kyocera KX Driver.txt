@@ -1,0 +1,17 @@
+Install:
+PowerShell.exe -ExecutionPolicy Bypass -File Install.ps1 -PrinterName "PRINTER NAME HERE" -PrinterHostAddress "IP OF PRINTER HERE" -DriverName "DRIVER NAME BASED ON INF FILE"
+
+Optional Install Parameters:
+-PortName (defaults to "IP_$PrinterHostAddress")
+
+
+Uninstall:
+PowerShell.exe -ExecutionPolicy Bypass -File Uninstall.ps1 -PrinterName "PRINTER NAME HERE" -PortName "PORT NAME HERE"
+
+
+Detection Rule (Register):
+* HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Printers\PRINTER NAME HERE
+* Value name: Name
+* Detection method: String comparison
+* Operator: Equal to
+* Value: PRINTER NAME HERE

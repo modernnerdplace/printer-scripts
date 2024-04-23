@@ -1,0 +1,119 @@
+;================================================================
+;
+;  MONITOR.INF
+;
+;  KPrint Port Monitor Installation Script
+;  NT 4.0, Windows 2000 and Windows XP (Multi Language)
+;
+;  © Copyright 2000-2002 KYOCERA CORPORATION
+;  © Copyright 2000-2002 KYOCERA MITA CORPORATION
+;  All Rights Reserved.
+;
+;  KMSL 7.0  6/17/2003
+;
+;================================================================
+
+[Version]
+Signature="$CHICAGO$"
+Provider=%KMC%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+
+[PortMonitors]
+"KPrint Port" = KPrintPortMon
+
+[KPrintPortMon]
+CopyFiles=@KPrnMon.dll,@MFP32A.dll,@KPNDLG.INI,@KPNMSG.INI,@SendMail.exe
+PortMonitorDll=KPrnMon.dll
+AddReg=KPrint_AddReg
+
+[KPrintPortMon.NTx86]
+CopyFiles=@KPrnMon.dll,@MFP32U.dll,@KPNDLG.INI,@KPNMSG.INI,@SendMail.exe
+PortMonitorDll=KPrnMon.dll
+AddReg=KPrint_AddReg
+
+[KPrint_AddReg]
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Monitors\KPrint Port",InstallPath,0,"%%SystemRoot%%\System"
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Monitors\KPrint Port",SpoolPath,0,"%%SystemRoot%%\System"
+
+[KPrint_AddReg.NT]
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Monitors\KPrint Port",InstallPath,0,"%%SystemRoot%%\System32"
+HKLM,"SYSTEM\CurrentControlSet\Control\Print\Monitors\KPrint Port",SpoolPath,0,"%%SystemRoot%%\System32"
+
+[DestinationDirs]
+DefaultDestDir 	= 11
+
+[SourceDisksFiles]
+KPrnMon.dll 	= 1,\Win9x,
+MFP32A.dll 	= 1,\Win9x,
+SendMail.exe 	= 1,,
+KPNDLG.INI 	= 2,,
+KPNMSG.INI 	= 2,,
+
+[SourceDisksFiles.x86]
+KPrnMon.dll 	= 1,\WinNT,
+MFP32U.dll 	= 1,\WinNT,
+SendMail.exe 	= 1,,
+KPNDLG.INI 	= 2,,
+KPNMSG.INI 	= 2,,
+
+[SourceDisksNames.x86]
+1=%CDROM%,,,KPrint
+2=%CDROM%,,,KPrint\%LANG_PATH%
+
+[Strings]
+LANG_PATH 	= "English"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+[Strings.0009]
+LANG_PATH 	= "English"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+[Strings.000c]
+LANG_PATH 	= "French"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+
+[Strings.0016]
+LANG_PATH 	= "Portuguese"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+[Strings.000a]
+LANG_PATH 	= "Spanish"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+;P.R.C   	SCH
+[Strings.0804]
+LANG_PATH 	= "S-Chinese"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+;Force Chinese(Singapore) to English
+;Singapore	ENG
+[Strings.1004]
+LANG_PATH 	= "English"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+;Taiwan		TCH
+[Strings.0404]
+LANG_PATH 	= "T-Chinese"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+;Hong Kong	TCH
+[Strings.0c04]
+LANG_PATH 	= "T-Chinese"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
+
+;Macau		TCH
+[Strings.1404]
+LANG_PATH 	= "T-Chinese"
+KMC   	= "Kyocera Mita Corporation"
+CDROM		= "KMSL"
