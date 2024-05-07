@@ -1,0 +1,582 @@
+*PPD-Adobe: "4.3"
+*% Intended only for use by a Xerox print driver for Microsoft Windows (R)
+*% Xerox Corporation (R) Printer Description File
+*% Copyright Xerox Corporation
+*% Copyright Adobe Systems, Inc.
+*% All Rights Reserved.
+*FormatVersion: "4.3"
+*FileVersion: "1.0"
+
+*LanguageEncoding: ISOLatin1
+*LanguageVersion: English
+
+*Manufacturer: "Xerox"
+*ModelName: "Xerox"
+*ShortNickName: "Xerox"
+*NickName: "Xerox"
+*PCFileName: "x3UNIVP06B.p3p"
+*Product: "(Xerox Global Print Driver)"
+*PSVersion: 
+*LanguageLevel: "3"
+*PrintPSErrors: True
+*ADHasEuro: True
+*TTRasterizer: Type42
+*SuggestedJobTimeout: "0"
+*SuggestedWaitTimeout: "120"
+    
+
+*LeadingEdge Short: ""
+*DefaultLeadingEdge: Short
+*LandscapeOrientation: Plus90
+*% Overridden by driver:
+*Throughput: "999"
+
+*ColorDevice: True
+*DefaultColorSpace: CMYK
+
+*FreeVM: "4340000"
+*VMOption None/_Standard_: "4340000"
+*FCacheSize None: "1079416"
+
+*% === Custom Paper Sizes ===
+
+*ParamCustomPageSize Width/_Width_: 1 points 72 7200 
+*ParamCustomPageSize Height/_Height_: 2 points 72 7200
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 1 1
+*MaxMediaWidth: "7200"
+*MaxMediaHeight: "7200"
+*HWMargins: 0 0 0 0
+
+*NonUIOrderDependency: 46.5 AnySetup *CustomPageSize
+*CustomPageSize True: "
+ %Intentionally null
+ pop pop pop pop pop"
+*End
+
+*% Paper definitions needed by certain PostScript passthrough applications that parse the .P3P file for capabilities.
+*% The command invocations have been intentionally removed as required by this driver.
+
+*% === Page Size ===
+*OpenUI *PageSize/Page Size: PickOne
+*OrderDependency: 47.0 AnySetup *PageSize
+*DefaultPageSize: Letter
+*PageSize Letter/Letter (8.5 x 11"): "%%Intentionally blank"
+*End
+*PageSize Legal/Legal (8.5 x 14"): "%%Intentionally blank"
+*End
+*PageSize Tabloid/Tabloid (11 x 17"): "%%Intentionally blank"
+*End
+*PageSize 4x6Pcard/Postcard (4.5 x 6"): "%%Intentionally blank"
+*End
+*PageSize 100x148Postcard/Postcard (100 x 148 mm): "%%Intentionally blank"
+*End
+*PageSize 148x200Postcard/Postcard (148 x 200 mm): "%%Intentionally blank"
+*End
+*PageSize 4x6/Postcard (4 x 6"): "%%Intentionally blank"
+*End
+*PageSize 5x7/5 x 7": "%%Intentionally blank"
+*End
+*PageSize Statement/Statement (5.5 x 8.5"): "%%Intentionally blank"
+*End
+*PageSize Executive/Executive (7.25 x 10.5"): "%%Intentionally blank"
+*End
+*PageSize 8x10/8 x 10": "%%Intentionally blank"
+*End
+*PageSize FanFoldGermanLegal/8.5 x 13": "%%Intentionally blank"
+*End
+*PageSize 9x11/9 x 11": "%%Intentionally blank"
+*End
+*PageSize A4/A4 (210 x 297 mm): "%%Intentionally blank"
+*End
+*PageSize A3/A3 (297 x 420 mm): "%%Intentionally blank"
+*End
+*PageSize A5/A5 (148 x 210 mm): "%%Intentionally blank"
+*End
+*PageSize A6/A6 (105 x 148 mm): "%%Intentionally blank"
+*End
+*PageSize JISB4/JIS B4 (257 x 364 mm): "%%Intentionally blank"
+*End
+*PageSize JISB5/JIS B5 (182 x 257 mm): "%%Intentionally blank"
+*End
+*PageSize JISB6/JIS B6 (128 x 182 mm): "%%Intentionally blank"
+*End
+*PageSize B4/B4 (250 x 353 mm): "%%Intentionally blank"
+*End
+*PageSize B5/B5 (176 x 250 mm): "%%Intentionally blank"
+*End
+*PageSize B6/B6 (125 x 176 mm): "%%Intentionally blank"
+*End
+*PageSize SpanishFolio/215 x 315 mm: "%%Intentionally blank"
+*End
+*PageSize A4Cover/Oversized A4 (223 x 297 mm): "%%Intentionally blank"
+*End
+*PageSize EnvC5/Envelope C5 (162 x 229mm): "%%Intentionally blank"
+*End
+*PageSize EnvC4/Envelope C4 (324 x 229): "%%Intentionally blank"   
+*End
+*PageSize TabloidExtra/Oversized Tabloid (12 x 18"): "%%Intentionally blank"
+*End
+*PageSize 12x19/12 x 19": "%%Intentionally blank"
+*End
+*PageSize SRA3/SRA3 (320 x 450 mm): "%%Intentionally blank"
+*End
+*PageSize 13x19/13 x 19": "%%Intentionally blank"
+*End
+*PageSize EnvMonarch/Envelope Monarch (3.875 x 7.5"): "%%Intentionally blank"
+*End
+*PageSize Env9/Envelope No. 9 (3.875 x 8.875"): "%%Intentionally blank"
+*End
+*PageSize Env10/Envelope No. 10 (4.125 x 9.5"): "%%Intentionally blank"
+*End
+*PageSize EnvDL/Envelope DL (110 x 220 mm): "%%Intentionally blank"
+*End
+*PageSize IndexCard/Index Card (3 x 5"): "%%Intentionally blank"
+*End
+*PageSize EnvA7/A7 Envelope (5.25 x 7.25"): "%%Intentionally blank"
+*End
+*PageSize Env5Half/#5 1/2 Envelope (4.375 x 5.75"): "%%Intentionally blank"
+*End
+*PageSize EnvPersonal/#6 3/4 Envelope (3.625 x 6.5"): "%%Intentionally blank"
+*End
+*PageSize EnvChou3/Choukei 3 Gou (4.72 x 9.25"): "%%Intentionally blank"
+*End
+*PageSize EnvChou4/Choukei 4 Gou (3.54 x 8.06"): "%%Intentionally blank"
+*End
+*PageSize Env6x9/6x9 Envelope (6 x 9"): "%%Intentionally blank"
+*End
+*PageSize EnvB5/Envelope B5 (176 x 250 mm): "%%Intentionally blank"
+*End
+*PageSize EnvC6/Envelope C6 (114 x 162 mm): "%%Intentionally blank"
+*End
+*PageSize USPostcard/US Postcard (3.5x5.5"): "%%Intentionally blank"
+*End
+*PageSize Env9x10/ Envelope (9 x 10"): "%%Intentionally blank"
+*End
+*PageSize 16K/ 16K (194 x 267 mm): "%%Intentionally blank"
+*End
+*PageSize 8K/ 8K (267 x 388 mm)): "%%Intentionally blank"
+*End
+*CloseUI: *PageSize
+
+*%*% === Page Region ===
+*OpenUI *PageRegion/Page Region: PickOne
+*OrderDependency: 48.0 AnySetup *PageRegion
+*DefaultPageRegion: Letter
+*PageRegion Letter/Letter (8.5 x 11"): "%%Intentionally blank"
+*End
+*PageRegion Legal/Legal (8.5 x 14"): "%%Intentionally blank"
+*End
+*PageRegion Tabloid/Tabloid (11 x 17"): "%%Intentionally blank"
+*End
+*PageRegion 4x6Pcard/Postcard (4.5 x 6"): "%%Intentionally blank"
+*End
+*PageRegion 100x148Postcard/Postcard (100 x 148 mm): "%%Intentionally blank"
+*End
+*PageRegion 148x200Postcard/Postcard (148 x 200 mm): "%%Intentionally blank"
+*End
+*PageRegion 4x6/Postcard (4 x 6"): "%%Intentionally blank"
+*End
+*PageRegion 5x7/5 x 7": "%%Intentionally blank"
+*End
+*PageRegion Statement/Statement (5.5 x 8.5"): "%%Intentionally blank"
+*End
+*PageRegion Executive/Executive (7.25 x 10.5"): "%%Intentionally blank"
+*End
+*PageRegion 8x10/8 x 10": "%%Intentionally blank"
+*End
+*PageRegion FanFoldGermanLegal/8.5 x 13": "%%Intentionally blank"
+*End
+*PageRegion 9x11/9 x 11": "%%Intentionally blank"
+*End
+*PageRegion A4/A4 (210 x 297 mm): "%%Intentionally blank"
+*End
+*PageRegion A3/A3 (297 x 420 mm): "%%Intentionally blank"
+*End
+*PageRegion A5/A5 (148 x 210 mm): "%%Intentionally blank"
+*End
+*PageRegion A6/A6 (105 x 148 mm): "%%Intentionally blank"
+*End
+*PageRegion JISB4/JIS B4 (257 x 364 mm): "%%Intentionally blank"
+*End
+*PageRegion JISB5/JIS B5 (182 x 257 mm): "%%Intentionally blank"
+*End
+*PageRegion JISB6/JIS B6 (128 x 182 mm): "%%Intentionally blank"
+*End
+*PageRegion B4/B4 (250 x 353 mm): "%%Intentionally blank"
+*End
+*PageRegion B5/B5 (176 x 250 mm): "%%Intentionally blank"
+*End
+*PageRegion B6/B6 (125 x 176 mm): "%%Intentionally blank"
+*End
+*PageRegion SpanishFolio/215 x 315 mm: "%%Intentionally blank"
+*End
+*PageRegion A4Cover/Oversized A4 (223 x 297 mm): "%%Intentionally blank"
+*End
+*PageRegion EnvC5/Envelope C5 (162 x 229mm): "%%Intentionally blank"
+*End
+*PageRegion EnvC4/Envelope C4 (324 x 229): "%%Intentionally blank"
+*End
+*PageRegion TabloidExtra/Oversized Tabloid (12 x 18"): "%%Intentionally blank"
+*End
+*PageRegion 12x19/12 x 19": "%%Intentionally blank"
+*End
+*PageRegion SRA3/SRA3 (320 x 450 mm): "%%Intentionally blank"
+*End
+*PageRegion 13x19/13 x 19": "%%Intentionally blank"
+*End
+*PageRegion EnvMonarch/Envelope Monarch (3.875 x 7.5"): "%%Intentionally blank"
+*End
+*PageRegion Env9/Envelope No. 9 (3.875 x 8.875"): "%%Intentionally blank"
+*End
+*PageRegion Env10/Envelope No. 10 (4.125 x 9.5"): "%%Intentionally blank"
+*End
+*PageRegion EnvDL/Envelope DL (110 x 220 mm): "%%Intentionally blank"
+*End
+*PageRegion IndexCard/Index Card (3 x 5"): "%%Intentionally blank"
+*End
+*PageRegion EnvA7/A7 Envelope (5.25 x 7.25"): "%%Intentionally blank"
+*End
+*PageRegion Env5Half/#5 1/2 Envelope (4.375 x 5.75"): "%%Intentionally blank"
+*End
+*PageRegion EnvPersonal/#6 3/4 Envelope (3.625 x 6.5"): "%%Intentionally blank"
+*End
+*PageRegion EnvChou3/Choukei 3 Gou (4.72 x 9.25"): "%%Intentionally blank"
+*End
+*PageRegion EnvChou4/Choukei 4 Gou (3.54 x 8.06"): "%%Intentionally blank"
+*End
+*PageRegion Env6x9/6x9 Envelope (6 x 9"): "%%Intentionally blank"
+*End
+*PageRegion EnvB5/Envelope B5 (176 x 250 mm): "%%Intentionally blank"
+*End
+*PageRegion EnvC6/Envelope C6 (114 x 162 mm): "%%Intentionally blank"
+*End
+*PageRegion USPostcard/US Postcard (3.5x5.5"): "%%Intentionally blank"
+*End
+*PageRegion Env9x10/ Envelope (9 x 10"): "%%Intentionally blank"
+*End
+*PageRegion 16K/ 16K (194 x 267 mm): "%%Intentionally blank"
+*End
+*PageRegion 8K/ 8K (267 x 388 mm)): "%%Intentionally blank"
+*End
+*CloseUI: *PageRegion
+
+*% === Imageable Area ===
+*DefaultImageableArea: Letter
+*ImageableArea Letter/Letter (8.5 x 11"): "0 0 612 792"
+*ImageableArea Legal/Legal (8.5 x 14"): "0 0 612 1008"
+*ImageableArea Tabloid/Tabloid (11 x 17"): "0 0 792 1224"
+*ImageableArea 4x6Pcard/Postcard (4.5 x 6"): "0 0 324 432"
+*ImageableArea 100x148Postcard/Postcard (100 x 148 mm): "0 0 284 420"
+*ImageableArea 148x200Postcard/Postcard (148 x 200 mm): "0 0 420 567"
+*ImageableArea 4x6/Postcard (4 x 6"): "0 0 288 432"
+*ImageableArea 5x7/5 x 7": "0 0 360 504"
+*ImageableArea Statement/Statement (5.5 x 8.5"): "0 0 396 612"
+*ImageableArea Executive/Executive (7.25 x 10.5"): "0 0 522 756"
+*ImageableArea 8x10/8 x 10": "0 0 576 720"
+*ImageableArea FanFoldGermanLegal/8.5 x 13": "0 0 612 936"
+*ImageableArea 9x11/9 x 11": "0 0 648 792"
+*ImageableArea A4/A4 (210 x 297 mm): "0 0 595 842"
+*ImageableArea A3/A3 (297 x 420 mm): "0 0 842 1191"
+*ImageableArea A5/A5 (148 x 210 mm): "0 0 420 595"
+*ImageableArea A6/A6 (105 x 148 mm): "0 0 297 420"
+*ImageableArea JISB4/JIS B4 (257 x 364 mm): "0 0 729 1032"
+*ImageableArea JISB5/JIS B5 (182 x 257 mm): "0 0 516 729"
+*ImageableArea JISB6/JIS B6 (128 x 182 mm): "0 0 363 516"
+*ImageableArea B4/B4 (250 x 353 mm): "0 0 709 1001"
+*ImageableArea B5/B5 (176 x 250 mm): "0 0 499 709"
+*ImageableArea B6/B6 (125 x 176 mm): "0 0 354 499"
+*ImageableArea SpanishFolio/215 x 315 mm: "0 0 609 893"
+*ImageableArea A4Cover/Oversized A4 (223 x 297 mm): "0 0 632 842"
+*ImageableArea EnvC5/Envelope C5 (162 x 229mm): "0 0 459 649"
+*ImageableArea EnvC4/Envelope C4 (324 x 229): "0 0 649 919"
+*ImageableArea TabloidExtra/Oversized Tabloid (12 x 18"): "0 0 864 1296"
+*ImageableArea 12x19/12 x 19": "0 0 864 1368"
+*ImageableArea SRA3/SRA3 (320 x 450 mm): "0 0 907 1276"
+*ImageableArea 13x19/13 x 19": "0 0 936 1368"
+*ImageableArea EnvMonarch/Envelope Monarch (3.875 x 7.5"): "0 0 279 540"    
+*ImageableArea Env9/Envelope No. 9 (3.875 x 8.875"): "0 0 279 639"
+*ImageableArea Env10/Envelope No. 10 (4.125 x 9.5"): "0 0 297 684"
+*ImageableArea EnvDL/Envelope DL (110 x 220 mm): "0 0 312 624"
+*ImageableArea IndexCard/Index Card (3 x 5"): "0 0 216 360"
+*ImageableArea EnvA7/A7 Envelope (5.25 x 7.25"): "0 0 378 522"
+*ImageableArea Env5Half/#5 1/2 Envelope (4.375 x 5.75"): "0 0 315 414"
+*ImageableArea EnvPersonal/#6 3/4 Envelope (3.625 x 6.5"): "0 0 261 468"
+*ImageableArea EnvChou3/Choukei 3 Gou (4.72 x 9.25"): "0 0 340 666"
+*ImageableArea EnvChou4/Choukei 4 Gou (3.54 x 8.06"): "0 0 255 581"
+*ImageableArea Env6x9/6x9 Envelope (6 x 9"): "0 0 432 648"
+*ImageableArea EnvB5/Envelope B5 (176 x 250 mm): "0 0 499 709"
+*ImageableArea EnvC6/Envelope C6 (114 x 162 mm): "0 0 323 459"
+*ImageableArea USPostcard/US Postcard (3.5x5.5"): "0 0 252 396"
+*ImageableArea Env9x10/ Envelope (9 x 10"): "0 0 648 720"
+*ImageableArea 16K/ 16K (194 x 267 mm): "0 0 550 757"
+*ImageableArea 8K/ 8K (267 x 388 mm)): "0 0 757 1100"
+
+*% === Paper Dimension ===
+*DefaultPaperDimension: Letter
+*PaperDimension Letter/Letter (8.5 x 11"): "612 792"
+*PaperDimension Legal/Legal (8.5 x 14"): "612 1008"
+*PaperDimension Tabloid/Tabloid (11 x 17"): "792 1224"
+*PaperDimension 4x6Pcard/Postcard (4.5 x 6"): "324 432"
+*PaperDimension 100x148Postcard/Postcard (100 x 148 mm): "284 420"
+*PaperDimension 148x200Postcard/Postcard (148 x 200 mm): "420 567"
+*PaperDimension 4x6/Postcard (4 x 6"): "288 432"
+*PaperDimension 5x7/5 x 7": "360 504"
+*PaperDimension Statement/Statement (5.5 x 8.5"): "396 612"
+*PaperDimension Executive/Executive (7.25 x 10.5"): "522 756"
+*PaperDimension 8x10/8 x 10": "576 720"
+*PaperDimension FanFoldGermanLegal/8.5 x 13": "612 936"
+*PaperDimension 9x11/9 x 11": "648 792"
+*PaperDimension A4/A4 (210 x 297 mm): "595 842"
+*PaperDimension A3/A3 (297 x 420 mm): "842 1191"
+*PaperDimension A5/A5 (148 x 210 mm): "420 595"
+*PaperDimension A6/A6 (105 x 148 mm): "297 420"
+*PaperDimension JISB4/JIS B4 (257 x 364 mm): "729 1032"
+*PaperDimension JISB5/JIS B5 (182 x 257 mm): "516 729"
+*PaperDimension JISB6/JIS B6 (128 x 182 mm): "363 516"
+*PaperDimension B4/B4 (250 x 353 mm): "709 1001"
+*PaperDimension B5/B5 (176 x 250 mm): "499 709"
+*PaperDimension B6/B6 (125 x 176 mm): "354 499"
+*PaperDimension SpanishFolio/215 x 315 mm: "609 893"
+*PaperDimension A4Cover/Oversized A4 (223 x 297 mm): "632 842"
+*PaperDimension EnvC5/Envelope C5 (162 x 229mm): "459 649"
+*PaperDimension EnvC4/Envelope C4 (324 x 229): "649 919"
+*PaperDimension TabloidExtra/Oversized Tabloid (12 x 18"): "864 1296"
+*PaperDimension 12x19/12 x 19": "864 1368"
+*PaperDimension SRA3/SRA3 (320 x 450 mm): "907 1276"
+*PaperDimension 13x19/13 x 19": "936 1368"
+*PaperDimension EnvMonarch/Envelope Monarch (3.875 x 7.5"): "279 540"    
+*PaperDimension Env9/Envelope No. 9 (3.875 x 8.875"): "279 639"
+*PaperDimension Env10/Envelope No. 10 (4.125 x 9.5"): "297 684"
+*PaperDimension EnvDL/Envelope DL (110 x 220 mm): "312 624"
+*PaperDimension IndexCard/Index Card (3 x 5"): "216 360"
+*PaperDimension EnvA7/A7 Envelope (5.25 x 7.25"): "378 522"
+*PaperDimension Env5Half/#5 1/2 Envelope (4.375 x 5.75"): "315 414"
+*PaperDimension EnvPersonal/#6 3/4 Envelope (3.625 x 6.5"): "261 468"
+*PaperDimension EnvChou3/Choukei 3 Gou (4.72 x 9.25"): "340 666"
+*PaperDimension EnvChou4/Choukei 4 Gou (3.54 x 8.06"): "255 581"
+*PaperDimension Env6x9/6x9 Envelope (6 x 9"): "432 648"
+*PaperDimension EnvB5/Envelope B5 (176 x 250 mm): "499 709"
+*PaperDimension EnvC6/Envelope C6 (114 x 162 mm): "323 459"
+*PaperDimension USPostcard/US Postcard (3.5x5.5"): "252 396"
+*PaperDimension Env9x10/ Envelope (9 x 10"): "648 720"
+*PaperDimension 16K/ 16K (194 x 267 mm): "550 757"
+*PaperDimension 8K/ 8K (267 x 388 mm)): "757 1100"
+
+*%
+*% === Duplex ===
+*%
+*OpenUI *Duplex/_Duplex_: PickOne
+*OrderDependency: 50.0 AnySetup *Duplex
+*DefaultDuplex: None
+*Duplex None/_Simplex_: "
+%Intentionally null"
+*End
+*Duplex DuplexNoTumble/_Duplex_: "
+%Intentionally null"
+*End
+*Duplex DuplexTumble/_DuplexTumble_: "
+%Intentionally null"
+*End
+*CloseUI: *Duplex
+
+*%
+*% === Resolution ===
+*%
+*OpenUI *Resolution/_Resolution_: PickOne
+*OrderDependency: 40.0 AnySetup *Resolution
+*DefaultResolution: 600x600dpi 
+*Resolution 200x200dpi/_200dpi_: "
+%Intentionally null"
+*End
+*Resolution 300x300dpi/_300dpi_: "
+%Intentionally null"
+*End
+*Resolution 400x200dpi/$400_x_200dpi$: "
+%Intentionally null"
+*End
+*Resolution 400x400dpi/_400dpi_: "
+%Intentionally null"
+*End
+*Resolution 600x600dpi/_600dpi_: "
+%Intentionally null" 
+*End
+*Resolution 600x1200dpi/_600_x_1200dpi_: "
+%Intentionally null" 
+*End
+*Resolution 1200x600dpi/_1200_x_600dpi_: "
+%Intentionally null" 
+*End
+*Resolution 1200x1200dpi/_1200dpi_: "
+%Intentionally null" 
+*End
+*Resolution 1800x1800dpi/_1800dpi_: "
+%Intentionally null" 
+*End
+*Resolution 2400x2400dpi/_2400dpi_: "
+%Intentionally null" 
+*End
+*CloseUI: *Resolution
+
+	
+	
+
+*% === Font Information =====================
+
+*DefaultFont: Courier
+*Font AlbertusMT-Italic: Standard "(001.001)" Standard ROM
+*Font AlbertusMT-Light: Standard "(001.001)" Standard ROM
+*Font AlbertusMT: Standard "(001.001)" Standard ROM
+*Font AntiqueOlive-Bold: Standard "(001.002)" Standard ROM
+*Font AntiqueOlive-Compact: Standard "(001.002)" Standard ROM
+*Font AntiqueOlive-Italic: Standard "(001.002)" Standard ROM
+*Font AntiqueOlive-Roman: Standard "(001.002)" Standard ROM
+
+*Font Apple-Chancery: Standard "(001.002)" ExtendedRoman ROM
+
+*Font Arial-BoldItalicMT: Standard "(001.002)" Standard ROM
+
+*Font Arial-BoldMT: Standard "(001.002)" Standard ROM
+
+*Font Arial-ItalicMT: Standard "(001.002)" Standard ROM
+
+*Font ArialMT: Standard "(001.001)" Standard ROM
+
+*Font AvantGarde-Book: Standard "(003.000)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(003.000)" Standard ROM
+*Font AvantGarde-Demi: Standard "(003.000)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(003.000)" Standard ROM
+*Font Bodoni-Bold: Standard "(001.003)" Standard ROM
+*Font Bodoni-BoldItalic: Standard "(001.003)" Standard ROM
+*Font Bodoni-Italic: Standard "(001.003)" Standard ROM
+*Font Bodoni-Poster: Standard "(001.003)" Standard ROM
+*Font Bodoni-PosterCompressed: Standard "(001.002)" Standard ROM
+*Font Bodoni: Standard "(001.003)" Standard ROM
+*Font Bookman-Demi: Standard "(003.000)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(003.000)" Standard ROM
+*Font Bookman-Light: Standard "(003.000)" Standard ROM
+*Font Bookman-LightItalic: Standard "(003.000)" Standard ROM
+*Font Carta: Special "(001.001)" Special ROM
+
+*Font Chicago: Standard "(001.000)" ExtendedRoman ROM
+*Font Clarendon-Bold: Standard "(001.002)" Standard ROM
+*Font Clarendon-Light: Standard "(001.002)" Standard ROM
+*Font Clarendon: Standard "(001.002)" Standard ROM
+*Font CooperBlack-Italic: Standard "(001.004)" Standard ROM
+*Font CooperBlack: Standard "(001.004)" Standard ROM
+*Font Copperplate-ThirtyThreeBC: Standard "(001.003)" Standard ROM
+*Font Copperplate-ThirtyTwoBC: Standard "(001.003)" Standard ROM
+
+*Font Coronet-Regular: Standard "(001.001)" Standard ROM
+*Font Courier-Bold: Standard "(004.000)" Standard ROM
+*Font Courier-BoldOblique: Standard "(004.000)" Standard ROM
+*Font Courier-Oblique: Standard "(004.000)" Standard ROM
+*Font Courier: Standard "(004.000)" Standard ROM
+*Font Eurostile-Bold: Standard "(001.002)" Standard ROM
+*Font Eurostile-BoldExtendedTwo: Standard "(001.003)" Standard ROM
+*Font Eurostile-ExtendedTwo: Standard "(001.003)" Standard ROM
+*Font Eurostile: Standard "(001.003)" Standard ROM
+
+*Font Geneva: Standard "(001.000)" ExtendedRoman ROM
+*Font GillSans-Bold: Standard "(001.002)" Standard ROM
+*Font GillSans-BoldCondensed: Standard "(001.002)" Standard ROM
+*Font GillSans-BoldItalic: Standard "(001.003)" Standard ROM
+*Font GillSans-Condensed: Standard "(001.002)" Standard ROM
+*Font GillSans-ExtraBold: Standard "(001.002)" Standard ROM
+*Font GillSans-Italic: Standard "(001.003)" Standard ROM
+*Font GillSans-Light: Standard "(001.002)" Standard ROM
+*Font GillSans-LightItalic: Standard "(001.003)" Standard ROM
+*Font GillSans: Standard "(001.003)" Standard ROM
+*Font Goudy-Bold: Standard "(001.003)" Standard ROM
+*Font Goudy-BoldItalic: Standard "(001.003)" Standard ROM
+*Font Goudy-ExtraBold: Standard "(001.002)" Standard ROM
+*Font Goudy-Italic: Standard "(001.003)" Standard ROM
+*Font Goudy: Standard "(001.004)" Standard ROM
+*Font Helvetica-Bold: Standard "(003.000)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(003.000)" Standard ROM
+*Font Helvetica-Condensed-Bold: Standard "(003.000)" Standard ROM
+*Font Helvetica-Condensed-BoldObl: Standard "(003.000)" Standard ROM
+*Font Helvetica-Condensed-Oblique: Standard "(003.000)" Standard ROM
+*Font Helvetica-Condensed: Standard "(003.000)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(003.000)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(003.000)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(003.000)" Standard ROM
+*Font Helvetica-Narrow: Standard "(003.000)" Standard ROM
+*Font Helvetica-Oblique: Standard "(003.000)" Standard ROM
+*Font Helvetica: Standard "(003.000)" Standard ROM
+
+*Font HoeflerText-Black: Standard "(001.000)" ExtendedRoman ROM
+
+*Font HoeflerText-BlackItalic: Standard "(001.000)" ExtendedRoman ROM
+
+*Font HoeflerText-Italic: Standard "(001.000)" ExtendedRoman ROM
+
+*Font HoeflerText-Regular: Standard "(001.000)" ExtendedRoman ROM
+*Font JoannaMT-Bold: Standard "(001.001)" Standard ROM
+*Font JoannaMT-BoldItalic: Standard "(001.001)" Standard ROM
+*Font JoannaMT-Italic: Standard "(001.001)" Standard ROM
+*Font JoannaMT: Standard "(001.001)" Standard ROM
+*Font LetterGothic-Bold: Standard "(001.007)" Standard ROM
+*Font LetterGothic-BoldSlanted: Standard "(001.006)" Standard ROM
+*Font LetterGothic-Slanted: Standard "(001.005)" Standard ROM
+*Font LetterGothic: Standard "(001.005)" Standard ROM
+*Font LubalinGraph-Book: Standard "(001.004)" Standard ROM
+*Font LubalinGraph-BookOblique: Standard "(001.004)" Standard ROM
+*Font LubalinGraph-Demi: Standard "(001.004)" Standard ROM
+*Font LubalinGraph-DemiOblique: Standard "(001.004)" Standard ROM
+*Font Marigold: Standard "(001.001)" Standard ROM
+*Font MonaLisa-Recut: Standard "(001.001)" Standard ROM
+
+*Font Monaco: Standard "(001.000)" ExtendedRoman ROM
+*Font NewCenturySchlbk-Bold: Standard "(003.000)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(003.000)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(003.000)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(003.000)" Standard ROM
+
+*Font NewYork: Standard "(001.000)" Standard ROM
+
+*Font Optima-Bold: Standard "(001.007)" Standard ROM
+*Font Optima-BoldItalic: Standard "(001.001)" Standard ROM
+*Font Optima-Italic: Standard "(001.001)" Standard ROM
+*Font Optima: Standard "(001.006)" Standard ROM
+*Font Oxford: Standard "(001.001)" Standard ROM
+*Font Palatino-Bold: Standard "(003.000)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(003.000)" Standard ROM
+*Font Palatino-Italic: Standard "(003.000)" Standard ROM
+*Font Palatino-Roman: Standard "(003.000)" Standard ROM
+*Font StempelGaramond-Bold: Standard "(001.003)" Standard ROM
+*Font StempelGaramond-BoldItalic: Standard "(001.003)" Standard ROM
+*Font StempelGaramond-Italic: Standard "(001.003)" Standard ROM
+*Font StempelGaramond-Roman: Standard "(001.003)" Standard ROM
+*Font Symbol: Special "(001.008)" Special ROM
+*Font Tekton: Standard "(001.002)" Standard ROM
+*Font Times-Bold: Standard "(003.000)" Standard ROM
+*Font Times-BoldItalic: Standard "(003.000)" Standard ROM
+*Font Times-Italic: Standard "(003.000)" Standard ROM
+*Font Times-Roman: Standard "(003.000)" Standard ROM
+*Font TimesNewRomanPS-BoldItalicMT: Standard "(001.003)" Standard ROM
+
+*Font TimesNewRomanPS-BoldMT: Standard "(001.003)" Standard ROM
+*Font TimesNewRomanPS-ItalicMT: Standard "(001.003)" Standard ROM
+*Font TimesNewRomanPSMT: Standard "(001.003)" Standard ROM
+*Font Univers-Bold: Standard "(001.004)" Standard ROM
+*Font Univers-BoldExt: Standard "(001.001)" Standard ROM
+*Font Univers-BoldExtObl: Standard "(001.001)" Standard ROM
+*Font Univers-BoldOblique: Standard "(001.004)" Standard ROM
+*Font Univers-Condensed: Standard "(001.003)" Standard ROM
+*Font Univers-CondensedBold: Standard "(001.002)" Standard ROM
+*Font Univers-CondensedBoldOblique: Standard "(001.002)" Standard ROM
+*Font Univers-CondensedOblique: Standard "(001.003)" Standard ROM
+*Font Univers-Extended: Standard "(001.001)" Standard ROM
+*Font Univers-ExtendedObl: Standard "(001.001)" Standard ROM
+*Font Univers-Light: Standard "(001.004)" Standard ROM
+*Font Univers-LightOblique: Standard "(001.004)" Standard ROM
+*Font Univers-Oblique: Standard "(001.004)" Standard ROM
+*Font Univers: Standard "(001.004)" Standard ROM
+*Font Wingdings-Regular: Special "(001.001)" Special ROM
+
+*Font ZapfChancery-MediumItalic: Standard "(003.000)" Standard ROM
+*Font ZapfDingbats: Special "(002.000)" Special ROM
+
+*% End of PPD
